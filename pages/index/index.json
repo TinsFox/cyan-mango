@@ -5,9 +5,6 @@
     "l-grid-item": "/dist/grid-item/index",
     "l-grid": "/dist/grid/index",
     "l-icon":"/dist/icon/index",
-    "l-tabs": "/dist/tabs/index",
-    "l-combined-tabs": "/dist/combined-tabs/index",
-    "l-tabpanel": "/dist/tabpanel/index",
-    "l-button":"/dist/button/index"
+    "nav":"/pages/component/nav"
   }
 }
