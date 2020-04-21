@@ -1,0 +1,48 @@
+nav: [{
+  "show": true,
+  "name": "校历",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/xiaoli-red.png",
+  "url": "/pages/index/app/calendar/calendar"
+}, {
+  "show": true,
+  "name": "教室预约",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/building1.png",
+  "url": "/pages/Campus/tools/emptyRoom"
+}, {
+  "show": true,
+  "name": "查成绩",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/grade-a%2B.png",
+  "url": "/pages/index/app/grade/grade"
+}, {
+  "show": true,
+  "name": "图书馆",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/library.png",
+  "url": "/pages/index/app/lib/lib"
+}, {
+  "show": true,
+  "name": "考试",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/exam-green.png",
+  "url": "/pages/index/app/exam/exam"
+}, {
+  "show": true,
+  "name": "课表",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/rili.png",
+  "url": "/pages/index/app/course/course"
+}, {
+  "show": true,
+  "name": "实验课",
+  "icon": "/assets/exp.svg",
+  "url": "/pages/Campus/exp/exp"
+}, {
+  "show": false,
+  "name": "校园二手",
+  "icon": "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/ershou.svg",
+  "url": "/pages/Life/oldthings/index?vaild=true"
+}, {
+  "icon": "https://cos.ifeel.vip/gzhu-pi/images/pic/rank.png",
+  "name": "成绩排名",
+  "show": true,
+  "url": "/pages/Campus/grade/rank"
+}]
+
+export default nav
