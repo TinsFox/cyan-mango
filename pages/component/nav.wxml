@@ -1,0 +1,9 @@
+<!--pages/component/nav.wxml-->
+<view>
+	<view class="index-menu">
+		<navigator class="index-menu-item" wx:for="{{indexmenu}}" wx:key="url" url="../{{item.type}}/{{item.url}}/{{item.url}}{{item.value?'?'+item.value:''}}">
+			<image src="{{item.icon}}"></image>
+			<text>{{item.text}}</text>
+		</navigator>
+	</view>
+</view>
