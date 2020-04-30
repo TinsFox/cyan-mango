@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "帐号绑定",
-  "usingComponents": {
-    "modal": "/pages/component/modal",
-    "l-dialog": "/dist/dialog/index",
-    "l-button": "/dist/button/index"
-  }
-}

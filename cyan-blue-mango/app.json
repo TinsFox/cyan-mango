@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/app/life/life",
+    "pages/index/app/messageSync/messageSync",
+    "pages/index/app/messageSync/agreement/agreement",
+    "pages/index/app/exam/exam",
+    "pages/index/app/message/message",
+    "pages/index/app/course/course",
+    "pages/index/app/lib/lib",
+    "pages/index/app/calendar/calendar",
+    "pages/index/app/grade/grade",
+    "pages/index/app/lib/tool/tool",
+    "pages/index/app/life/oldthings/index",
+    "pages/about/about",
+    "pages/index/setting/login",
+    "pages/index/setting/agreement/agreement",
+    "pages/index/setting/sync/sync",
+    "pages/index/app/oldthings/oldthings"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "青柠",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "modal": "/pages/component/modal",
+    "nav": "/pages/component/home-units/nav",
+    "navBar": "/pages/component/navBar"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Campus",
+        "iconPath": "assets/tabbar/kb.png",
+        "selectedIconPath": "assets/tabbar/kb-selected.png"
+      },
+      {
+        "pagePath": "pages/index/app/life/life",
+        "text": "Life",
+        "iconPath": "assets/tabbar/wall.png",
+        "selectedIconPath": "assets/tabbar/wall-selected.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#87abda",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 10000
+  }
+}

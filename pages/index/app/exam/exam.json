@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "l-notice-bar": "/dist/notice-bar/index"
-  },
-  "navigationBarTitleText": "考试安排"
-}

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "cell": "/pages/component/courseCell/courseCell",
-    "modal": "/pages/component/modal"
-  }
-}

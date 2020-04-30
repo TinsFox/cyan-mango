@@ -1,0 +1,2 @@
+<!--pages/index/app/calendar/calendar.wxml-->
+<navBar title="华广校历" navColor="white"></navBar>

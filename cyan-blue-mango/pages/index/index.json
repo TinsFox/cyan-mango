@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "drawer-modal": "/pages/component/drawer-modal",
+    "course":"/pages/index/app/course/course",
+    "day":"/pages/index/app/course/dayCourse"
+  }
+}

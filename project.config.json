@@ -1,31 +1,36 @@
 {
+	"miniprogramRoot": "cyan-blue-mango/",
+	"cloudfunctionRoot": "cloudFuns/",
 	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
 	},
 	"setting": {
 		"urlCheck": false,
-		"es6": true,
+		"es6": false,
 		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
-		"minified": true,
+		"minified": false,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
+		"showShadowRootInWxmlPanel": false,
+		"scopeDataCheck": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
-		"checkSiteMap": true,
+		"checkSiteMap": false,
 		"uploadWithSourceMap": true,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.1",
+	"libVersion": "2.10.4",
 	"appid": "wx4383a2432bd7ab15",
 	"projectname": "cloudApplication-wechat",
 	"debugOptions": {
@@ -60,57 +65,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "个人信息",
-					"pathName": "pages/mine/mine",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "信息同步",
-					"pathName": "pages/mine/messageSync/messageSync",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "考试",
-					"pathName": "pages/index/app/exam/exam",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "课表",
-					"pathName": "pages/index/app/course/course",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "考试",
-					"pathName": "pages/index/app/exam/exam",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "图书馆",
-					"pathName": "pages/index/app/lib/lib",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "查成绩",
+					"name": "差成绩",
 					"pathName": "pages/index/app/grade/grade",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "二手",
-					"pathName": "pages/index/app/life/oldthings/index",
 					"scene": null
 				}
 			]
