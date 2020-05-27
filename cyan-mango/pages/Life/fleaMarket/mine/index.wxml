@@ -1,0 +1,13 @@
+<!--cyan-mango/pages/Life/fleaMarket/mine/index.wxml-->
+<navBar title="跳蚤市场" navColor="rgba(255, 255, 255, 0.8)"></navBar>
+
+<view>
+	<view wx:for="{{article}}" wx:key="index" bindtap="onTap" data-id="{{item.itemId}}" class="flex shadow margin align-center card">
+		<view style="flex:5">
+			<view class="text-orange text-xl">{{item.goodTitle}}</view>
+			<view class="text-grey margin-tb-sm">{{item.description}}</view>
+			<view class="text-grey text-sm">{{item.create_time}}</view>
+		</view>
+		<image class="border-radius" style="flex:3;height:180rpx" mode="aspectFill" src="{{item.image[0]}}"></image>
+	</view>
+	</view>

@@ -1,0 +1,6 @@
+<!--Components/loading/index.wxml-->
+<!-- 加载动画 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+	<view class='cuIcon-loading2 text-orange iconfont-spin'></view>
+	<view class='gray-text'>{{text}}</view>
+</view>

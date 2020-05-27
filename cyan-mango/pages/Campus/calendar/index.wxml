@@ -1,0 +1,13 @@
+<!--pages/index/app/calendar/calendar.wxml-->
+<navBar title="华广校历" navColor="white"></navBar>
+<fake type="default" mode='{{mode}}'></fake>
+
+<view class="section" bindtap="previewImage">
+  <scroll-view scroll-x="true" scroll-y="true" style="height:700px" >
+  <movable-area class="img" style="height: 100%; width: 100%;" scale-area>
+    <movable-view  style="height: 100%; width: 100%;" direction="all"  bindchange="onChange" bindscale="onScale" scale scale-min="1" scale-max="5" scale-value="1" inertia="true" damping="10" friction="1">
+      <image class='img' style="height: 100%;width: 100%;" mode= 'aspectFit' src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/xiaoli.png"></image> 
+    </movable-view>
+  </movable-area>
+  </scroll-view>
+</view>

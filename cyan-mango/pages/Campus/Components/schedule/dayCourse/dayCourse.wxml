@@ -1,0 +1,47 @@
+<wxs src="../module.wxs" module="tools"></wxs>
+<view class="module">
+  <view class="module-bar">
+    <view class="module-icon">
+      <image style='width:75rpx;height:75rpx' mode='widthFix' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/rili2.png'></image>
+    </view>
+    <view class='module-text'>
+      <text>第 {{schoolWeek}} 周</text>
+      <text>星期{{weekDays[weekday]}}</text>
+      <text>{{obj.liveData.weather}}</text>
+      <text>{{obj.liveData.temperature}}℃</text>
+    </view>
+  </view>
+
+  <view wx:for="{{todayCourse}}" wx:key="index">
+    <view class='today-course' >
+      <view class='class-time'>{{item.course_time}}</view>
+      <view class='courst-detail' style='flex: 5;border-bottom:{{index+1==todayCourse.length?0:1}}'>
+        <view style='font-weight:bold'>{{item.course}}</view>
+        <view style='display:flex;flex-direction:row;justify-content:center;padding:10rpx 0rpx;'>
+          <view class="location-icon">
+            <image style='width:35rpx;height:35rpx' mode='widthFix' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/location.png'></image>
+          </view>
+          <view class='classroom'>{{item.classroom}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<button bindtap='nav' hidden="{{account}}" style='width:300rpx;background-color:#18b3eb;color:white'>绑定学号</button>
+<view wx:if="{{!hasCourse}}" class='no-course'>今天没课~~</view>
+<view class='no-course' wx:if="{{!hasCourse}}"></view>
+
+
+<wxs module="tool">
+  // 课程时间太短，名称太长的截断
+  var cutter = function(str) {
+    if (str.length <= 12) {
+      return str //课程名称小于15，不截取
+    } else {
+      return str.substring(0, 11) + ' ...';
+    }
+  }
+  module.exports = {
+    cutter: cutter
+  }
+</wxs>

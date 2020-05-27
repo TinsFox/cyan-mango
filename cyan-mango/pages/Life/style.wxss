@@ -1,0 +1,369 @@
+.oldthings .content {
+  margin-left: 30rpx;
+}
+
+/* 基本信息 */
+
+.oldthings .base-info {
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+}
+
+.oldthings .base-info .title {
+  font-size: 95%;
+  margin: 0 30rpx;
+  flex: 5;
+  color: var(--black);
+}
+
+.oldthings .base-info .price {
+  /* flex: 1; */
+  font-size: 150%;
+  color: var(--olive);
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.oldthings .desc-text {
+  margin: 10rpx 20rpx 10rpx 0;
+  font-size: 90%;
+  max-height: 150rpx;
+  overflow: hidden; /* 超出的文本隐藏 */
+  text-overflow: ellipsis; /* 溢出用省略号显示*/
+  display: -webkit-box; /* 作为弹性伸缩盒子模型显示。 */
+  -webkit-box-orient: vertical; /* 设置伸缩盒子的子元素排列方式--从上到下垂直排列 */
+  -webkit-line-clamp: 3; /* 显示的行 */
+}
+
+/* 物品图片 */
+
+.oldthings .media-previewer {
+  display: flex;
+  align-items: center;
+}
+
+.oldthings .pics {
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.oldthings .pics.size_1 {
+  width: 350rpx;
+  height: 200rpx;
+}
+
+.oldthings .pics.size_2 {
+  width: 300rpx;
+  height: 200rpx;
+}
+
+.oldthings .pics.size_3 {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+/* 卡片底部 */
+
+.oldthings .footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rpx 0;
+  align-items: center;
+}
+
+.abs{
+  position: absolute;
+  top: 265rpx;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+}
+
+/* 瀑布流容器主体 */
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15rpx;
+  word-break: break-all; /* 解决长英文不换号问题*/
+}
+
+/* 左右两列 */
+
+.list-side-box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-right: 15rpx;
+}
+
+.list-side-box:last-child {
+  margin-right: 0;
+}
+
+/* 每一列 */
+
+.list-item {
+  break-inside: avoid;
+  box-sizing: border-box;
+  margin-bottom: 25rpx;
+}
+
+/* 每一个卡片 */
+
+.list-box {
+  position: relative;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+/* 内容区 不包含用户区 */
+
+.list-box.is-expand .list-box_content {
+  height: auto;
+}
+
+/* 内容主体 */
+
+.list-box_content {
+  min-height: 71px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* 图片预览 */
+
+.media-previewer image {
+  margin-top: 4px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.media-previewer image:first-child {
+  margin-top: 0;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+}
+
+.avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.long-text {
+  overflow: hidden; /* 超出的文本隐藏 */
+  text-overflow: ellipsis; /* 溢出用省略号显示*/
+  display: -webkit-box; /* 作为弹性伸缩盒子模型显示。 */
+  -webkit-box-orient: vertical; /* 设置伸缩盒子的子元素排列方式--从上到下垂直排列 */
+  -webkit-line-clamp: 4; /* 显示的行 */
+}
+
+.tui-all-box {
+  width: 90%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tui-drawer-content {
+  padding: 16rpx 30rpx 30rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.tui-input {
+  border: 0;
+  height: 64rpx;
+  border-radius: 32rpx;
+  width: 45%;
+  background: #f7f7f7;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.tui-phcolor {
+  text-align: center;
+  color: #b2b2b2;
+  font-size: 24rpx;
+}
+
+.tui-flex-attr {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.tui-attr-item {
+  width: 30%;
+  height: 64rpx;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4rpx;
+  box-sizing: border-box;
+  border-radius: 32rpx;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.tui-attr-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 96%;
+  text-align: center;
+}
+
+.tui-attr-item:nth-of-type(3n) {
+  margin-right: 0%;
+}
+
+.tui-attr-btnbox {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background: #fff;
+}
+
+.tui-attr-safearea {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tui-safearea-bottom {
+  width: 100%;
+  height: env(safe-area-inset-bottom);
+}
+
+.tui-attr-btnbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-top: 1rpx solid #eaeef1;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.tui-drawer-btn {
+  width: 47%;
+  text-align: center;
+  height: 60rpx;
+  border-radius: 30rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.tui-drawerbtn-black {
+  border: 1rpx solid #555;
+}
+
+.tui-drawerbtn-primary {
+  background: #e41f19;
+  color: #fff;
+}
+
+/* 商品列表*/
+
+.tui-product-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.tui-product-container {
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+.tui-product-container:last-child {
+  margin-right: 0;
+}
+
+.tui-pro-item {
+  width: 100%;
+  margin-bottom: 10rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out;
+}
+
+.tui-flex-list {
+  display: flex;
+  margin-bottom: 1rpx !important;
+}
+
+.tui-pro-img {
+  width: 100%;
+  display: block;
+}
+
+.tui-proimg-list {
+  width: 260rpx;
+  height: 260rpx;
+  flex-shrink: 0;
+  border-radius: 12rpx;
+}
+
+.tui-pro-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.tui-pro-tit {
+  font-size: 32rpx;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tui-pro-price {
+  padding-top: 18rpx;
+}
+
+.tui-sale-price {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #e41f19;
+}
+
+.tui-factory-price {
+  font-size: 24rpx;
+  color: #a0a0a0;
+  text-decoration: line-through;
+  padding-left: 12rpx;
+}
+
+
+/* 商品列表*/

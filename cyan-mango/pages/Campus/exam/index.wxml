@@ -1,0 +1,30 @@
+<!--pages/index/app/exam/exam.wxml-->
+<navBar title="考试安排" navColor=""></navBar>
+
+<view wx:if="{{!hideNotice}}">
+	<modal show="{{!current_term}}" title="未查到考试座位安排" confirmText="确定" cancelText="返回" bind:cancel="navBack">
+		<view class="margin-lr-xl">
+			<text class="text-gray" style='color:grey;font-size:70%;margin:20rpx'>数据仅供参考，请以官网为准</text>
+		</view>
+	</modal>
+	</view>
+
+	<block>
+		<view class='page'>
+			<view class='body'>
+				<view class='base-info'>
+					<view style='font-size: 115%; font-weight:bold;'>{{list.xnd}}学年 第{{list.xqd}}学期 </view>
+				</view>
+
+				<view wx:for='{{exam}}' class='exam-list' wx:key="index">
+					<view class='course'>{{item.class}}</view>
+					<view class='course'>{{item.time}}</view>
+					<view class='exam-room'>{{item.address}} 座位号：{{item.seat}}</view>
+					<view>{{item.date}} ({{item.weekday}})</view>
+				</view>
+			</view>
+
+			<button type='primary' class='share-btn' open-type='share'>分享到班级</button>
+			<!-- <view style='font-size:80%;text-align:center;color:grey'>下拉可刷新同步</view> -->
+		</view>
+	</block>

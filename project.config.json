@@ -1,5 +1,5 @@
 {
-	"miniprogramRoot": "cyan-blue-mango/",
+	"miniprogramRoot": "cyan-mango/",
 	"cloudfunctionRoot": "cloudFuns/",
 	"description": "项目配置文件",
 	"packOptions": {
@@ -16,7 +16,7 @@
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": false,
-		"showShadowRootInWxmlPanel": false,
+		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": true,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
@@ -27,18 +27,21 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"bundle": true
+		"bundle": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
+	"libVersion": "2.11.0",
 	"appid": "wx4383a2432bd7ab15",
-	"projectname": "cloudApplication-wechat",
+	"projectname": "cyan",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -65,8 +68,64 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "差成绩",
-					"pathName": "pages/index/app/grade/grade",
+					"name": "图书馆",
+					"pathName": "pages/Campus/library/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "华广墙",
+					"pathName": "pages/Life/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "跳蚤市场",
+					"pathName": "pages/Life/fleaMarket/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wall post",
+					"pathName": "pages/Life/wall/post/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wall detail",
+					"pathName": "pages/Life/wall/detail/index",
+					"query": "itemId=202005221420529925828",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "审核",
+					"pathName": "pages/Setting/admin/flea_market/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订阅",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "物品发布",
+					"pathName": "pages/Life/fleaMarket/post/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成绩",
+					"pathName": "pages/Campus/score/index",
 					"scene": null
 				}
 			]

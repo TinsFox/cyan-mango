@@ -1,8 +1,0 @@
-{
-  "backgroundTextStyle": "dark",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "brickflow": "/components/brickflow/brickflow",
-    "fake": "/components/fake/fake"
-  }
-}

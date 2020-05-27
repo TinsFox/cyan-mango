@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "modal": "/Components/modal/index",
+    "drawer-modal":"/Components/drawer-modal/index"
+  }
+}

@@ -1,0 +1,5 @@
+<!--cyan-mango/pages/Setting/webview/index.wxml-->
+<navBar title="文章详情"></navBar>
+<view>
+<web-view src="{{src}}"></web-view>
+</view>

@@ -1,0 +1,119 @@
+<fake wx:if="{{mode!='prod'}}"></fake>
+  <!--模板-->
+  <template name="productItem" >
+    <!--商品列表-->
+    <view class="tui-pro-item {{isList?'tui-flex-list':''}}" bindtap="detail" data-id="{{item.itemId}}" hover-class="hover" hover-start-time="150" bindtap="detail">
+      <image src="{{item.image[0]}}" class="tui-pro-img {{isList?'tui-proimg-list':''}}" mode="widthFix" wx:if="{{item.image}}"/>
+      <view class="tui-pro-content">
+        <view class="tui-pro-tit">{{item.goodTitle}}</view>
+        <view>
+          <view class="tui-pro-price">
+            <text class="tui-sale-price">￥{{item.price}}</text>
+            <text class="tui-factory-price">￥{{item.factory}}</text>
+          </view>
+					<view class="flex">
+					<view class="flex-sub cu-tag round" wx:for="{{item.label}}" wx:key="index">{{item}}</view>
+					</view>
+        </view>
+      </view>
+    </view>
+    <!--商品列表-->
+  </template>
+<block wx:if="{{mode=='prod'}}">
+	<navBar title="跳蚤市场" navColor="rgba(255, 255, 255, 0.8)"></navBar>
+	<!-- 发布悬浮图标 -->
+	<image bindtap='navToPost' class='post-icon' mode='widthFix' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/plane-pink.png'></image>
+
+	<!-- 加载动画 -->
+	<view class='cu-load load-modal' wx:if="{{loading}}">
+		<view class='cuIcon-emojifill text-orange'></view>
+		<view class='gray-text'>Loading...</view>
+	</view>
+
+	<!-- 搜索框 -->
+	<view class="box">
+		<view class="cu-bar search bg-white">
+			<view class="search-form round" style="padding:5rpx">
+				<text class="cuIcon-search"></text>
+				<input type="text" placeholder="搜索名称、描述" confirm-type="search" bindinput="searchInput" value="{{queryStr}}"></input>
+			</view>
+			<view class="action">
+				<button class="cu-btn bg-green round" bindtap="search">搜索</button>
+			</view>
+		</view>
+	</view>
+
+	<!-- 分类导航 -->
+	<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+		<view bindtap="switchCategory" id="{{index}}" class="cu-item align-center " wx:for="{{iconList}}" wx:key="index" wx:if="{{index<gridCol*2}}">
+			<image src="{{item.icon}}" style="width:70rpx;height:70rpx"></image>
+			<text style="color:{{categoryIndex==index?'var(--orange)':''}}">{{item.name}}</text>
+		</view>
+	</view>
+
+
+	<!-- 列表 -->
+	<view wx:if="{{dataSet.length>0}}">
+	  <!--list-->
+  <view class="tui-product-list" style="margin-top:{{dropScreenH+18}}rpx">
+    <view class="tui-product-container">
+      <block wx:key="index" wx:if="{{(index+1)%2!=0 || isList}}" 
+			wx:for="{{dataSet}}" wx:key="index" >
+        <template is="productItem" data="{{item,index:index,isList:isList}}" />
+      </block>
+    </view>
+    <view class="tui-product-container" wx:if="{{!isList}}">
+      <block  wx:for="{{dataSet}}" wx:key="index" wx:key="index" wx:if="{{(index+1)%2==0}}">
+        <template is="productItem" data="{{item,index:index}}" />
+      </block>
+    </view>
+  </view>
+		<!-- <view class="cu-card dynamic {{isCard?'no-card':''}}"  bindtap="detail" wx:for="{{dataSet}}" wx:key="index" data-id="{{item.itemId}}">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+						<view class="content flex-sub">
+							<view>{{item.goodTitle}}</view>
+							<view class="text-gray text-sm flex justify-between">
+								{{item.create_time}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content">
+					{{item.description}}
+				</view>
+				<view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+					<view class="bg-img {{isCard?'':'only-img'}}">
+					<image src="{{item.image[0]}}" mode="widthFix"></image>
+					</view>
+				</view>
+			</view> -->
+			<!-- <view class="pro-item" bindtap="detail" wx:for="{{dataSet}}" wx:key="index" data-id="{{item.itemId}}">
+						<image src="{{item.image[0]}}" class="pro-img" mode="widthFix" />
+						<view class="pro-content">
+							<view class="pro-tit">{{item.goodTitle}}</view>
+							<view>
+								<view class="pro-price">
+									<text class="sale-price">￥{{item.price}}</text>
+								</view>
+								<text class="pro-pay margin-left-xs" wx:for="{{item.label}}" wx:key="index">{{item}}</text>
+							</view>
+						</view>
+					</view> -->
+			<!--商品列表-->
+		<!-- </view> -->
+
+	</view>
+
+	<view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
+		<text class="text-gray text-df">木有更多啦~</text>
+	</view>
+
+	<view class="flex flex-direction align-center margin-xl" wx:if="{{dataSet.length==0}}">
+		<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/empty.svg"></image>
+		<text class="text-gray">啥也木有~</text>
+	</view>
+
+</block>

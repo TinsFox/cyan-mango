@@ -1,0 +1,108 @@
+<navBar title="书本详情" navColor="rgba(255, 255, 255, 0.8)"></navBar>
+
+<!-- <image bindtap='favorite' class='float-icon' mode='aspectFit' src='https://cos.ifeel.vip/gzhu-pi/images/icon/favorite{{favorite?"d":""}}.svg'></image> -->
+
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='gray-text'>Loading...</view>
+</view>
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='gray-text'>加载中</view>
+</view>
+<!-- 传入的数据 -->
+<view class='book'>
+  <view class='book-name'>{{book.name}}
+  </view>
+  <view class='book-info'>
+    <view class='cover'>
+      <image mode='aspectFit' src='{{info.image==""?noCover:info.image}}'></image>
+    </view>
+    <view class='info'>
+      <view>
+        <text>著者：</text>
+        <text style='color:rgb(44, 43, 43)'>{{book.author}}</text>
+      </view>
+      <view>
+        <text>出版：</text>{{book.publish}}</view>
+      <view>
+        <text>出版时间：</text>{{book.publish_time}}</view>
+      <view>
+        <text>定价：</text>{{book.price}}</view>
+      <view>
+        <text>主题：</text>{{book.category}}</view>
+      <view>
+        <text>ISBN：</text>{{book.isbn}}</view>
+      <view>
+        <text>索书号：</text>{{book.category_number}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 标签 -->
+<view class='tags'>
+  <view wx:for="{{exist?douban.tags:''}}" wx:key="index">{{item.name}}</view>
+</view>
+
+
+<view class='more'>
+
+  <!-- 馆藏信息 -->
+  <view class='detail-title'>
+    <view class='dot'></view>
+    <view>馆藏信息</view>
+  </view>
+  <view class='holdings'>
+    <view class='header'>
+      <view style='flex:3'>状态</view>
+      <view style='flex:4.5'>馆藏地点</view>
+      <view style='flex:2'>索书号</view>
+      <view style='flex:2'>条码号</view>
+      <!-- <view style='flex:1'>更多</view> -->
+    </view>
+    <view class='item' wx:for="{{book.extra}}" wx:key="index" style='color:{{item.status=="在馆"?"#0b8457":"#283148"}}'>
+      <view style='flex:3'>{{item.status}}</view>
+      <view style='flex:4.5'>{{item.location}}</view>
+      <view style='flex:2'>{{item.index_number}}</view>
+      <view style='flex:2'>{{item.barcode}}</view>
+      <!-- <view style='flex:1;color:#065099'>更多</view> -->
+    </view>
+    <view wx:if="{{!book}}" style='font-size:80%;margin:15rpx;color:grey'>未找到馆藏信息</view>
+  </view>
+
+  <!-- 其他信息 -->
+  <view>
+
+    <view class='summary'>
+      <view class='detail-title'>
+        <view class='dot'></view>
+        <view>内容简介</view>
+      </view>
+      <view class='text'>
+        <wxparser rich-text="{{book.summary}}" />
+      </view>
+    </view>
+
+
+    <!-- <view class='author_intro'>
+      <view class='detail-title'>
+        <view class='dot'></view>
+        <view>作者简介</view>
+      </view>
+      <view class='text'>
+        <text>{{douban.author_intro}}</text>
+      </view>
+    </view> -->
+
+    <view class='catalog'>
+      <view class='detail-title'>
+        <view class='dot'></view>
+        <view>目录</view>
+      </view>
+      <view class='text'>
+        <wxparser rich-text="{{book.catalog}}" />
+      </view>
+    </view>
+
+  </view>
+</view>

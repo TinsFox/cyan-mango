@@ -1,0 +1,43 @@
+<navBar hideTitle="{{true}}" navColor="rgba(240, 240, 240, 0.8)">
+  <form bindsubmit='formSubmit'>
+    <view class='search-box'>
+      <input name="query" placeholder='{{query}}'></input>
+      <button formType="submit" class='search-btn' hover-class='search-btn-hover' hover-stay-time='0.2s'>
+        <image src='https://cos.ifeel.vip/gzhu-pi/images/icon/search-white.svg'></image>
+      </button>
+    </view>
+  </form>
+</navBar>
+
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='gray-text'>🔍搜索中</view>
+</view>
+
+<view wx:for="{{books}}" wx:key="index" class='book' bindtap='navToDetail' id='{{index}}' data-wl_id="{{item.wlid}}" data-primary_id="{{item.primary_id}}" data-image="{{item.image}}">
+  <view class='book-name'>{{index+1}}、{{item.name}}</view>
+
+  <view class='book-info'>
+    <view class='cover'>
+      <image mode='aspectFit' src='{{item.image.length!=0?item.image:noCover}}'></image>
+    </view>
+
+    <view class='info'>
+      <view class='author'>{{item.author}}</view>
+      <view class='pub'>{{item.publisher}}</view>
+      <view class='call-No'>索书号：{{item.index_number}}</view>
+      <view class='collection'>
+        <view style='background:#f8e8e8;color:#a3816a'>馆藏复本数：{{item.collection}}</view>
+        <view style='background:#defcfc;color:#72dd1b'>可借数：{{item.borrowable}}</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class='switch-page'>
+  <view>第 {{page}} 页</view>
+  <image bindtap='loadMore' id='next' mode='widthFix' src='/assets/back.png' style='transform:rotate(-90deg);'></image>
+  <view>共 {{pages}} 页</view>
+</view>
+<view style='font-size:55%;color:grey;text-align:center;margin-bottom:10rpx'>由于豆瓣api的限制，可能经常会无法获取封面</view>
