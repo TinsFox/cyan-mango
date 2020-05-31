@@ -46,7 +46,10 @@ class axios {
           let statusCode = res.statusCode
           if (statusCode === 200) {
             if(res.data.error_code==5040){
-              this._refetch(param)
+              // this._refetch(param)
+              if(!noRefetch){
+                this._refetch(param)
+              }
             }else if(res.data.error_code===5000){
               wx.showToast({
                 title: '网络异常，请稍后再试',

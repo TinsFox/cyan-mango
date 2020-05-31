@@ -18,7 +18,7 @@
 </block>
 
 <block wx:else>
-	<view wx:for="{{article}}" wx:key="index" bindtap="onTapWall" data-id="{{item.itemId}}" class="flex shadow margin align-center cu-card">
+	<view wx:for="{{article}}" wx:key="index" bindtap="onTapWall" data-id="{{item.itemId}}" class="flex shadow margin align-center cu-card" wx:if="{{article.length!=0}}">
 			<view style="flex:5">
 				<view class="text-orange text-xl">{{item.title}}</view>
 				<!-- <view class="text-orange text-xl">{{item.type}}</view> -->
@@ -27,5 +27,7 @@
 			</view>
 			<image class="border-radius" style="flex:3;height:180rpx" mode="aspectFill" src="{{item.image[0]}}"></image>
 		</view>
+
+		<empty show="{{article.length==0}}"></empty>
 
 </block>

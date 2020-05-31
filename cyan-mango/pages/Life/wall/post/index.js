@@ -234,6 +234,7 @@ Page({
         res.tempFilePaths.forEach(element => {
           that.checkImage(element)
         })
+        // TODO:修改图片上传的时机
         res.tempFilePaths.forEach(element => {
           uploadFile('wall/' + new Date().getTime() + element.match(/\.[^.]+?$/)[0], element).then(res => {
             console.log('成功', res)
@@ -269,7 +270,6 @@ Page({
       }
     })
     }
-
   },
 
   viewImage(e) {

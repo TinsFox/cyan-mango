@@ -129,10 +129,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     let that=this
     wx.getStorage({
       key: 'permission',
       success: function (res) {
+        console.log(res)
         that.setData({
           permission: res.data
         })
@@ -141,13 +149,6 @@ Page({
         console.error(res)
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

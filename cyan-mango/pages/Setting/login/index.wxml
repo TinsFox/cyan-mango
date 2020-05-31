@@ -80,7 +80,7 @@
 	<view class='guide'>
 		<view style='font-weight:blod;margin:20rpx'>提示</view>
 		<view>小程序的部分功能依赖于微信授权，如授权失败可退出重试/手动授权/联系开发者。</view>
-		<view style='margin:20rpx 0;color:red'>手动：右上角菜单→→关于华广园→→菜单→→设置→→允许</view>
+		<view style='margin:20rpx 0;color:red'>手动：右上角菜单→→关于青芒派→→菜单→→设置→→允许</view>
 	</view>
 	<button class='concat' open-type="contact">
 		<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/kefu.svg'></image>

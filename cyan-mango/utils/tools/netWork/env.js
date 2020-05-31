@@ -26,6 +26,6 @@ const prod = {
 
 module.exports = {
   // host: prod
-  host: test
-  // host:dev
+  // host: test
+  host:dev
 }

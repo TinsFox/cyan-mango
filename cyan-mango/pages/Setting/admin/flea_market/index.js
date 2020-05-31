@@ -11,7 +11,6 @@ Page({
       {name:"跳蚤市场"},
       {name:"表白墙"}
     ],
-    list:[],
     article: [],
     TabCur: 0,
     scrollLeft:0
@@ -44,7 +43,6 @@ Page({
       default:
         console.log('err')
     }
-    console.log(this.data.TabCur)
   },
   onTap: function (event) {
     console.log("商品ID：", event.currentTarget.dataset.id)
@@ -62,10 +60,17 @@ Page({
 
   async getWallList(){
     let res=await FleaMarket.getWallList()
-    console.log(res.data)
-    this.setData({
-      article:res.data
-    })
+    console.log(res)
+    if(res.error_code=0){
+      this.setData({
+        article:res.data
+      })
+    }else{
+      this.setData({
+        article:[]
+      })
+    }
+    console.log(this.data.article.length)
   },
   /**
    * 生命周期函数--监听页面加载
