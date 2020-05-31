@@ -1,0 +1,3 @@
+<view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
+			<text class="text-gray text-df">木有更多啦~</text>
+		</view>
