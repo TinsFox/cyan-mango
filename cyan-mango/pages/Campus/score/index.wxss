@@ -16,15 +16,14 @@
   background: rgba(255, 255, 255, 0.9);
   height: 100%;
 }
+
 .post-icon {
   height: 60rpx;
   width: 60rpx;
   position: fixed;
   bottom: 50rpx;
-  right: 50rpx;
-  z-index: 1;
-  background-color: var(--yellowShadow);
-  border-radius: 50%;
+  right: 30rpx;
+  z-index: 1
 }
 .updateIcon {
   width: 60rpx;
@@ -250,4 +249,27 @@
 .operate image {
   width: 60rpx;
   height: 60rpx;
+}
+
+
+.DrawerClose {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  right: 0;
+  top: -12px;
+  color: transparent;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  letter-spacing: 5px;
+  font-size: 60rpx;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+  opacity: 1;
+  pointer-events: all;
+  width: 15vw;
+  color: #fff;
 }

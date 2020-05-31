@@ -1,44 +1,18 @@
 <navBar title="{{navTitle}}" navColor="rgba(255, 255, 255, 0.8)" hideBackBtn hideTitle="{{false}}">
-	<!-- <view class="flex justify-between align-center" style="width:100%">
-		<open-data type="userAvatarUrl" class="avatar"></open-data>
-		<view class="text-bold text-lg">{{navTitle}}</view>
-	</view> -->
 </navBar>
+<block wx:if="{{isInit}}">
 
 <fake mode="{{mode}}" type="article"></fake>
 
-<template name="wall">
-	<!--商品列表-->
-	<view class="tui-pro-item {{isList?'tui-flex-list':''}}" bindtap="detail" data-id="{{item.itemId}}" hover-class="hover" hover-start-time="150" bindtap="detail">
-		<view class="tui-pro-content">
-			<view class="tui-pro-tit text-orange"># {{item.title}}</view>
-			<view>
-				<view class="tui-pro-price">
-					<text class="content">{{item.content}}</text>
-				</view>
-				<view class="flex align-center justify-between margin-tb-xs">
-						<view class="flex align-center ">
-							<image class="cu-avatar round sm margin-lr-xs " src="{{item.avatar}} " mode="widthFix " catchtap="{{content_list[item].created_by? 'onUserAreaTap': ''}} " data-user-id="{{content_list[item].created_by}} " wx:if="{{item.avatar}}"></image>
-							<view class="text-sm ">匿名童鞋</view>
-						</view>
-						<view class="text-gray ">
-							<text class="cuIcon-attentionfill margin-xs "></text>
-							<!-- ToDo -->
-							<!-- 访问次数统计 -->
-						</view>
-					</view>
-			</view>
-		</view>
-	</view>
-	<!--商品列表-->
-</template>
-
 <block wx:if="{{mode=='prod'}}">
-	<!-- 发布悬浮图标 -->
-	<image bindtap='navToPost' class='post-icon' mode='widthFix' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/plane-pink.png'></image>
 
-	<!-- 搜索框 -->
-	<!-- <view class="box">
+
+	<block wx:if="{{mode=='prod'}}">
+		<!-- 发布悬浮图标 -->
+		<image bindtap='navToPost' class='post-icon' mode='widthFix' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/plane-pink.png'></image>
+
+		<!-- 搜索框 -->
+		<!-- <view class="box">
 		<view class="cu-bar search bg-white">
 			<view class="search-form round" style="padding:5rpx">
 				<text class="cuIcon-search"></text>
@@ -50,46 +24,48 @@
 		</view>
 	</view> -->
 
-	<!-- 分类导航 -->
-	<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
-		<view bindtap="switchCategory" id="{{index}}" class="cu-item align-center" wx:for="{{iconList}}" wx:key="index" wx:if="{{index<gridCol*2}}">
-			<view class="nav-func shadow -grey">
-				<image src="{{item.icon}}" mode="widthFix" style="width:100%"></image>
+		<!-- 分类导航 -->
+		<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+			<view bindtap="switchCategory" id="{{index}}" class="cu-item align-center" wx:for="{{iconList}}" wx:key="index" wx:if="{{index<gridCol*2}}">
+				<view class="nav-func shadow -grey">
+					<image src="{{item.icon}}" mode="widthFix" style="width:100%"></image>
+				</view>
 			</view>
 		</view>
-	</view>
 
-	<view class="margin-bottom-sm" style="height:30rpx;background:rgb(240,240,240)"></view>
+		<view class="margin-bottom-sm" style="height:30rpx;background:rgb(240,240,240)"></view>
 
-	<!-- 列表 -->
-	<view wx:if="{{dataSet.length>0}}">
-		<view class="tui-product-list padding-xs" style="margin-top:{{dropScreenH+18}}rpx">
-			<view class="tui-product-container">
-				<block wx:key="index" wx:if="{{(index+1)%2!=0 || isList}}" wx:for="{{dataSet}}" wx:key="index">
-					<template is="wall" data="{{item,index:index,isList:isList}}" />
-				</block>
-			</view>
-			<view class="tui-product-container" wx:if="{{!isList}}">
-				<block wx:for="{{dataSet}}" wx:key="index" wx:key="index" wx:if="{{(index+1)%2==0}}">
-					<template is="wall" data="{{item,index:index}}" />
-				</block>
+		<!-- 列表 -->
+		<view wx:if="{{dataSet.length>0}}">
+			<view class="tui-product-list padding-xs" style="margin-top:{{dropScreenH+18}}rpx">
+				<view class="tui-product-container">
+					<block wx:key="index" wx:if="{{(index+1)%2!=0 || isList}}" wx:for="{{dataSet}}" wx:key="index">
+						<template is="wall" data="{{item,index:index,isList:isList}}" />
+					</block>
+				</view>
+				<view class="tui-product-container" wx:if="{{!isList}}">
+					<block wx:for="{{dataSet}}" wx:key="index" wx:key="index" wx:if="{{(index+1)%2==0}}">
+						<template is="wall" data="{{item,index:index}}" />
+					</block>
+				</view>
 			</view>
 		</view>
-		<!-- <brickflow wx:if="{{brick_option.columns==1}}" _tplName="wall" dataSet="{{dataSet}}" option="{{brick_option}}" bind:tapCard="tapCard" bind:tapLike="tapLike" bind:tapUser="tapUser" bind:onCardExpanded="handleExpand" />
-		<brickflow wx:else _tplName="wall" dataSet="{{dataSet}}" option="{{brick_option}}" bind:tapCard="tapCard" bind:tapLike="tapLike" bind:tapUser="tapUser" bind:onCardExpanded="handleExpand" /> -->
-	</view>
 
-	<view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
-		<text class="text-gray text-df">木有更多啦~</text>
-	</view>
+		<!-- <view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
+			<text class="text-gray text-df">木有更多啦~</text>
+		</view> -->
+		<noMore show="{{dataSet.length>0 && loadDone}}"></noMore>
 
-	<view wx:if="{{dataSet.length==0 && !loading}}" class="flex flex-direction align-center margin-xl">
-		<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/empty.svg"></image>
-		<text class="text-gray">啥也木有~</text>
-	</view>
+		<!-- <view wx:if="{{dataSet.length==0 && !loading}}" class="flex flex-direction align-center margin-xl">
+			<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/empty.svg"></image>
+			<text class="text-gray">啥也木有~</text>
+		</view> -->
+		<empty show="{{dataSet.length==0 && !loading}}"></empty>
+
+	</block>
 
 </block>
-
+</block>
 <wxs module="tool">
 	var isStar = function(arr, uid) {
 		var i = 0
@@ -103,3 +79,30 @@
 		isStar: isStar
 	}
 </wxs>
+
+
+	<template name="wall">
+		<!--商品列表-->
+		<view class="tui-pro-item {{isList?'tui-flex-list':''}}" bindtap="detail" data-id="{{item.itemId}}" hover-class="hover" hover-start-time="150" bindtap="detail">
+			<view class="tui-pro-content">
+				<view class="tui-pro-tit text-orange"># {{item.title}}</view>
+				<view>
+					<view class="tui-pro-price">
+						<text class="content">{{item.content}}</text>
+					</view>
+					<view class="flex align-center justify-between margin-tb-xs">
+						<view class="flex align-center ">
+							<image class="cu-avatar round sm margin-lr-xs " src="{{item.avatar}} " mode="widthFix " catchtap="{{content_list[item].created_by? 'onUserAreaTap': ''}} " data-user-id="{{content_list[item].created_by}} " wx:if="{{item.avatar}}"></image>
+							<view class="text-sm ">匿名童鞋</view>
+						</view>
+						<view class="text-gray ">
+							<text class="cuIcon-attentionfill margin-xs "></text>
+							<!-- ToDo -->
+							<!-- 访问次数统计 -->
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--商品列表-->
+	</template>

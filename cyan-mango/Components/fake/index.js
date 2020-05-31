@@ -15,6 +15,10 @@ Component({
     mode:{
       type:String,
       value:''
+    },
+    showTitle:{
+      type:Boolean,
+      value:true
     }
 
   },

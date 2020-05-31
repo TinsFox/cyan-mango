@@ -60,12 +60,12 @@
 	</view>
 </view>
 
-<!-- 校园全景 -->
+<!-- 超星图书馆 -->
 <view wx:if="{{id=='record'}}" class="overall">
 
 	<!-- <view style='margin-top:80rpx'>功能未开放...</view> -->
 
-	<fake></fake>
+	<fake showTitle="{{false}}"></fake>
 
 	<!-- <image mode='widthFix' bindtap='preview' src='https://cos.ifeel.vip/gzhu-pi/images/resource/qrcode.jpg'></image> -->
 	<!-- <view style='margin:30rpx;font-size:85%;color:grey'>扫码或搜索「广大派」即可关注服务号</view> -->
@@ -77,7 +77,7 @@
 
 <!-- 书籍收藏 -->
 <view wx:if="{{id=='favorite'}}">
-<fake></fake>
+<!-- <fake></fake> -->
 	<view wx:for="{{fav}}" wx:key="index" class='book' bindtap='navToDetail' id='{{index}}'>
 		<view class='book-name'>{{index+1}}、{{item.book_name}}</view>
 

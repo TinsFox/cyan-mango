@@ -103,7 +103,6 @@ Page({
   // 切换分类
   switchCategory(e) {
     let id = Number(e.currentTarget.id)
-    console.log(id)
     if (this.data.iconList[id].name == "我的发布") {
       wx.navigateTo({
         url: '/pages/Life/fleaMarket/mine/index'

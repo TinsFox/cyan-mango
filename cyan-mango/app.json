@@ -31,7 +31,9 @@
   "usingComponents": {
     "navBar": "/Components/navBar/index",
     "fake": "/Components/fake/index",
-    "loading":"/Components/loading/index"
+    "loading":"/Components/loading/index",
+    "empty":"/Components/empty/index",
+    "noMore":"/Components/noMore/index"
   },
   "permission": {
     "scope.userLocation": {

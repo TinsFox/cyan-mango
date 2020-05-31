@@ -29,9 +29,9 @@ Page({
     })
 
     if (options.id == "visit") this.getVisit()
-
     if (options.id == "favorite") this.getFav()
-    if (options.id == "record") this.getRecord()
+    // TODO:接入超星图书馆
+    // if (options.id == "record") this.getRecord()
   },
 
   onShareAppMessage: function() {

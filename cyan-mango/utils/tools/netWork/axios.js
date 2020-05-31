@@ -18,9 +18,8 @@ class axios {
   // 重新请求
   async _refetch(params) {
     var token = new Token()
-    await token._refresh_token()
+    await token.getTokenFromServer()
     setTimeout(() => {
-      console.log('重新请求')
       this.axios(params, true)
     }, 3000);
   }
@@ -35,7 +34,6 @@ class axios {
    * @param {*} noRefetch 当noRefech为true时，不做未授权重试机制
    */
   requestAll(param, noRefetch) {
-
     return new Promise((resolve, reject) => {
       var token = redis_get_token('token')
       wx.request({
@@ -47,9 +45,20 @@ class axios {
           // console.log(res)
           let statusCode = res.statusCode
           if (statusCode === 200) {
-            // console.log(res)
             if(res.data.error_code==5040){
-              this._refetch(param,true)
+              this._refetch(param)
+            }else if(res.data.error_code===5000){
+              wx.showToast({
+                title: '网络异常，请稍后再试',
+                icon:"none",
+                duration:3000
+              })
+              // console.log(noRefetch)
+              // if(!noRefetch){
+              //   this._refetch(param)
+              // }
+            }else{
+
             }
             resolve(res.data)
           }else{

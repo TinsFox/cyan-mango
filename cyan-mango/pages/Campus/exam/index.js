@@ -30,12 +30,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      exam:this.data.list.exam
-    })
-    if(!wx.$getPermission("education")) return
-    this._init()
-    // this.getExamHistory()
+    if(!wx.$getPermission("education")){
+      wx.showModal({
+        title: '提示',
+        content: '教务系统未绑定',
+        confirmText:'去绑定',
+        cancelText:'返回',
+        success (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/Setting/login/index',
+            })
+          } else if (res.cancel) {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          }
+        }
+      })
+    }else{
+      this._init()
+    }
   },
   async _init() {
     let res = await exam.getInfo()
@@ -51,16 +66,6 @@ Page({
       })
     }
   },
-  // 获取历史考试安排
-  async getExamHistory() {
-    let res = await exam.getExamHistory()
-    this.setData({
-      list: res.data[0],
-      exam: res.data[0].exam
-    })
-    console.log(res)
-
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -73,13 +78,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!app.globalData.bindStatus) {
-      wx.showToast({
-        title: '请绑定学号',
-        icon: "none",
-        duration: 1500
-      })
-    }
+
   },
 
   /**

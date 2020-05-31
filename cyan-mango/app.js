@@ -1,6 +1,6 @@
 //app.js
 import {Token} from './utils/tools/netWork/token'
-import {checkPermission}from "./utils/tools/permission"
+
 import {axios} from "./utils/tools/netWork/axios"
 import API from './utils/tools/netWork/apiMap'
 require("./utils/tools/app_param")
@@ -27,7 +27,6 @@ App({
         traceUser: true
       })
     }
-    checkPermission()
     Config.init()
     this.getAuthStatus()
     this.getAppParam()

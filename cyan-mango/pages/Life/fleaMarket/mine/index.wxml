@@ -11,3 +11,5 @@
 		<image class="border-radius" style="flex:3;height:180rpx" mode="aspectFill" src="{{item.image[0]}}"></image>
 	</view>
 	</view>
+
+		<empty show="{{article.length==0}}"></empty>

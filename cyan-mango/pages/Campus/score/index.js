@@ -52,21 +52,42 @@ Page({
     this.setData({
       grade:res.data,
       hasGrade:true,
-      loading:false
+      loading:false,
+      showDrawer:false
     })
   },
   async updateGrade(){
     let res=await grade.score()
+    console.log(res)
     if(res.error_code==1){
       this.setData({
         current_term:false
       })
+    }else{
+      this.setData({
+        loading:false
+      })
+      wx.showModal({
+        title: '提示',
+        content:  res.msg,
+        confirmText:'去绑定',
+        cancelText:'返回',
+        success (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/Setting/login/index',
+            })
+          } else if (res.cancel) {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          }
+        }
+      })
     }
-    console.log(res)
   },
   // 更新数据库
   async putExamHistory(){
-    console.log('更新数据库')
     let res = await grade.putExamHistory()
     console.log(res)
     if(res.error_code==0){
@@ -77,10 +98,27 @@ Page({
         sem_list:semester.data
       })
       wx.setStorageSync('semester', semester.data)
+    }else{
+      this.setData({
+        loading:false
+      })
     }
   },
 
   onLoad: function (options) {
+
+  },
+onHide(){
+
+},
+  onShow: function () {
+    this.data.account = wx.getStorageSync("account")
+    var time = new Date()
+    if (time.getHours() >= 0 && time.getHours() < 7) {
+      this.setData({
+        hideSyncTip: false
+      })
+    }
     this.setData({
       loading:true
     })
@@ -93,19 +131,6 @@ Page({
       sem_list:flag,
       loading:false
     })
-  },
-onHide(){
-  console.log('hide')
-  this.putExamHistory()
-},
-  onShow: function () {
-    this.data.account = wx.getStorageSync("account")
-    var time = new Date()
-    if (time.getHours() >= 0 && time.getHours() < 7) {
-      this.setData({
-        hideSyncTip: false
-      })
-    }
   },
 
 

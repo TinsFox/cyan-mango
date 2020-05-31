@@ -132,8 +132,11 @@ Page({
         loading:false
       })
       // Todo:跳转详情
+    }else{
+      this.setData({
+        loading:false
+      })
     }
-    
   },
 
 
@@ -277,7 +280,6 @@ Page({
   },
 
   deleteImage(e) {
-    console.log(e)
     let that=this
     let file = that.data.imgList[e.currentTarget.dataset.index]
     wx.showModal({

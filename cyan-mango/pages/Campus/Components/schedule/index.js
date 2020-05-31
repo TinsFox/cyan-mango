@@ -38,7 +38,7 @@ Component({
     async getCourse(week) {
       let postWeek = week?week:utils.getSchoolWeek()
       let res = await course.getCourse({week:postWeek})
-      // console.log(res)
+      console.log(res)
       if(res.error_code==0){
         this.setData({
           kbList: res.data.schedule
@@ -244,14 +244,17 @@ Component({
 
   lifetimes: {
     created: function () {
+
     },
 
     attached: function () {
-      this.getCourse()
-      // this.viewUpdate()
+      // this.getCourse()
+      this.viewUpdate()
     },
 
-    ready: function () { }
+    ready: function () {
+      this.getCourse()
+     }
   },
 
   pageLifetimes: {

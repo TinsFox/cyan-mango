@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isInit:false,
     mode:'verify',
     gridCol: 2,
     navTitle:"华广墙",
@@ -71,7 +72,6 @@ Page({
         loading: false,
       })
     }
-    console.log(res.data)
   },
   // 切换分类
   switchCategory(e) {
@@ -115,7 +115,7 @@ Page({
       dataSet: [],
       // loading: true
     })
-    console.log(this.data.type)
+    // console.log(this.data.type)
     this.getTopics({type:this.data.type})
 
   },
@@ -141,11 +141,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
-    console.log("mode",wx.$getParam('mode'))
-    this.setData({
-      mode:wx.$getParam('mode')
-    })
+   
   },
 
   /**
@@ -159,10 +155,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let mode=Config.get('param').mode
-    console.log(this.data.mode)
-    let menu=Config.get('param').nav
-    console.log(menu)
+    this.getList()
+    this.setData({
+      mode:wx.$getParam('mode'),
+      isInit:true
+    })
   },
 
   /**

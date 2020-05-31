@@ -52,7 +52,10 @@ Page({
           loading:false,
           detail:res.data
       })
-      
+   }else{
+     this.setData({
+      loading:false
+     })
    }
   },
 

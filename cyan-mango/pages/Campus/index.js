@@ -38,7 +38,6 @@ Page({
   tapDrawer(e) {
     let drawerItem = e.currentTarget.id
     const schedule = this.selectComponent('#schedule')
-    console.log(schedule)
     switch (drawerItem) {
       case "changeBg":
       case "changeMode":

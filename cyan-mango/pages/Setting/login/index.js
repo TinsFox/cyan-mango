@@ -30,8 +30,9 @@ Page({
       })
     }
   },
+
   onLoad: function (options) {
-    console.log(app.globalData.isAuthorized)
+    console.log('微信授权',app.globalData.isAuthorized)
     this.setData({
       show: !app.globalData.isAuthorized
     })
@@ -77,9 +78,9 @@ Page({
       type: this.data.JWC === true ? 1 : 2
     }
 
-    if (account.sid == "" || account.pwd == "") {
+    if (account.sid == "" || account.pwd == ""||account.sid.length!=12) {
       wx.showToast({
-        title: '用户名和密码不能为空',
+        title: '请检查用户名/密码',
         icon: 'none',
         duration: 3000
       })
@@ -90,11 +91,8 @@ Page({
   },
   // 获取微信用户信息
   async userInfoHandler(data) {
-    console.log(data)
+    // console.log(data)
     let that = this
-    wx.showLoading({
-      title: '授权中...',
-    })
     if (data.detail.errMsg == "getUserInfo:ok") {
       app.globalData.isAuthorized = true
       let userinfo= data.detail.userInfo
@@ -114,7 +112,6 @@ Page({
         showGuide: true
       })
     }
-    wx.hideLoading()
   },
   onConfirmTap(e) {
     // console.log(e)
@@ -129,9 +126,7 @@ Page({
     let res = await bind.bindSys(data)
     console.log(res)
     let code = res.error_code
-    if (code === 0 || code ===5200) {
-      //绑定成功
-      this.dialogHander()
+    if (code === 0 || code ===5200) {      //绑定成功
       wx.showToast({
         title: '绑定成功',
       })
@@ -139,17 +134,24 @@ Page({
       this.setData({
         bindStatus:false
       })
-      // wx.setStorageSync('token', res.data.access_token)
-      // 教务处已登录
-      // this.back() // 返回上一页
-    } else if (code === 5020) {
-      // 密码错误
+    } else if (code === 5020) {      // 密码错误
       that.setData({
         dialog: true,
         msg: res.msg
       })
-      this.dialogHander()
     }
+    this.dialogHander()
+    wx.showModal({
+      title: '登录提示',
+      content:  res.msg,
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   // dialog 控制
   dialogHander() {
@@ -166,5 +168,32 @@ Page({
     setTimeout(() => {
       wx.navigateBack()
     }, 2000);
-  }
+  },
+  onShow(){
+    var time = new Date()
+    // console.log(time.getHours())
+    if (time.getHours() >= 22 || time.getHours() < 7) {
+      wx.showModal({
+        title: '提示',
+        content:  '当前时间段无法绑定',
+        confirmText:'返回',
+        showCancel:false,
+        success (res) {
+          if (res.confirm) {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          } else if (res.cancel) {
+            wx.navigateBack({
+              complete: (res) => {},
+            })
+          }
+        }
+      })
+      this.setData({
+        disabled:true
+      })
+      return
+    }
+  },
 })

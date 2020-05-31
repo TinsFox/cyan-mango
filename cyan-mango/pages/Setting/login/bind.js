@@ -15,7 +15,6 @@ class Bind {
     })
   }
   async wxinfo(data) {
-    console.log(data)
     return app.http.axios({
       url: app.API.wxinfo,
       data: data,

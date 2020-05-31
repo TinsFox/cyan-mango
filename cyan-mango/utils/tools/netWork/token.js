@@ -3,6 +3,7 @@ import API from './apiMap'
 import { encrypt, decrypt } from '../Encrypt/main'
 var fun_md5 = require('../../tools/Encrypt/md5')
 import { redis_set_token, redis_get_token } from './redis.js'
+import {checkPermission}from "../permission"
 // import  {Encrypt,Decrypt}  from '../encryption/main'
 class Token {
 
@@ -16,16 +17,17 @@ class Token {
    */
   verify() {
     var token = redis_get_token('token')
-    if (token == 'needLogin') {
-      this.getTokenFromServer()
-    }
-    else if (token) {
-      // token有效，什么都不干
-      return
-    } else {
-      // 不存在，就去服务器请求token
-      this._refresh_token()
-    }
+    this.getTokenFromServer()
+    // if (token == 'needLogin') {
+    //   this.getTokenFromServer()
+    // }
+    // else if (token) {
+    //   // token有效，什么都不干
+    //   return
+    // } else {
+    //   // 不存在，就去服务器请求token
+    //   this._refresh_token()
+    // }
   }
 
   /**
@@ -33,17 +35,14 @@ class Token {
    * 如果不合法，会自动调用 getTokenFromServer 方法请求 token
    */
   _refresh_token() {
-    var that = this
-    // console.log('token失效,刷新中')
+    var that = globalThis
     var Retoken = wx.getStorageSync('refresh_token')
-    // console.log(Retoken)
     return new Promise((resolve,reject)=>{
       wx.request({
         url: that.tokenRefreshUrl,
         method: 'POST',
         header: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + Retoken },
         success: function (res) {
-          // console.log(res)
           var flag = res.statusCode === 200 ? true : false
           if (flag&&res.data.error_code==0) {
             let newToken=that.getToken(Retoken,res.data.data.access_token)
@@ -94,14 +93,21 @@ class Token {
           },
           success: function (res) {
             if (res.statusCode === 200) {
-              try {
-                const { access_token, refresh_token } = res.data.data
-                let token = that.getToken(refresh_token,access_token)
-                // console.log("toekn:" + token)
-                redis_set_token('token', token)
-                wx.setStorageSync('refresh_token', refresh_token)
-              } catch (err) {
-                console.log(err)
+              if(res.data.error_code==0){
+                try {
+                  const { access_token, refresh_token } = res.data.data
+                  let token = that.getToken(refresh_token,access_token)
+                  redis_set_token('token', token)
+                  wx.setStorageSync('refresh_token', refresh_token)
+                  checkPermission()
+                } catch (err) {
+                  console.log(err)
+                }
+              }else{
+                // 系统登录出错，上报错误
+                wx.showToast({
+                  title: '系统维护中！',
+                })
               }
             } else {
               wx.showToast({
