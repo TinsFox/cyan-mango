@@ -109,7 +109,7 @@ Page({
     } 
 
     this.setData({
-      page: 0, //恢复页数
+      page: 1, //恢复页数
       loadDone: false, //加载完毕
       queryStr: "",
       dataSet: [],
@@ -130,6 +130,12 @@ Page({
 
   },
   navToPost() {
+    wx.requestSubscribeMessage({
+      tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
+      success (res) {
+        console.log(res)
+       }
+    })
     wx.$navTo('/pages/Life/wall/post/index')
   },
  // 点击卡片，获取id，转跳详情页面

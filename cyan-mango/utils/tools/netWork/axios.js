@@ -1,6 +1,7 @@
 import env from 'env.js'
 import { Token } from 'token'
 import {redis_get_token} from './redis.js'
+var log = require('../../log') // 引用上面的log.js文件
 class axios {
 
   constructor() {
@@ -56,15 +57,13 @@ class axios {
                 icon:"none",
                 duration:3000
               })
-              // console.log(noRefetch)
-              // if(!noRefetch){
-              //   this._refetch(param)
-              // }
             }else{
 
             }
             resolve(res.data)
           }else{
+            log.error(res)
+            wx.reportMonitor('0', 1)
             console.log(res)
             reject(res.data)
           }

@@ -61,7 +61,8 @@ Page({
   async getWallList(){
     let res=await FleaMarket.getWallList()
     console.log(res)
-    if(res.error_code=0){
+    console.log(res.data)
+    if(res.error_code==0){
       this.setData({
         article:res.data
       })
@@ -90,7 +91,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(this.data.TabCur)
+    if(this.data.TabCur==1){
+      this.getWallList()
+    }else{
+      this.getList()
+    }
   },
 
   /**

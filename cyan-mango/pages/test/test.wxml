@@ -1,4 +1,4 @@
 <!--cyan-mango/pages/test/test.wxml-->
 <navBar title="审核"></navBar>
-<button bindtap="bt">d</button>
-<button bindtap="b">b</button>
+<button bindtap="bt">user_template_id</button>
+<button bindtap="b">admin_template_id</button>

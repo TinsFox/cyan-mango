@@ -9,7 +9,7 @@ Page({
   },
 bt(){
   wx.requestSubscribeMessage({
-    tmplIds: ['qLHNGkbqbElfJWcdohnaZg_Ys6fBHoogS1tzFAxBKO4'],
+    tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
     success (res) {
       console.log(res)
      }

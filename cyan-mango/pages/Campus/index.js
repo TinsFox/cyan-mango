@@ -15,6 +15,7 @@ Page({
     arrowUrl: "https://cos.ifeel.vip/gzhu-pi/images/icon/right-arrow.svg",
     permission:''
   },
+
   switchModel() {
     if (this.data.schedule) {
       this.setData({

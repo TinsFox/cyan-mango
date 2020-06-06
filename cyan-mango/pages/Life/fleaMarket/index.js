@@ -57,6 +57,12 @@ Page({
     wx.navigateTo({
       url: '/pages/Life/fleaMarket/post/index',
     })
+    wx.requestSubscribeMessage({
+      tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
+      success (res) {
+        console.log(res)
+       }
+    })
   },
 
   // 读取搜索内容

@@ -107,6 +107,7 @@ class Token {
                 // 系统登录出错，上报错误
                 wx.showToast({
                   title: '系统维护中！',
+                  icon:'none'
                 })
               }
             } else {

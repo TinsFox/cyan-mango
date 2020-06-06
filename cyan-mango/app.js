@@ -17,9 +17,12 @@ App({
     nav:[]
   },
   onLaunch: function () {
-    wx.setEnableDebug({
-      enableDebug: true
-    })
+    /**
+     *调试模式开关 
+     */
+    // wx.setEnableDebug({
+    //   enableDebug: true
+    // })
     token.verify()
     if (wx.cloud) {
       wx.cloud.init({

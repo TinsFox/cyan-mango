@@ -66,6 +66,7 @@ Page({
   },
   async getDetail(){
     let res=await Wall.getDetail({itemId:this.data.itemId})
+    console.log(res)
     if(res.error_code==0){
       this.setData({
         detail:res.data

@@ -132,6 +132,9 @@ Page({
         loading:false
       })
       // Todo:跳转详情
+      wx.navigateTo({
+        url: '/pages/Life/wall/detail/index?itemId='+res.data.itemId,
+      })
     }else{
       this.setData({
         loading:false
@@ -193,6 +196,12 @@ Page({
 
   tabChange(e) {
     if (this.data.tabs[e.detail.index].name == "二手") {
+      wx.requestSubscribeMessage({
+        tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
+        success (res) {
+          console.log(res)
+         }
+      })
       wx.$navTo("/pages/Life/fleaMarket/post/index")
       return
     }
