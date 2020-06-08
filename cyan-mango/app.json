@@ -19,7 +19,9 @@
     "pages/Setting/admin/flea_market/index",
     "pages/Life/fleaMarket/mine/index",
     "pages/Life/wall/detail/index",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/activity/index",
+    "pages/activity/post/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,9 +33,9 @@
   "usingComponents": {
     "navBar": "/Components/navBar/index",
     "fake": "/Components/fake/index",
-    "loading":"/Components/loading/index",
-    "empty":"/Components/empty/index",
-    "noMore":"/Components/noMore/index"
+    "loading": "/Components/loading/index",
+    "empty": "/Components/empty/index",
+    "noMore": "/Components/noMore/index"
   },
   "permission": {
     "scope.userLocation": {

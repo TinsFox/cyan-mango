@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "modal": "/pages/activity/modal/index"
+  }
+}

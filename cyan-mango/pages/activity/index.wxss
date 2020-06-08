@@ -1,0 +1,11 @@
+/* cyan-mango/pages/activity/index.wxss */
+.post-icon {
+  height: 100rpx;
+  width: 100rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+  z-index: 1;
+  background-color: var(--yellowShadow);
+  border-radius: 50%;
+}

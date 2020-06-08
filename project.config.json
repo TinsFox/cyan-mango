@@ -137,6 +137,19 @@
 					"pathName": "pages/Life/wall/detail/index",
 					"query": "itemId=202006061206544999389",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动中心",
+					"pathName": "pages/activity/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动发布",
+					"pathName": "pages/activity/post/index",
+					"scene": null
 				}
 			]
 		}

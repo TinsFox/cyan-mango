@@ -1,0 +1,40 @@
+/* cyan-mango/pages/activity/post/index.wxss */
+.box{
+  margin: 30px;
+  border-radius: 10rpx;
+}
+page{
+  background-color: ghostwhite;
+}
+.form-box{
+  display: flex;
+  border: 3rpx solid rgb(206, 206, 206);
+  border-radius: 50rpx;
+  align-items: center;
+  justify-content: center;
+  height: 50rpx;
+  margin-top: 3rpx;
+}
+.add{
+  display: flex;
+  border: 3rpx solid rgb(206, 206, 206);
+  border-radius: 50rpx;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+.cu-form-group picker::after {
+  font-family: "cuIcon";
+  display: block;
+  /* content: "\e6a3"; */
+  position: absolute;
+  font-size: 34rpx;
+  color: var(--grey);
+  line-height: 100rpx;
+  width: 60rpx;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  right: -20rpx;
+  margin: auto;
+}

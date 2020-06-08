@@ -25,6 +25,7 @@ const API = {
   "wall_action":"/admin/wall_action",
   "flea_market_search":"/user/flea_market_search",
   "wall_search":"/user/wall_search",
+  "activity_list":"/publish/club/activity/info",
 
 }
 
