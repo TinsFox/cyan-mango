@@ -14,6 +14,7 @@ Page({
     navTitle:"华广墙",
     page:1,
     dataSet:[],
+    loadDone:false,
     iconList: [{
       icon: 'https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/tmp/WechatIMG200.png',
       name: '华广墙'
@@ -58,6 +59,13 @@ Page({
     })
     let data={
       page:this.data.page
+    }
+    if(data.page>this.data.max_page){
+      console.log('没有更多了')
+      this.setData({
+        loadDone:true
+      })
+      return
     }
     let res=await Wall.getList(data)
     console.log(res)
@@ -222,7 +230,7 @@ Page({
     this.setData({
       page : this.data.page + 1
     })
-    this.getTopics(true)
+    this.getList(true)
   },
 
   /**

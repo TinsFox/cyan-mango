@@ -49,10 +49,10 @@
 				</view>
 			</view>
 
-			<!-- <view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
+			<view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
 			<text class="text-gray text-df">木有更多啦~</text>
-		</view> -->
-			<noMore show="{{dataSet.length>0 && loadDone}}"></noMore>
+		</view>
+			<!-- <noMore show="{{dataSet.length>0 && loadDone}}"></noMore> -->
 
 			<!-- <view wx:if="{{dataSet.length==0 && !loading}}" class="flex flex-direction align-center margin-xl">
 			<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/empty.svg"></image>

@@ -59,6 +59,7 @@ Page({
       console.log("触发防抖")
       wx.showToast({
         title: '请勿重复提交',
+        icon:'none'
       })
       return true
     }
@@ -71,6 +72,12 @@ Page({
 
   post() {
     if (this.isDebounce(5000)) return
+    wx.requestSubscribeMessage({
+      tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
+      success (res) {
+        console.log(res)
+       }
+    })
     this.checkAndSave()
   },
 
@@ -103,11 +110,6 @@ Page({
     this.setData({
       loading: true
     })
-
-    // if (this.data.imgList.length == 0) {
-      
-    //   return
-    // }
     this.saveRecord(form)
   },
 
