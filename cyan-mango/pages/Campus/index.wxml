@@ -17,7 +17,7 @@
 
 	<view class='divide-line'></view>
 	<!-- 日课程 -->
-	<dayCourse todayCourse="{{todayCourse}}"></dayCourse>
+	<dayCourse todayCourse="{{todayCourse}}"  bind="{{permission.education}}"></dayCourse>
 
 	<view class='divide-line'></view>
 	<!-- 成绩概览 -->

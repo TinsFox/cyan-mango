@@ -2,7 +2,9 @@ var utils = require("../../../../utils/util")
 var Data = require("./data")
 var Config = require("../../../../utils/config")
 var showTimes = 0
-import { courseModel } from './scheduleModel'
+import {
+  courseModel
+} from './scheduleModel'
 var course = new courseModel()
 const app = getApp()
 Component({
@@ -36,10 +38,12 @@ Component({
 
   methods: {
     async getCourse(week) {
-      let postWeek = week?week:utils.getSchoolWeek()
-      let res = await course.getCourse({week:postWeek})
+      let postWeek = week ? week : utils.getSchoolWeek()
+      let res = await course.getCourse({
+        week: postWeek
+      })
       console.log(res)
-      if(res.error_code==0){
+      if (res.error_code == 0) {
         this.setData({
           kbList: res.data.schedule
         })
@@ -51,7 +55,7 @@ Component({
               kbList: w ? w : Data.course_sample
             })
           } catch (e) {
-  
+
           }
         }
       }
@@ -108,7 +112,7 @@ Component({
         console.log(3)
         this.setData({
           weekDate: utils.setWeekDate(week - this.data.schoolWeek),
-          week: week==0?utils.getSchoolWeek():week,
+          week: week == 0 ? utils.getSchoolWeek() : week,
           current: e.detail.current,
         })
       }
@@ -248,22 +252,33 @@ Component({
     },
 
     attached: function () {
-      // this.getCourse()
+      this.getCourse()
       this.viewUpdate()
     },
 
     ready: function () {
       this.getCourse()
-     }
+    }
   },
 
   pageLifetimes: {
     show() {
       // 初次onshow不执行
-      if (showTimes) {
-        this.viewUpdate()
-      }
-      showTimes++
+      // if (showTimes) {
+      //   this.viewUpdate()
+      //   this.getCourse()
+      // }
+      this.viewUpdate()
+      this.getCourse()
+      console.log('show')
+      // showTimes++
+    },
+    hide: function() {
+      // 页面被隐藏
+      console.log('hide')
+    },
+    resize: function(size) {
+      // 页面尺寸变化
     }
   }
 

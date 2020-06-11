@@ -5,7 +5,10 @@ const app = getApp()
 Component({
 
   properties: {
-
+    bind: {
+      type: Boolean,
+      value: false
+    }
   },
 
   data: {
@@ -16,7 +19,7 @@ Component({
     weekday: new Date().getDay(),
     amapPlugin: null,
     key: "6799b5f6f88d3d9fb52ac244855a8759",
-    obj:{}
+    obj: {}
   },
 
   methods: {
@@ -25,37 +28,34 @@ Component({
         url: '/pages/Setting/login/index',
       })
     },
-      //获取天气数据
-  getWeather:function(){
-    this.data.amapPlugin.getWeather({
-      success: (data) =>{
-        this.setData({
-          obj:data
-        })
-      },
-      fail: function (info) {
-        console.log(info)
-      }
-    })
-  },
-
-
+    //获取天气数据
+    getWeather: function () {
+      this.data.amapPlugin.getWeather({
+        success: (data) => {
+          this.setData({
+            obj: data
+          })
+        },
+        fail: function (info) {
+          console.log(info)
+        }
+      })
+    },
   },
 
   lifetimes: {
-    attached: function() {
+    attached: function () {
       let that = this
       that.setData({
-        account: wx.$getPermission('education'),
         todayCourse: utils.getTodayCourse(),
-        hasCourse:utils.getTodayCourse().length==0?false:true
+        hasCourse: utils.getTodayCourse().length == 0 ? false : true
       })
       // console.log('课？',this.data.hasCourse)
       that.setData({
         amapPlugin: new amap.AMapWX({
           key: this.data.key
         })
-      },()=>{
+      }, () => {
         this.getWeather()
       })
     },
@@ -65,6 +65,7 @@ Component({
       this.setData({
         todayCourse: utils.getTodayCourse()
       })
+      console.log(this.data)
       // console.log('今日课程',this.data.todayCourse)
       // 初次onshow不执行
       // if (showTimes) {

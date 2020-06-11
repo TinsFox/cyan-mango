@@ -65,7 +65,7 @@ class axios {
             log.error(res)
             wx.reportMonitor('0', 1)
             console.log(res)
-            reject(res.data)
+            resolve(res.data)
           }
         }),
         fail: (res => {

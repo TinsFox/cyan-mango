@@ -1,19 +1,20 @@
 // cyan-mango/Campus/index.js
 var Config = require("../../utils/config")
 var Setting = require("../../utils/setting")
-var app=getApp()
+var app = getApp()
+import {checkPermission}from "../../utils/tools/permission"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    iconList:[],
+    iconList: [],
     schedule: Config.get("schedule_mode") == "week" ? true : false,
-    navColor:Config.get("schedule_mode") == "week" ? "rgba(221, 221, 221, 0.7)" : "rgba(255, 255, 255, 0.8)",
+    navColor: Config.get("schedule_mode") == "week" ? "rgba(221, 221, 221, 0.7)" : "rgba(255, 255, 255, 0.8)",
     showDrawer: false,
     arrowUrl: "https://cos.ifeel.vip/gzhu-pi/images/icon/right-arrow.svg",
-    permission:''
+    permission: ''
   },
 
   switchModel() {
@@ -94,62 +95,59 @@ Page({
     const schedule = this.selectComponent('#schedule')
     schedule.updateBg()
   },
-    // 切换课表模式
-    radioChange(e) {
-      Config.set("schedule_mode", e.detail.value)
-  
-      if (e.detail.value == "day") this.data.schedule = true
-      else this.data.schedule = false
-      this.switchModel()
-    },
-    getAppParam() {
-      let that=this
-      wx.cloud.callFunction({
+  // 切换课表模式
+  radioChange(e) {
+    Config.set("schedule_mode", e.detail.value)
+
+    if (e.detail.value == "day") this.data.schedule = true
+    else this.data.schedule = false
+    this.switchModel()
+  },
+  getAppParam() {
+    let that = this
+    wx.cloud.callFunction({
         name: 'getAppParam',
         data: {},
       })
       .then(res => {
         // console.log(res.result.errMsg)
-        if(res.result.errMsg=='collection.get:ok'){
+        if (res.result.errMsg == 'collection.get:ok') {
           let param = res.result.data[0].data
           this.setData({
-            iconList:param.nav
+            iconList: param.nav
           })
         }
       })
       .catch(console.error)
-    },
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAppParam()
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that=this
-    wx.getStorage({
-      key: 'permission',
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          permission: res.data
-        })
-      },
-      fail: function (res) {
-        console.error(res)
-      }
+    let that = this
+    that.getAppParam()
+    checkPermission().then(res=>{
+      wx.setStorageSync('permission', res)
+      console.log(res)
+      that.setData({
+        permission: res
+      })
     })
+    
   },
 
   /**

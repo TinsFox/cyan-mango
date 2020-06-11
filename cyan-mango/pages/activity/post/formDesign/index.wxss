@@ -1,0 +1,13 @@
+.box {
+  padding: 10rpx;
+  display: block;
+  overflow: hidden;
+  border-radius: 20rpx;
+  margin: 30rpx;
+  box-sizing: border-box;
+}
+page{
+  background-color: var(--ghostWhite);
+  text-align: center;
+  align-items: center;
+}

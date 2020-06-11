@@ -1,7 +1,4 @@
 const uploadFile = (cloudPath, filePath) => {
-  // console.log('开始上传')
-  // console.log(filePath)
-  // console.log(cloudPath)
   //返回上传文件后的信息
   return new Promise((resolve, reject) => {
     wx.showToast({
@@ -29,6 +26,7 @@ const uploadFile = (cloudPath, filePath) => {
     })
   })
 }
+
 const delFile=(fileID)=>{
   console.log(fileID)
   return new Promise((resolve, reject) => {

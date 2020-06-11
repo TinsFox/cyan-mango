@@ -1,9 +1,20 @@
 <navBar title="我的成绩"></navBar>
 
 <loading loading="{{loading}}" text="请稍后"></loading>
-<view class="DrawerClose" bindtap="showItem">
-			<text class="cuIcon-pullleft text-red"></text>
+
+<!-- 悬浮图标 -->
+<view>
+	<button>
+		<image bindtap='showItem' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
+	</button>
+	<!-- <button open-type="share">
+		<image class='share-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/share.svg'></image>
+	</button> -->
 </view>
+
+<!-- <view class="DrawerClose" bindtap="showItem">
+			<text class="cuIcon-pullleft text-red"></text>
+</view> -->
 <!-- <image bindtap='showItem' class='post-icon' mode='widthFix' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/showItem.svg'></image> -->
 
 <template name="itemList" >
@@ -20,12 +31,12 @@
 </template>
 
 
-<block wx:if="{{!current_term && !hasGrade}}">
+<!-- <block wx:if="{{!current_term && !hasGrade}}">
 	<view>
 		<template is="itemList" data="{{sem_list,color}}"/>
 	</view>
 
-</block>
+</block> -->
 
 <!-- 本学期成绩 -->
 <block wx:if="{{hasGrade}}">
@@ -74,7 +85,7 @@
 </block>
 
 <!-- 提示弹窗 -->
-<modal show="{{!current_term}}" title="未查到本学期成绩" confirmText="往年成绩" cancelText="返回" bind:cancel="navBack">
+<modal show="{{!current_term}}" title="未查到本学期成绩" confirmText="往年成绩" cancelText="返回" bind:cancel="navBack" bind:confirm="confirm">
 	<view class="margin-lr-xl">
 		<text class="text-gray" style='color:grey;font-size:70%;margin:20rpx'>成绩数据仅供参考，请以官网为准</text>
 	</view>

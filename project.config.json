@@ -149,6 +149,13 @@
 					"id": -1,
 					"name": "活动发布",
 					"pathName": "pages/activity/post/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报名表设计",
+					"pathName": "pages/activity/post/formDesign/index",
 					"scene": null
 				}
 			]

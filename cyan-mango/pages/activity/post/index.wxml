@@ -3,7 +3,7 @@
 
 <form bindsubmit="submit">
 	<view>
-		<view class="cu-form-group margin-top">
+		<view class="cu-form-group">
 			<view class="title">活动名称</view>
 			<input name='name' placeholder="活动名称"></input>
 		</view>
@@ -11,43 +11,41 @@
 			<view class="title">举办方</view>
 			<input name='club_name' placeholder="举办方"></input>
 		</view>
-		<!-- <view class="cu-form-group">
-			<view class="title">描述</view>
-			<input name="desc" placeholder="请填写活动相关推文链接"></input>
-		</view> -->
 		<view class="cu-form-group align-start">
 			<view class="title">活动介绍</view>
-			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="活动介绍"></textarea>
+			<textarea maxlength="-1" placeholder="活动介绍" name="desc"></textarea>
 		</view>
 		<view class="cu-form-group">
-			<view class="title">活动报名时间</view>
-			<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="title">报名开始时间</view>
+			<picker mode="date" value="{{start_date}}" start="2020-09-01" end="2030-09-01" bindchange="DateChange" data-type="start">
 				<view class="picker">
-					{{date}}
-				</view>
-			</picker>
-			<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
-				<view class="picker">
-					{{date}}
+					{{start_date}}
 				</view>
 			</picker>
 		</view>
-		<view class="cu-form-group">
-			<view class="title">活动时间</view>
-			<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
-				<view class="picker">
-					{{date}}
-				</view>
-			</picker>
-		</view>
-		<!-- TODO:设置默认表单？ -->
-		<!-- <view class="cu-form-group">
+			<view class="cu-form-group" bindtap="focus">
 			<view class="title">报名表单</view>
-			<input name="desc" placeholder="" bindfocus="focus"></input>
-		</view> -->
+			<input name="desc" placeholder="请设计报名表" disabled="{{true}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">报名截至时间</view>
+			<picker mode="date" value="{{end_date}}" start="2020-09-01" end="2030-09-01" bindchange="DateChange" data-type="end">
+				<view class="picker">
+					{{end_date}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">活动开展时间</view>
+			<picker mode="date" value="{{action_date}}" start="2020-09-01" end="2030-09-01" bindchange="DateChange" data-type="action">
+				<view class="picker">
+					{{action_date}}
+				</view>
+			</picker>
+		</view>
 		<view class="cu-bar bg-white">
 			<view class="action">
-				图片上传
+				海报上传
 			</view>
 			<view class="action">
 				{{imgList.length}}/1

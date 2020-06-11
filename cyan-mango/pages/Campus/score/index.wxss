@@ -10,7 +10,7 @@
 .page {
   padding: 20rpx 2rpx;
   text-align: center;
-  background-color: gray;
+  /* background-color: gray; */
 }
 .dawer {
   background: rgba(255, 255, 255, 0.9);
@@ -272,4 +272,57 @@
   pointer-events: all;
   width: 15vw;
   color: #fff;
+}
+
+
+/* 悬浮图标 */
+
+.float-icon {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  z-index: 2;
+  /* box-shadow: 0rpx 3rpx 5rpx 5rpx #ddd; */
+  /* -webkit-animation: rotate 15s linear 1000ms infinite; */
+  /* animation: rotate 15s linear 1000ms infinite; */
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.share-icon {
+  height: 70rpx;
+  width: 70rpx;
+  position: fixed;
+  bottom: 180rpx;
+  right: 50rpx;
+  z-index: 2;
+}
+
+.hover-icon {
+  opacity: 0.5;
 }

@@ -3,7 +3,7 @@ import API from './apiMap'
 import { encrypt, decrypt } from '../Encrypt/main'
 var fun_md5 = require('../../tools/Encrypt/md5')
 import { redis_set_token, redis_get_token } from './redis.js'
-import {checkPermission}from "../permission"
+
 // import  {Encrypt,Decrypt}  from '../encryption/main'
 class Token {
 
@@ -18,16 +18,6 @@ class Token {
   verify() {
     var token = redis_get_token('token')
     this.getTokenFromServer()
-    // if (token == 'needLogin') {
-    //   this.getTokenFromServer()
-    // }
-    // else if (token) {
-    //   // token有效，什么都不干
-    //   return
-    // } else {
-    //   // 不存在，就去服务器请求token
-    //   this._refresh_token()
-    // }
   }
 
   /**
@@ -35,7 +25,7 @@ class Token {
    * 如果不合法，会自动调用 getTokenFromServer 方法请求 token
    */
   _refresh_token() {
-    var that = globalThis
+    var that = this
     var Retoken = wx.getStorageSync('refresh_token')
     return new Promise((resolve,reject)=>{
       wx.request({
@@ -63,7 +53,11 @@ class Token {
       })
     }) 
   }
-
+/**
+ * 解密token
+ * @param {*} ket 
+ * @param {*} text 
+ */
   getToken(ket,text) {
     var str_md5 = fun_md5.hex_md5(ket)
     var tmp = str_md5.split('')
@@ -99,7 +93,6 @@ class Token {
                   let token = that.getToken(refresh_token,access_token)
                   redis_set_token('token', token)
                   wx.setStorageSync('refresh_token', refresh_token)
-                  checkPermission()
                 } catch (err) {
                   console.log(err)
                 }

@@ -21,7 +21,9 @@
     "pages/Life/wall/detail/index",
     "pages/test/test",
     "pages/activity/index",
-    "pages/activity/post/index"
+    "pages/activity/post/index",
+    "pages/activity/post/formDesign/index",
+    "pages/Setting/agreement/agreement"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -70,10 +72,6 @@
     "wxparserPlugin": {
       "version": "0.3.0",
       "provider": "wx9d4d4ffa781ff3ac"
-    },
-    "brickLayout": {
-      "version": "0.2.0",
-      "provider": "wx3c042630f3cdc175"
     }
   }
 }
