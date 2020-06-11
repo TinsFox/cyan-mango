@@ -18,7 +18,7 @@ const test = {
 
 // 生产环境
 const prod = {
-  baseUrl: 'http://www.tinsfox.com:8080/cyan-mongo-api',
+  baseUrl: 'https://send.tinsfox.com/cyan-mongo-api',
   ws: 'wss://prod.qq.cn',
   h5: 'https://prod.qq.cn',
   label: 'prod'
