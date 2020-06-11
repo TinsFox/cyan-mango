@@ -1,4 +1,5 @@
-// cyan-mango/pages/activity/post/index.js
+import { uploadFile, delFile, tabs } from '../../Life/filePost'
+
 Page({
 
   /**
@@ -9,12 +10,35 @@ Page({
     collectionEdit:false,
     formLine:4,
     imgList: [],
-    date: '2018-12-25',
+    start_date: '2020-6-25',
+    end_date: '2020-6-25',
+    action_date: '2020-6-25',
+  },
+  DateChange(e) {
+    // console.log(e.currentTarget.dataset.type)
+    switch(e.currentTarget.dataset.type){
+      case 'start':{
+        this.setData({
+          start_date: e.detail.value
+        }) ;break;
+      }
+      case 'end':{
+        this.setData({
+          end_date: e.detail.value
+        }) ;break;
+      }
+      case 'action':{
+        this.setData({
+          action_date: e.detail.value
+        }) ;break;
+      }
+      default:console.error('date error')
+    }
   },
   ChooseImage() {
     wx.chooseImage({
       count: 4, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sizeType: ['original', 'compressed'], 
       sourceType: ['album'], //从相册选择
       success: (res) => {
         if (this.data.imgList.length != 0) {
@@ -66,19 +90,45 @@ Page({
   },
   focus(e){
     console.log(e)
-    this.setData({
-      collectionEdit:true
+    wx.navigateTo({
+      url: './formDesign/index',
     })
   },
   PickerChange(e) {
     console.log(e);
     this.setData({
-      index: e.detail.value,
-      collectionEdit:true
+      index: e.detail.value
     })
   },
   submit(e){
-    console.log(e.detail.value)
+    let info=e.detail.value
+    // TODO:状态先默认为1
+    info.status=this.data.index?this.data.index:1
+    info.start_date=this.data.start_date
+    info.end_date=this.data.end_date
+    info.action_date=this.data.action_date
+    info.imgList=this.data.imgList
+    info.collection=wx.getStorageSync('collection')
+    this.checkData(info)
+    console.log(info)
+    // TODO:信息检查通过，进行发布
+    
+  },
+  checkData(data){
+    if(data.name===''||data.club_name	===''||data.desc===''){
+      wx.showToast({
+        title: '请填写完整',
+        icon:'none'
+      })
+      return
+    }
+    if(data.imgList.length===0){
+      wx.showToast({
+        title: '请上传海报',
+        icon:'none'
+      })
+      return
+    }
   },
   /**
    * 生命周期函数--监听页面加载

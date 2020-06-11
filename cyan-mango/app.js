@@ -1,28 +1,30 @@
 //app.js
-import {Token} from './utils/tools/netWork/token'
+import {
+  Token
+} from './utils/tools/netWork/token'
 
-import {axios} from "./utils/tools/netWork/axios"
+import {
+  axios
+} from "./utils/tools/netWork/axios"
 import API from './utils/tools/netWork/apiMap'
 require("./utils/tools/app_param")
 var Config = require("./utils/config")
-var token= new Token()
+var token = new Token()
 require("./utils/tools/wx")
 App({
   API,
-  http:new axios(),
+  http: new axios(),
   Config,
-  globalData:{
-    isAuthorized:false,
-    bindStatus:undefined,
-    nav:[]
+  globalData: {
+    isAuthorized: false,
+    bindStatus: undefined,
+    nav: []
   },
   onLaunch: function () {
     /**
      *调试模式开关 
      */
-    // wx.setEnableDebug({
-    //   enableDebug: true
-    // })
+
     token.verify()
     if (wx.cloud) {
       wx.cloud.init({
@@ -35,18 +37,25 @@ App({
     this.getAppParam()
   },
   getAppParam() {
-    let that=this
+    let that = this
     wx.cloud.callFunction({
-      name: 'getAppParam',
-      data: {},
-    })
-    .then(res => {
-      if(res.result.errMsg=='collection.get:ok'){
-        let param = res.result.data[0].data
-        wx.setStorageSync("app_param", param)
-        Config.set('param',param)
-      }
-    })
+        name: 'getAppParam',
+        data: {},
+      })
+      .then(res => {
+        if (res.result.errMsg == 'collection.get:ok') {
+          console.log('debug:',res.result.data[0].data.debug)
+          if (res.result.data[0].data.debug) {
+            // debug模式控制
+            wx.setEnableDebug({
+              enableDebug: true
+            })
+          }
+          let param = res.result.data[0].data
+          wx.setStorageSync("app_param", param)
+          Config.set('param', param)
+        }
+      })
   },
   // 获取认证状态
   getAuthStatus(data = {}) {
@@ -71,16 +80,7 @@ App({
       },
       // 检测授权状态后 检测绑定状态
       complete(res) {
-        wx.getStorage({
-          key: 'permission',
-          success: function (res) {
-            console.log('绑定',res.data)
-            that.globalData.bindStatus = res.data
-          },
-          fail: function (res) {
-            console.error(res)
-          }
-        })
+
       }
     })
   }

@@ -27,7 +27,7 @@
     </view>
   </view>
 </view>
-<button bindtap='nav' hidden="{{account}}" style='width:300rpx;background-color:#18b3eb;color:white'>绑定学号</button>
+<button bindtap='nav' wx:if="{{!bind}}" style='width:300rpx;background-color:#18b3eb;color:white'>绑定学号</button>
 <view wx:if="{{!hasCourse}}" class='no-course'>今天没课~~</view>
 <view class='no-course' wx:if="{{!hasCourse}}"></view>
 

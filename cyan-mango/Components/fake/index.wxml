@@ -1,5 +1,5 @@
 <view wx:if="{{type=='default' && mode!='prod'}}">
-	<navBar title="功能开发" wx:if="{{showTitle}}"></navBar>
+	<navBar title="功能开发" wx:if="{{showTitle}}" ></navBar>
 	<view class="flex flex-direction align-center margin-xl">
 		<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/weihu.svg"></image>
 		<text class="text-gray">功能正在开发中，敬请期待...</text>

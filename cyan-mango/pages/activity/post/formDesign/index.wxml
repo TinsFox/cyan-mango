@@ -1,0 +1,39 @@
+<navBar title="设计报名表" navColor="white"></navBar>
+
+<form bindsubmit="submit">
+	<block wx:if="{{edit}}">
+		<view class="cu-form-group">
+			<view>如需特殊表单，请联系管理员</view>
+			<!-- <view>是否必填</view> -->
+		</view>
+		<view class="cu-form-group" wx:for="{{formTmp}}">
+			<view class="title">
+				<input placeholder="{{item?item:'请填写要收集的信息'}}"  name='{{index}}' value="{{item}}"></input>
+			</view>
+		</view>
+    	<!-- <view class="cu-form-group" wx:for="{{formLine}}">
+			<view class="title">
+				<input placeholder="请输入信息名称" name="{{index+5}}"></input>
+			</view>
+		</view>
+		<view class="title cu-form-group" bindtap="addLine">
+			<text class="cuIcon-add">添加</text>
+		</view> -->
+
+		<view class="padding flex flex-direction">
+			<button class="cu-btn bg-cyan lg" formType="submit">预览</button>
+		</view>
+
+	</block>
+
+	<block wx:else>
+		<view class="cu-form-group" wx:for="{{formTmp}}" wx:if="{{item!=''}}">
+			<view class="title">{{item}}</view>
+			<input placeholder=""></input>
+		</view>
+		<view class="padding flex flex-direction">
+			<button class="cu-btn bg-cyan lg" formType="submit">返回修改</button>
+			<button class="cu-btn bg-cyan lg margin-tb-sm" bindtap="generateForm">生成报名表</button>
+		</view>
+	</block>
+</form>

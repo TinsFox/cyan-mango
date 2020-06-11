@@ -12,22 +12,41 @@ Page({
     JWC: true,
     LIR: false,
     showGuide: false,
-    bindStatus: !wx.$getPermission("education"),
+    bindStatus: false,
     isAuthorized: app.globalData.isAuthorized,
     dialog: false
+  },
+  checkPermission(){
+    var that=this
+    checkPermission().then(res=>{
+      console.log(res)
+      that.setData({
+        bindStatus: !res.education
+      })
+    })
   },
   async untieBind() {
     let res = await bind.untieBind({ type: 1 })
     console.log(res)
     if(res.error_code==0){
-      wx.showToast({
-        title: '解绑成功',
-        icon:"success"
+      wx.removeStorage({
+        key: 'course',
       })
-      checkPermission()
-      this.setData({
-        bindStatus:true
+      wx.showModal({
+        title: '登录提示',
+        content:  res.msg,
+        success (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.reLaunch({
+              url: '/pages/Campus/index',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
       })
+      this.checkPermission()
     }
   },
 
@@ -40,7 +59,7 @@ Page({
 
   navToAgreement() {
     wx.navigateTo({
-      url: '/pages/index/setting/agreement/agreement',
+      url: '/pages/Setting/agreement/agreement',
     })
   },
   agree() {
@@ -127,13 +146,7 @@ Page({
     console.log(res)
     let code = res.error_code
     if (code === 0 || code ===5200) {      //绑定成功
-      wx.showToast({
-        title: '绑定成功',
-      })
-      checkPermission()
-      this.setData({
-        bindStatus:false
-      })
+      this.checkPermission()
     } else if (code === 5020) {      // 密码错误
       that.setData({
         dialog: true,
@@ -147,6 +160,9 @@ Page({
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          wx.reLaunch({
+            url: '/pages/Campus/index',
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -171,7 +187,6 @@ Page({
   },
   onShow(){
     var time = new Date()
-    // console.log(time.getHours())
     if (time.getHours() >= 22 || time.getHours() < 7) {
       wx.showModal({
         title: '提示',
@@ -195,5 +210,6 @@ Page({
       })
       return
     }
+    this.checkPermission()
   },
 })

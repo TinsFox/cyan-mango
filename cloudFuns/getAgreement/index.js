@@ -8,7 +8,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   return new Promise((resolve, reject) => {
     db.collection('control').where({
-        _id: 'aa9f906d5ec12bfd00f5dc6f4ab2bd32'
+        _id: '982133855ec12e5100e30a1a1025890e'
       }).get().then(res=>{
         resolve (res)
       })

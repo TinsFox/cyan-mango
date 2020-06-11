@@ -22,6 +22,12 @@ Page({
     color:["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink", "gradual-d","gradual-c"],
     flagColor:["#666666","#e54d42","#fbbd08","#8dc63f","#0081ff","#39b54a"]
   },
+  confirm(){
+    this.putExamHistory()
+    this.setData({
+      showDrawer:true
+    })
+  },
   showDetail(e){
     let index=e.currentTarget.id
     this.setData({
@@ -61,12 +67,29 @@ Page({
     console.log(res)
     if(res.error_code==1){
       this.setData({
-        current_term:false
+        current_term:false,
+        loading:false
       })
-    }else{
+    }else if(res.error_code==5010){
+      wx.showModal({
+        title: '服务维护中',
+        content:  '',
+        confirmText:'确定',
+        cancelText:'返回',
+        success (res) {
+          if (res.confirm) {
+            wx.navigateBack()
+          } else if (res.cancel) {
+            wx.navigateBack()
+          }
+        }
+      })
+    }
+    else{
       this.setData({
         loading:false
       })
+      // TODO:bug need fix
       wx.showModal({
         title: '提示',
         content:  res.msg,
@@ -112,25 +135,14 @@ onHide(){
 
 },
   onShow: function () {
-    this.data.account = wx.getStorageSync("account")
     var time = new Date()
     if (time.getHours() >= 0 && time.getHours() < 7) {
       this.setData({
         hideSyncTip: false
       })
     }
-    this.setData({
-      loading:true
-    })
+    
     this.updateGrade()
-    let flag=wx.getStorageSync('semester')
-    if(flag==''){
-      this.putExamHistory()
-    }else
-    this.setData({
-      sem_list:flag,
-      loading:false
-    })
   },
 
 
