@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  debug(){
+    wx.setEnableDebug({
+      enableDebug: false
+    })
+  },
 bt(){
   wx.requestSubscribeMessage({
     tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],

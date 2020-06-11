@@ -51,7 +51,7 @@ Page({
    searchInput: function (e) {
     this.data.queryStr = e.detail.value
   },
-  async getList() {
+  async getList(loadMore=false) {
     let that = this
     this.setData({
       loading: true
@@ -63,7 +63,7 @@ Page({
     console.log(res)
     if(res.error_code==0){
       that.setData({
-        dataSet:that.data.dataSet.concat(res.data.records),
+        dataSet:loadMore?that.data.dataSet.concat(res.data.records):res.data.records,
         loading: false,
         max_page:res.data.max_page
       })
@@ -156,16 +156,29 @@ Page({
   onReady: function () {
 
   },
-
+  getAppParam() {
+    let that = this
+    wx.cloud.callFunction({
+        name: 'getAppParam',
+        data: {},
+      })
+      .then(res => {
+        if (res.result.errMsg == 'collection.get:ok') {
+          console.log('mode:',res.result.data[0].data.mode)
+          this.setData({
+            mode:res.result.data[0].data.mode,
+            isInit:true
+          })
+          }
+        })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     this.getList()
-    this.setData({
-      mode:wx.$getParam('mode'),
-      isInit:true
-    })
+    this.getAppParam()
+   
   },
 
   /**
@@ -190,7 +203,8 @@ Page({
       loadDone: false, //加载完毕
       queryStr: "",
       page:1,
-      max_page:undefined
+      max_page:undefined,
+      dataSet:[]
     })
     this.getList()
     setTimeout(function () {
@@ -202,7 +216,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.loadDone) return
+    console.log('加载更多')
+    // this.data.page = this.data.page + 1
+    this.setData({
+      page : this.data.page + 1
+    })
+    this.getTopics(true)
   },
 
   /**
