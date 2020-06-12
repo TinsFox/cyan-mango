@@ -1,6 +1,7 @@
 // import dateUtil from '../../../../../utils/setting/date'
 import { FleaMarketModel } from '../fleaMarket'
 var FleaMarket = new FleaMarketModel()
+import {checkPermission}from "../../../../utils/tools/permission"
 let app = getApp()
 Page({
 
@@ -33,6 +34,7 @@ Page({
   },
 
   onShow(options) {
+    this.checkAdmin()
     let that = this
     setTimeout(function () {
       that.setData({
@@ -248,15 +250,11 @@ Page({
 
   // 判断当前用户是否管理员
   checkAdmin() {
-    let MyTableObject = new wx.BaaS.TableObject("config")
-    MyTableObject.get("5d712ad6db51692484017b6d").then(res => {
-      if (res.data.data.id && res.data.data.id.indexOf(this.data.uid) != -1) {
-        this.setData({
-          isOwner: true,
-          refreshable: true
-        })
-      }
+    checkPermission().then(res=>{
+      console.log(res)
+      that.setData({
+        isAdmin: res.admin
+      })
     })
-  }
-
+  },
 })

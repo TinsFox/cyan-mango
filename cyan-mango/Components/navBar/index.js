@@ -16,7 +16,7 @@ Component({
     // 顶栏背景颜色，支持rgba
     navColor: {
       type: String,
-      value: " "
+      value: ""
     },
 
     // 隐藏标题

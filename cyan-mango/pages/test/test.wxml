@@ -1,7 +1,8 @@
 <!--cyan-mango/pages/test/test.wxml-->
 <navBar title="审核"></navBar>
-<!-- <button bindtap="bt">user_template_id</button>
-<button bindtap="b">admin_template_id</button> -->
+<button bindtap="bt">user_template_id</button>
+<button bindtap="b">admin_template_id</button>
+<button bindtap="debug">debug</button>
 
   <view class="cu-list menu-avatar">
     <view class="cu-item">

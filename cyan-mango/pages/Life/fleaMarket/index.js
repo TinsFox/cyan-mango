@@ -97,7 +97,7 @@ Page({
     this.setData({
       page:this.data.page+1
     })
-    if(this.data.page>=this.data.max_page){
+    if(this.data.page>this.data.max_page){
       this.setData({
         loadDone:true
       })

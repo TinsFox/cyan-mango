@@ -111,6 +111,9 @@ Page({
   },
   // 更新数据库
   async putExamHistory(){
+    this.setData({
+      loading:true
+    })
     let res = await grade.putExamHistory()
     console.log(res)
     if(res.error_code==0){

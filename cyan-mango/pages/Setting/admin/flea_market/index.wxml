@@ -1,4 +1,4 @@
-<!--cyan-mango/pages/Setting/admin/flea_market/index.wxml-->
+
 <navBar title="审核"></navBar>
 
 <scroll-view scroll-x class="bg-white nav text-center">
