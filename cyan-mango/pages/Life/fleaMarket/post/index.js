@@ -3,6 +3,8 @@ import { FleaMarketModel } from '../../fleaMarket/fleaMarket'
 import { product } from "../data"
 var Config=require("../../../../utils/config")
 var FleaMarket = new FleaMarketModel()
+import {checkPermission}from "../../../../utils/tools/permission"
+
 let app = getApp()
 Page({
 
@@ -310,7 +312,28 @@ Page({
       }
     })
   },
-
+  checkAdmin() {
+    var that=this
+    checkPermission().then(res=>{
+      if(!res.education){
+        wx.showModal({
+          title:"提示",
+          content:"请先绑定教务系统",
+          confirmText:"去绑定",
+          cancelText:'返回',
+          success(res){
+            if(res.confirm){
+              wx.navigateTo({
+                url: '/pages/Setting/login/index',
+              })
+            }else{
+              wx.navigateBack()
+            }
+          }
+        })
+      }
+    })
+  },
   checkTimeout(files) {
     let that = this
     setTimeout(function () {
@@ -329,5 +352,8 @@ Page({
       }
     }, 60 * 1000)
   },
+  onShow(){
+    this.checkAdmin()
+  }
 
 })

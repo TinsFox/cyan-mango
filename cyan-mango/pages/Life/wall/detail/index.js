@@ -1,6 +1,7 @@
 // cyan-mango/pages/Life/wall/detail/index.js
 import { WallModel} from "../wall"
 var Wall = new WallModel()
+import {checkPermission}from "../../../../utils/tools/permission"
 Page({
 
   /**
@@ -105,6 +106,17 @@ Page({
     this.getDetail()
   },
 
+
+  checkAdmin() {
+    var that=this
+    checkPermission().then(res=>{
+      console.log(res)
+      that.setData({
+        isAdmin: res.admin
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -116,7 +128,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.checkAdmin()
   },
 
   /**

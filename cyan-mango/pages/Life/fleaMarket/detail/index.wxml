@@ -30,7 +30,7 @@
 	</modal>
 
 	<!-- 基本信息 -->
-	<view class="base-info flex" bindlongpress="checkAdmin">
+	<view class="base-info flex" bindlongpress="checkAdmin" >
 		<image bindtap="tapUser" class="cu-avatar round lg" src="{{detail.created_by.avatarUrl}}"></image>
 		<view class="flex-col" style="flex:3;margin:0 20rpx">
 			<view>{{detail.created_by.nickName}}</view>
@@ -102,7 +102,7 @@
 
 			<view class="margin-xl">
 				<text class="cuIcon-warn text-red margin-sm"></text>
-				<text class="text-gray text-sm">青芒仅作为发布平台，用户需自行联系发布者，线下/线上交易过程中请保持警惕，谨防被骗。</text>
+				<text class="text-gray text-sm">青芒派仅作为发布平台，用户需自行联系发布者，线下/线上交易过程中请保持警惕，谨防被骗。</text>
 			</view>
 
 		</view>

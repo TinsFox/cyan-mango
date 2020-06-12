@@ -156,6 +156,14 @@
 					"id": -1,
 					"name": "报名表设计",
 					"pathName": "pages/activity/post/formDesign/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Life/fleaMarket/detail/index",
+					"pathName": "pages/Life/fleaMarket/detail/index",
+					"query": "itemId=202006121952048565059",
 					"scene": null
 				}
 			]
