@@ -84,7 +84,18 @@ Page({
         pages:res.data.max_page,
         page: res.data.current_page?res.data.current_page:page
       })
-    }else{
+    }
+    else if (res.error_code == 1){
+      this.setData({
+        loading: false,
+      })
+      wx.showToast({
+        title: "检索失败，图书馆没有相关书籍",
+        icon: "none",
+        mask: 2500
+      })
+    }
+    else{
       this.setData({
         loading:false,
       })
