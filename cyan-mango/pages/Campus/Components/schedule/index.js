@@ -251,15 +251,10 @@ Component({
     },
     viewUpdate() {
       let course = wx.getStorageSync('course')
-      let exp = wx.getStorageSync('exp')
       if (course != "" || exp != "") {
-        let kbList = course == "" ? [] : course.course_list
-        if (Config.get("showExp")) {
-          kbList = kbList.concat(exp)
-        }
+        let kbList = course == "" ? [] : course
         this.setData({
-          kbList: kbList,
-          sjkList: course == "" ? [] : course.sjk_course_list
+          kbList: kbList
         })
       }
     }
@@ -272,7 +267,7 @@ Component({
 
     attached: function () {
       this.getCourse()
-      this.viewUpdate()
+      // this.viewUpdate()
     },
 
     ready: function () {
@@ -291,10 +286,10 @@ Component({
       this.getCourse()
       // showTimes++
     },
-    hide: function() {
+    hide: function () {
       // 页面被隐藏
     },
-    resize: function(size) {
+    resize: function (size) {
       // 页面尺寸变化
     }
   }

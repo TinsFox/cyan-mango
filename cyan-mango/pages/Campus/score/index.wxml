@@ -2,10 +2,17 @@
 <navBar title="我的成绩"></navBar>
 <loading loading="{{loading}}" text="数据加载中..."></loading>
 <!-- 悬浮图标 -->
+<<<<<<< HEAD
 <view>
   <button>
     <image bindtap='showItem' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
   </button>
+=======
+<view bindtap='showItem'>
+	<button>
+		<image  class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
+	</button>
+>>>>>>> 9be1780687b635442f27f14e34851f96481e9fa6
 </view>
 <template name="itemList">
   <view class="cu-bar bg-white solid-bottom margin-top-xl animation-slide-bottom ">
