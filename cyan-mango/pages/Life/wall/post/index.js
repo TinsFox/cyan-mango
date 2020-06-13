@@ -129,8 +129,8 @@ Page({
     console.log(res)
     if(res.error_code==0){
       wx.showToast({
-        title: '发布成功',
-        icon:"success"
+        title: '发布成功，请等待审核',
+        icon:'none'
       })
       this.setData({
         loading:false
