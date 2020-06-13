@@ -39,6 +39,7 @@ class Token {
             redis_set_token('token', newToken)
             resolve (newToken)
           } else if(res.data.error_code==5040){
+            console.log('hello');
             that.getTokenFromServer()
           }
           else {
@@ -47,7 +48,8 @@ class Token {
               title: '网络错误，请重试',
             })
           }
-        }, complete(e) {
+        }, 
+        complete(e) {
           // console.log(e)
         }
       })
@@ -94,6 +96,7 @@ class Token {
                   redis_set_token('token', token)
                   wx.setStorageSync('refresh_token', refresh_token)
                 } catch (err) {
+                  console.log(res.data)
                   console.log(err)
                 }
               }else{

@@ -44,20 +44,38 @@ Component({
       })
       console.log(res)
       if (res.error_code == 0) {
-        this.setData({
-          kbList: res.data.schedule
-        })
-        wx.setStorageSync('course', this.data.kbList)
         if (!res.data) {
-          try {
-            let w = wx.getStorageSync('course')
-            this.setData({
-              kbList: w ? w : Data.course_sample
-            })
-          } catch (e) {
-
-          }
+          /* 没数据情况 */
+          wx.showToast({
+            title: '服务器错误，暂时无法获取到数据',
+            icon: 'none',
+            duration: 2500,
+            mask:true
+          })
         }
+        else{
+          this.setData({
+            kbList: res.data.schedule
+          })
+          wx.setStorageSync('course', this.data.kbList)
+        }
+      }
+      else if (res.error_code == 1){
+        wx.showToast({
+          title: '暂时无法获取到课程表数据，可能教务系统还未发布数据',
+          icon: 'none',
+          duration: 2500,
+          mask: true
+        })
+      }
+      else{
+        /* 获取课程表数据失败 */
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000,
+          mask:true
+        })
       }
     },
     // 恢复校历周

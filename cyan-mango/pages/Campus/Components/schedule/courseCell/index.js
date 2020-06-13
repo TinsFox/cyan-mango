@@ -1,6 +1,5 @@
 var Data = require("../data")
 Component({
-
   properties: {
     course: {
       type: Object,

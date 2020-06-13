@@ -44,9 +44,6 @@ Page({
     wx.navigateBack()
   },
   async getGradeDatail(e){
-    this.setData({
-      loading:true
-    })
     let str= e.currentTarget.dataset.xnd.split("-")
     let data={
       start:str[0],
@@ -71,25 +68,21 @@ Page({
         loading:false
       })
     }else if(res.error_code==5010){
-      wx.showModal({
-        title: '服务维护中',
-        content:  '',
-        confirmText:'确定',
-        cancelText:'返回',
-        success (res) {
-          if (res.confirm) {
-            wx.navigateBack()
-          } else if (res.cancel) {
-            wx.navigateBack()
-          }
-        }
+      this.setData({
+        loading: false
+      })
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 2500,
+        mask: true
       })
     }
-    else{
+    else if(res.error_code == 4003){
+      /* 权限校验失败 */
       this.setData({
-        loading:false
+        loading: false
       })
-      // TODO:bug need fix
       wx.showModal({
         title: '提示',
         content:  res.msg,
@@ -107,6 +100,11 @@ Page({
           }
         }
       })
+    }
+    else{
+      this.setData({
+        loading:false
+      })      
     }
   },
   // 更新数据库
@@ -147,7 +145,6 @@ onHide(){
     
     this.updateGrade()
   },
-
 
   onShareAppMessage: function () {
     return {

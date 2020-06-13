@@ -1,6 +1,6 @@
 <navBar title="我的成绩"></navBar>
 
-<loading loading="{{loading}}" text="请稍后"></loading>
+<loading loading="{{loading}}" text="数据加载中..."></loading>
 
 <!-- 悬浮图标 -->
 <view>

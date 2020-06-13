@@ -31,7 +31,7 @@ const tinsfox={
 }
 
 module.exports = {
-  host: tinsfox
-  // host: test
+  // host: tinsfox
+  host: test
   // host:dev
 }

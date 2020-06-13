@@ -3,7 +3,6 @@ const amap = require('../../../../../utils/tools/amap-wx')
 var showTimes = 0
 const app = getApp()
 Component({
-
   properties: {
     bind: {
       type: Boolean,
