@@ -172,7 +172,7 @@ Page({
       })
       .then(res => {
         if (res.result.errMsg == 'collection.get:ok') {
-          console.log('mode:',res.result.data[0].data.mode)
+          console.log('mode=>',res.result.data[0].data.mode)
           this.setData({
             mode:res.result.data[0].data.mode,
             isInit:true

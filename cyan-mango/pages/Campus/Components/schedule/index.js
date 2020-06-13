@@ -288,12 +288,10 @@ Component({
       // }
       this.viewUpdate()
       this.getCourse()
-      console.log('show')
       // showTimes++
     },
     hide: function() {
       // 页面被隐藏
-      console.log('hide')
     },
     resize: function(size) {
       // 页面尺寸变化

@@ -77,7 +77,7 @@
 	</view>
 
 	<!-- 权限控制 -->
-	<view class="cu-item shadow" wx:if="{{detail.state!=1}}">
+	<view class="cu-item shadow" wx:if="{{detail.state!=1&&isAdmin}}">
 	<!-- <view>{{detail.state}}</view> -->
 		<view class="flex justify-around margin-tb-sm text-center">
 			<button bindtap="manage" data-op="审核s" class="cu-btn round bg-green ">审核通过</button>

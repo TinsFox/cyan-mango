@@ -7,7 +7,7 @@ Page({
 
   data: {
     mode: "prod",
-    bindStatus: app.globalData.bindStatus,
+    bindStatus: false,
     loading: true,
     isOwner: false, //物品发布者
     refreshable: false, //是否可以刷新
@@ -35,12 +35,6 @@ Page({
 
   onShow(options) {
     this.checkAdmin()
-    let that = this
-    setTimeout(function () {
-      that.setData({
-        bindStatus: app.globalData.bindStatus
-      })
-    }, 1000)
   },
 
 
@@ -250,10 +244,12 @@ Page({
 
   // 判断当前用户是否管理员
   checkAdmin() {
+    var that=this
     checkPermission().then(res=>{
       console.log(res)
       that.setData({
-        isAdmin: res.admin
+        isAdmin: res.admin,
+        bindStatus:res.education
       })
     })
   },

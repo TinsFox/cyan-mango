@@ -3,6 +3,8 @@ const avatar = "https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/im
 import { uploadFile, delFile, tabs } from '../../filePost'
 import { WallModel} from "../wall"
 var Wall = new WallModel()
+import {checkPermission}from "../../../../utils/tools/permission"
+
 Page({
   data: {
     mode: "prod",
@@ -127,8 +129,8 @@ Page({
     console.log(res)
     if(res.error_code==0){
       wx.showToast({
-        title: '发布成功',
-        icon:"success"
+        title: '发布成功，请等待审核',
+        icon:'none'
       })
       this.setData({
         loading:false
@@ -314,5 +316,29 @@ Page({
       }
     })
   },
-
+  checkAdmin() {
+    var that=this
+    checkPermission().then(res=>{
+      if(!res.education){
+        wx.showModal({
+          title:"提示",
+          content:"请先绑定教务系统",
+          confirmText:"去绑定",
+          cancelText:'返回',
+          success(res){
+            if(res.confirm){
+              wx.navigateTo({
+                url: '/pages/Setting/login/index',
+              })
+            }else{
+              wx.navigateBack()
+            }
+          }
+        })
+      }
+    })
+  },
+  onShow(){
+    this.checkAdmin()
+  }
 })

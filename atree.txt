@@ -1,0 +1,480 @@
+.
+├── README.md
+├── atree.txt
+├── cloudFuns
+│   ├── ContentCheck
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   └── package.json
+│   ├── getAgreement
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   └── package.json
+│   ├── getAppParam
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   ├── getGoodItem
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   ├── getUserInfo
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   ├── saveRecord
+│   │   ├── config.json
+│   │   ├── index.js
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   └── saveUserInfo
+│       ├── config.json
+│       ├── index.js
+│       └── package.json
+├── cyan-mango
+│   ├── Components
+│   │   ├── drawer-modal
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── empty
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── fake
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── loading
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── modal
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── nav
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   ├── index.wxss
+│   │   │   └── navDate.js
+│   │   ├── navBar
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── noMore
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   └── tui-tabs
+│   │       ├── tui-tabs.js
+│   │       ├── tui-tabs.json
+│   │       ├── tui-tabs.wxml
+│   │       └── tui-tabs.wxss
+│   ├── app.js
+│   ├── app.json
+│   ├── app.wxss
+│   ├── assets
+│   │   ├── add.svg
+│   │   ├── back.png
+│   │   ├── cancel.svg
+│   │   ├── delete.svg
+│   │   ├── edit.svg
+│   │   ├── exp.svg
+│   │   ├── logo.jpg
+│   │   ├── setting.svg
+│   │   ├── tabbar
+│   │   │   ├── kb-selected.png
+│   │   │   ├── kb.png
+│   │   │   ├── mine-selected.png
+│   │   │   ├── mine.png
+│   │   │   ├── wall-selected.png
+│   │   │   └── wall.png
+│   │   ├── wall.png
+│   │   └── weixin.svg
+│   ├── colorui
+│   │   ├── animation.wxss
+│   │   ├── icon.wxss
+│   │   └── main.wxss
+│   ├── dist
+│   │   ├── album
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   ├── index.wxs
+│   │   │   └── index.wxss
+│   │   ├── arc-popup
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── avatar
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── badge
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── behaviors
+│   │   │   ├── computeOffset.js
+│   │   │   ├── countdown.js
+│   │   │   ├── hover.js
+│   │   │   ├── rules.js
+│   │   │   ├── scrollCenter.js
+│   │   │   ├── transition.js
+│   │   │   ├── validator.js
+│   │   │   ├── watchShow.js
+│   │   │   └── zIndex.js
+│   │   ├── collapse
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── collapse-item
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── combined-tabs
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── common
+│   │   │   └── async-validator
+│   │   │       ├── index.js
+│   │   │       ├── messages.js
+│   │   │       ├── rule
+│   │   │       │   ├── enum.js
+│   │   │       │   ├── index.js
+│   │   │       │   ├── pattern.js
+│   │   │       │   ├── range.js
+│   │   │       │   ├── required.js
+│   │   │       │   ├── type.js
+│   │   │       │   └── whitespace.js
+│   │   │       ├── util.js
+│   │   │       └── validator
+│   │   │           ├── array.js
+│   │   │           ├── boolean.js
+│   │   │           ├── date.js
+│   │   │           ├── enum.js
+│   │   │           ├── float.js
+│   │   │           ├── index.js
+│   │   │           ├── integer.js
+│   │   │           ├── method.js
+│   │   │           ├── number.js
+│   │   │           ├── object.js
+│   │   │           ├── pattern.js
+│   │   │           ├── regexp.js
+│   │   │           ├── required.js
+│   │   │           ├── string.js
+│   │   │           └── type.js
+│   │   ├── count-selector
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── countdown
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── counter
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── dialog
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── filter
+│   │   │   ├── array.wxs
+│   │   │   ├── classnames.wxs
+│   │   │   ├── is.wxs
+│   │   │   ├── object.wxs
+│   │   │   ├── string.wxs
+│   │   │   └── zero-padding.wxs
+│   │   ├── grid
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── grid-item
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── icon
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── image-picker
+│   │   │   ├── image
+│   │   │   │   └── add.png
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── index-anchor
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── index-list
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── list
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── loading
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── loadmore
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── mask
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── message
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── popup
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── price
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── tag
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── toast
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── transition
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   └── index.wxss
+│   │   ├── utils
+│   │   │   ├── data-util.js
+│   │   │   ├── event-util.js
+│   │   │   ├── eventBus.js
+│   │   │   ├── node-util.js
+│   │   │   ├── pixel-util.js
+│   │   │   ├── util.js
+│   │   │   └── wxml-util.js
+│   │   └── water-flow
+│   │       ├── index.js
+│   │       ├── index.json
+│   │       ├── index.wxml
+│   │       └── index.wxss
+│   ├── images
+│   ├── jsconfig.json
+│   ├── pages
+│   │   ├── Campus
+│   │   │   ├── Components
+│   │   │   │   └── schedule
+│   │   │   │       ├── courseCell
+│   │   │   │       ├── data.js
+│   │   │   │       ├── dayCourse
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.json
+│   │   │   │       ├── index.wxml
+│   │   │   │       ├── index.wxss
+│   │   │   │       ├── module.wxs
+│   │   │   │       ├── scheduleModel.js
+│   │   │   │       └── weekExam
+│   │   │   │           ├── index.js
+│   │   │   │           ├── index.json
+│   │   │   │           ├── index.wxml
+│   │   │   │           └── index.wxss
+│   │   │   ├── calendar
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   └── index.wxss
+│   │   │   ├── emptyRoom
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   └── index.wxss
+│   │   │   ├── exam
+│   │   │   │   ├── exam.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   └── index.wxss
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   ├── index.wxss
+│   │   │   ├── library
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   ├── index.wxss
+│   │   │   │   ├── item
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.json
+│   │   │   │   │   ├── index.wxml
+│   │   │   │   │   └── index.wxss
+│   │   │   │   ├── library.js
+│   │   │   │   └── list
+│   │   │   │       ├── detail
+│   │   │   │       │   ├── index.js
+│   │   │   │       │   ├── index.json
+│   │   │   │       │   ├── index.wxml
+│   │   │   │       │   └── index.wxss
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.json
+│   │   │   │       ├── index.wxml
+│   │   │   │       └── index.wxss
+│   │   │   └── score
+│   │   │       ├── back.xml
+│   │   │       ├── index.js
+│   │   │       ├── index.json
+│   │   │       ├── index.wxml
+│   │   │       ├── index.wxss
+│   │   │       └── score.js
+│   │   ├── Life
+│   │   │   ├── filePost.js
+│   │   │   ├── fleaMarket
+│   │   │   │   ├── data.js
+│   │   │   │   ├── detail
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.json
+│   │   │   │   │   ├── index.wxml
+│   │   │   │   │   └── index.wxss
+│   │   │   │   ├── fleaMarket.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   ├── index.wxss
+│   │   │   │   ├── mine
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.json
+│   │   │   │   │   ├── index.wxml
+│   │   │   │   │   └── index.wxss
+│   │   │   │   └── post
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.json
+│   │   │   │       ├── index.wxml
+│   │   │   │       └── index.wxss
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   ├── index.wxss
+│   │   │   ├── style.wxss
+│   │   │   └── wall
+│   │   │       ├── detail
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.json
+│   │   │       │   ├── index.wxml
+│   │   │       │   └── index.wxss
+│   │   │       ├── post
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.json
+│   │   │       │   ├── index.wxml
+│   │   │       │   └── index.wxss
+│   │   │       └── wall.js
+│   │   ├── Setting
+│   │   │   ├── admin
+│   │   │   │   └── flea_market
+│   │   │   │       ├── flea_market_action.js
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.json
+│   │   │   │       ├── index.wxml
+│   │   │   │       └── index.wxss
+│   │   │   ├── agreement
+│   │   │   ├── login
+│   │   │   └── webview
+│   │   ├── activity
+│   │   │   ├── activity.js
+│   │   │   ├── index.js
+│   │   │   ├── index.json
+│   │   │   ├── index.wxml
+│   │   │   ├── index.wxss
+│   │   │   ├── modal
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.json
+│   │   │   │   ├── index.wxml
+│   │   │   │   └── index.wxss
+│   │   │   └── post
+│   │   │       ├── formDesign
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.json
+│   │   │       │   ├── index.wxml
+│   │   │       │   └── index.wxss
+│   │   │       ├── index.js
+│   │   │       ├── index.json
+│   │   │       ├── index.wxml
+│   │   │       └── index.wxss
+│   │   └── test
+│   │       ├── test.js
+│   │       ├── test.json
+│   │       ├── test.wxml
+│   │       └── test.wxss
+│   ├── sitemap.json
+│   └── utils
+│       ├── config.js
+│       ├── log.js
+│       ├── setting.js
+│       ├── tools
+│       │   ├── Encrypt
+│       │   │   ├── aes.js
+│       │   │   ├── main.js
+│       │   │   ├── md5.js
+│       │   │   └── sha1.js
+│       │   ├── amap-wx.js
+│       │   ├── app_param.js
+│       │   ├── netWork
+│       │   │   ├── apiMap.js
+│       │   │   ├── axios.js
+│       │   │   ├── env.js
+│       │   │   ├── redis.js
+│       │   │   └── token.js
+│       │   ├── param.js
+│       │   ├── permission.js
+│       │   └── wx.js
+│       └── util.js
+├── project.config.json
+└── tree.txt
+
+98 directories, 420 files
