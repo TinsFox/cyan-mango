@@ -39,6 +39,12 @@ Page({
     this.setData({
       showDrawer:!this.data.showDrawer
     })
+    this.putExamHistory()
+  },
+  cancelModal(){
+    this.setData({
+      showDrawer:!this.data.showDrawer
+    })
   },
   navBack() {
     wx.navigateBack()
@@ -83,6 +89,13 @@ Page({
             wx.navigateBack()
           }
         }
+      })
+    }else if(res.error_code==0){
+      console.log('本学期成绩',res.data)
+      this.setData({
+        grade:res.data,
+        loading:false,
+        hasGrade:true,
       })
     }
     else{

@@ -7,22 +7,15 @@
 	<button>
 		<image bindtap='showItem' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
 	</button>
-	<!-- <button open-type="share">
-		<image class='share-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/share.svg'></image>
-	</button> -->
 </view>
 
-<!-- <view class="DrawerClose" bindtap="showItem">
-			<text class="cuIcon-pullleft text-red"></text>
-</view> -->
-<!-- <image bindtap='showItem' class='post-icon' mode='widthFix' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/showItem.svg'></image> -->
 
 <template name="itemList" >
 
 	<view class="cu-bar bg-white solid-bottom margin-top-xl animation-slide-bottom ">
 		<view class="padding bg-white">
 			<view class="flex flex-wrap">
-				<view class="basis bg-{{color[index]}} margin-xs padding-sm radius text-center" wx:for="{{sem_list}}" data-xnd="{{item.xnd}}" data-xqd="{{item.xqd}}" bindtap="getGradeDatail">{{item.xnd}}年第{{item.xqd}}学期</view>
+				<view class="basis bg-{{color[index]}} margin-xs padding-sm radius text-center" wx:for="{{sem_list}}" wx:key="index" data-xnd="{{item.xnd}}" data-xqd="{{item.xqd}}" bindtap="getGradeDatail">{{item.xnd}}年第{{item.xqd}}学期</view>
 			</view>
 			<view style='color:grey;font-size:70%;margin:20rpx;text-align: center;'>成绩数据仅供参考，请以官网为准</view>
 		</view>
@@ -66,7 +59,7 @@
 						</view>
 					</view>
 					<!-- 课程成绩循环 -->
-					<view class='grade-cell' wx:for="{{grade.score}}" >
+					<view class='grade-cell' wx:for="{{grade.score}}" wx:key="index">
 						<view bindtap="showDetail" id="{{index}}">
 							<view class='son-part part1'>
 								<view style='flex:1.5'>{{item.course}}</view>
