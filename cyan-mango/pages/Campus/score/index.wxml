@@ -3,9 +3,9 @@
 <loading loading="{{loading}}" text="请稍后"></loading>
 
 <!-- 悬浮图标 -->
-<view>
+<view bindtap='showItem'>
 	<button>
-		<image bindtap='showItem' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
+		<image  class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/学年.svg'></image>
 	</button>
 </view>
 
