@@ -42,9 +42,7 @@ Page({
     this.putExamHistory()
   },
   cancelModal(){
-    this.setData({
-      showDrawer:!this.data.showDrawer
-    })
+    
   },
   navBack() {
     wx.navigateBack()
