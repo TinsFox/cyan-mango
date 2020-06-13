@@ -78,26 +78,30 @@
             <view class='value'>{{item.classroom}}</view>
           </view>
           <view class='detail-item'>
-            <view class='key'>周数</view>
-            <view class='value'>{{item.weeks}}</view>
+            <view class='key'>时间</view>
+            <view class='value'>{{item.time}}</view>
           </view>
           <view class='detail-item'>
             <view class='key'>节数</view>
-            <view class='value'>{{item.course_time}} {{item.which_day}}</view>
+            <view class='value'>第{{item.start}}-{{item.end}}节</view>
           </view>
           <view class='detail-item'>
             <view class='key'>教师</view>
             <view class='value'>{{item.teacher}}</view>
           </view>
-          <view class='detail-item' wx:if="{{item.check_type!=null}}">
+          <view class='detail-item'>
+            <view class='key'>周数</view>
+            <view class='value'>{{item.weeks}}</view>
+          </view>
+          <!-- <view class='detail-item' wx:if="{{item.check_type!=null}}">
             <view class='key'>考核</view>
             <view class='value'>{{item.check_type}}</view>
           </view>
           <view class='detail-item' wx:if="{{item.credit!=null}}">
             <view class='key'>学分</view>
             <view class='value'>{{item.credit}}</view>
-          </view>
-        </view>
+          </view> -->
+        </view> 
       </swiper-item>
     </swiper>
     <!-- <view class='operate'>

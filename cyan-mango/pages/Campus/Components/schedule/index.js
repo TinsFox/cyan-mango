@@ -167,6 +167,7 @@ Component({
           if (that.data.kbList.indexOf(item) != id) detail.push(item)
         }
       })
+      detail[0]['time'] = Data.timeLine[Number(detail[0].start) - 1]
       this.setData({
         detail: detail,
         showDetail: true,

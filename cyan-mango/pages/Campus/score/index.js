@@ -8,7 +8,6 @@ Page({
 
   data: {
     showDrawer:false,
-    showDetail:false,
     loading:true,
     hasGrade:false,
     hideSyncTip: true,
@@ -20,7 +19,7 @@ Page({
     grade:'',
     sem_list:[],
     color:["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink", "gradual-d","gradual-c"],
-    flagColor:["#666666","#e54d42","#fbbd08","#8dc63f","#0081ff","#39b54a"]
+    flagColor: ["#DCDCDC", "#FA8072", "#FFFBE5", "#D8BFD8", "#AFEEEE","#98FB98"]
   },
   confirm(){
     this.putExamHistory()
@@ -33,6 +32,7 @@ Page({
     this.setData({
       showDetail:true,
       detail:this.data.grade.score[index]
+
     })
   },
   showItem(){
@@ -59,7 +59,7 @@ Page({
     let res=await grade.postGrade(data)
     console.log('成绩',res)
     this.setData({
-      grade:res.data,
+      grade:this.score_sort(res.data),
       hasGrade:true,
       loading:false,
       showDrawer:false
@@ -86,7 +86,7 @@ Page({
     }else if(res.error_code==0){
       console.log('本学期成绩',res.data)
       this.setData({
-        grade:res.data,
+        grade:this.score_sort(res.data),
         loading:false,
         hasGrade:true,
       })
@@ -141,7 +141,41 @@ Page({
       })
     }
   },
+  score_sort(data) {
+    let score = data.score;
+    for(var i=0; i < score.length; i++){
+      let min = i;
+      
+      for(var j = i+1; j < score.length; j++){
+        let n = Number(score[min].grade);
+        let m = Number(score[j].grade)
+        if(isNaN(n)){
+          if (score[min].grade == '不及格') n = 50;
+          else if (score[min].grade == '及格') n = 65;
+          else if (score[min].grade == '中等') n = 75;
+          else if (score[min].grade == '良好') n = 85;
+          else if (score[min].grade == '优秀') n = 95;
+          else n = 0;
+        }
+        if(isNaN(m)){
+          if (score[j].grade == '不及格') m = 50;
+          else if (score[j].grade == '及格') m = 65;
+          else if (score[j].grade == '中等') m = 75;
+          else if (score[j].grade == '良好') m = 85;
+          else if (score[j].grade == '优秀') m = 95;
+          else m = 0;
+        }
+        if ( n > m) {
+          min = j;
+        }
 
+      }
+      let temp = score[i];
+      score[i] = score[min];
+      score[min] = temp;
+    }
+    return data;
+  },
   onLoad: function (options) {
 
   },

@@ -1,5 +1,5 @@
 
-<view class="out-cell" style="margin-left:{{(course.weekday-1)*100}}rpx;margin-top:{{(course.start-1)*125}}rpx;height:{{course.last*125}}rpx;z-index:{{course.last}}">
+<view class="out-cell" style="margin-left:{{(course.weekday-1)*100}}rpx;margin-top:{{(course.start-1)*125}}rpx;height:{{(course.end - course.start) * 250}}rpx;z-index:{{course.end}}">
 
   <view class="inner-cell" style="background-color:{{colors[course.color]}}">
     <view class="course">{{course.course}}</view>

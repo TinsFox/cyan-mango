@@ -88,6 +88,11 @@
   padding: 10rpx;
 }
 
+/* 控制不同成绩显示的背景颜色 */
+/* .grade-cell.level-3{
+  background-color: pink;
+} */
+
 .son-part.part1 {
   font-size: 105%;
   font-weight: bold;

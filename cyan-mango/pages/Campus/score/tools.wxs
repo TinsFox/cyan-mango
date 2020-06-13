@@ -1,0 +1,8 @@
+var turn_number = function (data) {
+  var new_type = NaN;
+  new_type = Number(data);
+  return isNaN(new_type);
+};
+module.exports = {
+  turn_number: turn_number,
+};
