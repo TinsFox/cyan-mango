@@ -96,12 +96,8 @@
 .son-part.part1 {
   font-size: 105%;
   font-weight: bold;
-  color: rgba(34, 31, 31, 0.70);
 }
 
-.son-part.part2 {
-  color: gray;
-}
 
 .schedule {
   animation: fadeInDown 0.8s;
