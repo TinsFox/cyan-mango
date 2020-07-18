@@ -251,7 +251,7 @@ Component({
     },
     viewUpdate() {
       let course = wx.getStorageSync('course')
-      if (course != "" || exp != "") {
+      if (course != "") {
         let kbList = course == "" ? [] : course
         this.setData({
           kbList: kbList

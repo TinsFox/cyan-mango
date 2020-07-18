@@ -58,7 +58,7 @@
             </view>
           </view>
           <!-- 课程成绩循环 -->
-          <view class='grade-cell' style="background-color:{{flagColor[item.level]}};" wx:for="{{grade.score}}" wx:key="index">
+          <view class='grade-cell margin-tb-sm' style="background-color:{{flagColor[item.level]}};" wx:for="{{grade.score}}" wx:key="index">
             <view bindtap="showDetail" id="{{index}}">
               <view class='son-part part1'>
                 <view style='flex:1.5;color:{{color[item.level]}};'>{{item.course}}</view>

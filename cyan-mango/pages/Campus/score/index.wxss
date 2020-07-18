@@ -74,10 +74,10 @@
 .grade-cell {
   border-top: #ddd solid 2rpx;
   display: flex;
-  border-radius: 5px;
+  border-radius: 15px;
   flex-direction: column;
   padding: 10rpx 0rpx;
-  height: 150rpx;
+  height: 160rpx;
 }
 
 .grade-cell .son-part {
