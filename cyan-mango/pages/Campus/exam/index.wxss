@@ -1,39 +1,71 @@
 page {
-  background-color: #f7f7de;
+  background-color: #fff;
 }
 
 .page {
-  margin: 15rpx 40rpx;
   text-align: center;
   font-size: 105%;
 }
 
-.body {
-  padding: 30rpx 0rpx;
-  border-radius: 40rpx;
-  background-color: white;
-}
-
 .base-info {
-  margin: 10rpx;
-  padding: 0rpx 0rpx 30rpx 0rpx;
-  color: #18b3eb;
-  font-size: 105%;
-  border-bottom: 1px solid #ddd;
+  height: 25%;
+  width: 100%;
+  color: #fff;
+  
+  font-weight:bold;
+  margin-bottom: 50rpx;
+}
+.base-info .text-lg{
+  font-size: 125%;
 }
 
 .exam-list {
-  margin: 0rpx 20rpx;
-  padding: 20rpx;
+  margin: 20rpx;
+  height: 40vw;
   color: rgba(34, 31, 31, 0.70);
-  border-bottom: 1px dashed #ddd;
+  border-radius: 50rpx;
+  margin-top: 25rpx;
+  background-color: white;
 }
 
 .course {
-  font-size: 105%;
+  font-size: 115%;
   font-weight: bold;
   color: rgba(34, 31, 31, 0.70);
+  text-align: center;
+  margin-top: 15rpx;
+  padding: 18rpx 0;
+  border-bottom: 3px solid #ddd;
+  border-radius: 15rpx 15rpx 25rpx 25rpx;
+  
 }
+
+.row{
+  display: flex;
+  /* flex-direction: row; */
+}
+
+.exam-date-time, .exam-location{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 35rpx;
+}
+.exam-date-time{
+  flex: 1;
+  text-align: left;
+}
+.exam-location{
+  flex: 1;
+  text-align: left;
+}
+
+.exam-date-time view, .exam-location view{
+  flex: 1;
+  margin-top: 10rpx;
+  padding: 5rpx;
+}
+
 .time {
   font-size: 100%;
   font-weight: bold;

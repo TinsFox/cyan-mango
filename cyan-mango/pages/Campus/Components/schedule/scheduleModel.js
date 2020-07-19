@@ -23,4 +23,6 @@ class courseModel {
   }
 }
 
+
+
 export { courseModel };

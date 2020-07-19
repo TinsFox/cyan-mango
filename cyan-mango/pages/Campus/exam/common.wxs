@@ -1,0 +1,17 @@
+var random = function(array){
+    var index = Math.floor((Math.random() * array.length));
+    return index;
+}
+
+var compute_time = function(date, time){
+    var cur_date = getDate();
+    var date = getDate(date+' ' + time.slice(0, 5) + ':00');
+    var milliseconds =  date.getTime() - cur_date.getTime();
+    if(milliseconds <= 0) return 0;
+    else return (milliseconds / 1000 / (3600 * 24)).toFixed(1);
+}
+
+module.exports = {
+    'random': random,
+    'day': compute_time,
+}

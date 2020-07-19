@@ -1,5 +1,8 @@
 // pages/index/app/exam/exam.js
-import { examModel } from './exam'
+
+import {
+  examModel
+} from './exam'
 const app = getApp()
 var exam = new examModel()
 Page({
@@ -9,34 +12,25 @@ Page({
    */
   data: {
     hideNotice: true,
-    list: {
-      "exam": [
-        {
-          "address": "教室",
-          "class": "课程",
-          "code": "课程代码",
-          "date": "2019-10-25",
-          "seat": "座位号",
-          "time": "09:00-11:00",
-          "weekday": "第9周周5"
-        }
-      ],
-      "xnd": "2018-2019",
-      "xqd": "1"
-    }
+    loading: false,
+    msg: '',
+    list: {},
+    title_color: ["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink", "gradual-d", "gradual-c"],
+    bg_color: ['bg-pink', 'bg-brown', 'bg-yellow', 'bg-mauve', 'bg-cyan', 'bg-green', 'bg-blue', 'bg-red', 'bg-orange'],
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(!wx.$getPermission("education")){
+    if (!wx.$getPermission("education")) {
       wx.showModal({
         title: '提示',
         content: '教务系统未绑定',
-        confirmText:'去绑定',
-        cancelText:'返回',
-        success (res) {
+        confirmText: '去绑定',
+        cancelText: '返回',
+        success(res) {
           if (res.confirm) {
             wx.navigateTo({
               url: '/pages/Setting/login/index',
@@ -48,21 +42,33 @@ Page({
           }
         }
       })
-    }else{
+    } else {
       this._init()
     }
   },
   async _init() {
+    this.setData({
+      loading: true,
+    })
     let res = await exam.getInfo()
-    console.log(res)
-    if (res.error_code == 1) {
+
+    if (res.error_code == 0) {
       this.setData({
-        hideNotice: !this.data.hideNotice,
-        msg: res.msg
+        hideNotice: true,
+        list: res.data,
+        loading: false,
       })
-    }else{
-      this.data({
-        hideNotice: !this.data.hideNotice,
+    } else if (res.error_code == 1) {
+      this.setData({
+        hideNotice: false,
+        loading: false,
+        msg: '暂时无法查询学期考试信息'
+      })
+    } else {
+      this.setData({
+        hideNotice: false,
+        loading: false,
+        msg: res.msg
       })
     }
   },
@@ -85,7 +91,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      loading: false,
+    })
   },
 
   /**

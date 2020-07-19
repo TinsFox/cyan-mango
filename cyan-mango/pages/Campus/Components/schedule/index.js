@@ -38,31 +38,21 @@ Component({
 
   methods: {
     async getCourse(week) {
-      let postWeek = week ? week : utils.getSchoolWeek()
-      let res = await course.getCourse({
-        week: postWeek
-      })
+      // 获取课程表
+      // TODO
+      // let postWeek = week ? week : utils.getSchoolWeek()
+      let res = await course.getCourse({})
       console.log(res)
       if (res.error_code == 0) {
-        if (!res.data) {
-          /* 没数据情况 */
-          wx.showToast({
-            title: '服务器错误，暂时无法获取到数据',
-            icon: 'none',
-            duration: 2500,
-            mask:true
-          })
-        }
-        else{
-          this.setData({
-            kbList: res.data.schedule
-          })
-          wx.setStorageSync('course', this.data.kbList)
-        }
+          // this.setData({
+          //   kbList: res.data.schedule
+          // })
+          // wx.setStorageSync('course', this.data.kbList)
+        
       }
       else if (res.error_code == 1){
         wx.showToast({
-          title: '暂时无法获取到课程表数据，可能教务系统还未发布数据',
+          title: '暂时无法获取到课程表数据',
           icon: 'none',
           duration: 2500,
           mask: true
@@ -251,7 +241,7 @@ Component({
     },
     viewUpdate() {
       let course = wx.getStorageSync('course')
-      if (course != "" || exp != "") {
+      if (course != "") {
         let kbList = course == "" ? [] : course
         this.setData({
           kbList: kbList
