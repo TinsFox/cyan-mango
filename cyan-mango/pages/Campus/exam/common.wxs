@@ -3,12 +3,34 @@ var random = function(array){
     return index;
 }
 
+/**
+ * 考试倒计时处理
+ * @param date 日期
+ * @param time 考试时间
+ */
 var compute_time = function(date, time){
-    var cur_date = getDate();
-    var date = getDate(date+' ' + time.slice(0, 5) + ':00');
-    var milliseconds =  date.getTime() - cur_date.getTime();
-    if(milliseconds <= 0) return 0;
-    else return (milliseconds / 1000 / (3600 * 24)).toFixed(1);
+    var today = getDate();
+    var stop_time = getDate(date+' ' + time.slice(0, 5) + ':00');
+
+    // 时间差--秒
+    var time = (stop_time.getTime() - today.getTime()) / 1000;
+
+    if(time <= 0) return 0;
+
+    var day = Math.floor(time / (60 * 60 * 24));
+
+    // 剩余的秒数 -- 时
+    time = time % (60 * 60 * 24);
+    
+    var hour = Math.ceil(time / (60 * 60));
+    console.log(hour)
+    // time = time % (60 * 60);
+    // var minute = Math.floor(time / 60)
+
+    // var second = parseInt(time % 60);
+
+    // return day + '天' + hour + '时' + minute + '分' + second + '秒';
+    return day + ' 天 ' + hour + ' 时'
 }
 
 module.exports = {

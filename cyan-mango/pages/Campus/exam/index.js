@@ -15,7 +15,7 @@ Page({
     loading: false,
     msg: '',
     list: {},
-    title_color: ["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink", "gradual-d", "gradual-c"],
+    title_color: ["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink"],
     bg_color: ['bg-pink', 'bg-brown', 'bg-yellow', 'bg-mauve', 'bg-cyan', 'bg-green', 'bg-blue', 'bg-red', 'bg-orange'],
   },
 
@@ -51,7 +51,7 @@ Page({
       loading: true,
     })
     let res = await exam.getInfo()
-
+    console.log(res)
     if (res.error_code == 0) {
       this.setData({
         hideNotice: true,

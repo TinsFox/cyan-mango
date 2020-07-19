@@ -145,10 +145,11 @@ Page({
     }
     if (res.error_code == 0) {
       let semester = await grade.semester()
-      
       this.setData({
         loading: false,
-        sem_list: semester.data.sort((a,b)=>{if(a.xnd==b.xnd) return b.xqd - a.xqd})
+        sem_list: semester.data.sort((a,b)=>{
+          return a.xnd == b.xnd ? parseInt(b.xqd) - parseInt(a.xqd): parseInt(b.xnd.split('-')[0]) - parseInt(a.xnd.split('-')[0])  
+        })
       })
       // wx.setStorageSync('semester', semester.data)
     } else {

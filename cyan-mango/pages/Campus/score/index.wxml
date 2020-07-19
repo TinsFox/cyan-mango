@@ -164,11 +164,11 @@
 
 		<view style='padding:10rpx'>
       <view class='detail-item solid-top'>
-          <view class='key'>平均绩点</view>
+          <view class='key text-red'>平均绩点</view>
           <view class='value'>{{grade.average_point}}</view>
       </view>
 			<view class='detail-item solid-top'>
-				<view class='key'>学期总学分</view>
+				<view class='key text-red'>学期总学分</view>
 				<view class='value'>{{grade.course_credit}}</view>
 			</view>
 			<view class='detail-item solid-top'>

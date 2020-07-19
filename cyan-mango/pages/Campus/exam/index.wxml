@@ -22,14 +22,17 @@
 				<view class='course {{bg_color[common.random(bg_color)]}} light shadow-wrap'>{{item.course}}</view>
 				<view class="row">
 					<view class='exam-date-time'>
-						<view>日期：{{item.date}}</view>
-						<view>时间：{{item.time}}</view>
-						<view>星期：{{item.weekday}}</view>
+						<view class="text-black">日期：{{item.date}}</view>
+						<view class="text-black">时间：{{item.time}}</view>
+						<view class="text-black">星期：{{item.weekday}}</view>
 					</view>
 					<view class='exam-location'>
-						<view>教室：A1-101</view>
-						<view>座位号：13</view>
-						<view>剩余时间：{{common.day(item.date, item.time)}} 天</view>
+						<view class="text-black">教室：{{item.classroom}}</view>
+						<view class="text-black">座位号：{{item.seat}}</view>
+						<view class="cuIcon-timefill">
+							<text wx:if="{{!common.day(item.date, item.time)}}" class="text-grey"> 已结束</text>
+							<text wx:else class="text-red"> {{common.day(item.date, item.time)}}</text>
+						</view>
 					</view>
 				</view>
 			</view>
