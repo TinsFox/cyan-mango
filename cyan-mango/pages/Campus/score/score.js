@@ -8,13 +8,13 @@ class GradeModel{
   async score(){
     return app.http.axios({
       url:app.API.currentScore,
-      method:'GET'
+      method: "GET"
     })
   }
   async semester(){
     return app.http.axios({
       url:app.API.semester,
-      method:'GET'
+      method: "GET"
     })
   }
 

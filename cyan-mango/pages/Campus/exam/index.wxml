@@ -1,4 +1,4 @@
-<wxs module="common" src="./common.wxs"></wxs>
+<wxs module="common" src="../common.wxs"></wxs>
 <navBar title="考试安排" />
 <loading loading="{{loading}}" text="数据加载中..." />
 <view wx:if="{{!hideNotice}}">

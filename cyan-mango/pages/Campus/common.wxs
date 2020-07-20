@@ -33,7 +33,15 @@ var compute_time = function(date, time){
     return day + ' 天 ' + hour + ' 时'
 }
 
+var error = function(code, status=403){
+    if (parseInt(code) < parseInt(status)) return false;
+    else return true;
+}
+
+
 module.exports = {
     'random': random,
     'day': compute_time,
+    'error': error,
+    
 }

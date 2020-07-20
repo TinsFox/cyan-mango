@@ -1,6 +1,5 @@
 {
     "pages": [
-        "pages/Campus/index",
         "pages/Life/index",
         "pages/Campus/calendar/index",
         "pages/Campus/emptyRoom/index",
@@ -23,7 +22,8 @@
         "pages/activity/index",
         "pages/activity/post/index",
         "pages/activity/post/formDesign/index",
-        "pages/Setting/agreement/agreement"
+        "pages/Setting/agreement/agreement",
+        "pages/Campus/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

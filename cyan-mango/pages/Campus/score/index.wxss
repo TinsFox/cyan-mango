@@ -72,15 +72,24 @@
 /* 科目成绩 */
 
 .grade-cell {
-  border-top: #ddd solid 2rpx;
+  /* border-top: #ddd solid 2rpx; */
   display: flex;
   border-radius: 5px;
   flex-direction: column;
   padding: 10rpx 0rpx;
   height: 150rpx;
+  margin-top: 10rpx;
+}
+
+.grade-cell .space{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .grade-cell .son-part {
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -220,12 +229,14 @@
   font-size: 120%;
   font-weight: bold;
   color: rgb(50, 50, 50);
+  text-align: center;
 }
 
 .detail-item {
   display: flex;
   flex-direction: row;
   padding: 5rpx;
+  
 }
 
 .detail-item .key {

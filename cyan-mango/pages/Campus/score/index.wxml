@@ -1,3 +1,4 @@
+<wxs module="common" src="../common.wxs"></wxs>
 <wxs src="tools.wxs" module="tool" />
 <navBar title="我的成绩" />
 <loading loading="{{loading}}" text="数据加载中..." />
@@ -29,16 +30,10 @@
 	</view>
 </template>
 
-<!-- <block wx:if="{{!current_term && !hasGrade}}">
-	<view>
-		<template is="itemList" data="{{sem_list,color}}"/>
-	</view>
-</block> -->
-
 <!-- 本学期成绩 -->
 <block wx:if="{{hasGrade}}">
 	<view class='page'>
-		<view class="bg-{{color[grade_index]}}} padding radius text-center shadow-blur" 
+		<view class="bg-{{grade_index ? color[grade_index] : color[common.random(color)]}} padding radius text-center shadow-blur" 
     bindtap="showModal"
     style="margin-top:-20rpx; margin-left:-5rpx; margin-bottom: 25rpx;"
     >
@@ -46,41 +41,15 @@
 			<view class="margin-top-sm text-ABC" style="font-size:120%;font-weight: bold;">第 {{grade.xqd}} 学期</view>
 		</view>
 
-		<!-- 成绩统计 -->
-		<!-- <view class='sum-grade '>
-      <view style='flex:1'>
-        {{grade.average_point}}
-        <view class='bottom-text'>平均绩点</view>
-      </view>
-      <view style='flex:1'>
-        {{grade.course_credit}}
-        <view class='bottom-text'>总学分</view>
-      </view>
-    </view> -->
 
 		<view wx:if="{{grade}}" style='height:{{height}}rpx'>
 			<view wx:key="index">
 				<view class='sem-cell'>
-					<!-- <view style='height:250rpx'> -->
-					<!-- <view style='color:gray;padding:15rpx;font-size:110%'>
-              {{grade.xnd}}学年 第{{grade.xqd}}学期
-            </view>
-            <view class='sem-grade'>
-              <view style='flex:1'>
-                {{grade.general_course_credit+grade.electives_credit+grade.compulsory_course_credit}}
-                <view class='bottom-text'>已修学分</view>
-              </view>
-              <view style='flex:1'>
-                {{grade.average_point}}
-                <view class='bottom-text'>学期绩点</view>
-              </view>
-            </view> -->
-					<!-- </view> -->
-
+					
 					<!-- 各科成绩 -->
 					<!-- 课程成绩循环 -->
-					<view class='grade-cell {{bg_color[item.level]}} light' wx:for="{{grade.score}}" wx:key="index">
-						<view bindtap="showDetail" id="{{index}}">
+					<view class='grade-cell radius shadow-warp {{bg_color[item.level]}} light' wx:for="{{grade.score}}" wx:key="index">
+						<view class="space" bindtap="showDetail" id="{{index}}">
 							<view class='son-part part1 text-lg'>
 								<view style='flex:1.5;'>{{item.course}}</view>
 								<view style='flex:1;'>{{item.grade}}</view>
@@ -102,12 +71,24 @@
  title="{{modal_title}}"
  confirmText="往年成绩"
  cancelText="返回"
+ width="85%"
  bind:cancel="navBack"
  bind:confirm="confirm"
 >
 	<view class="margin-lr-xl">
+      <view>
+        <text class="{{!common.error(tip_error) ? 'cuIcon-warn': 'cuIcon-roundclose'}} text-red margin-sm"></text>
+        <text class="text-gray text-lg">{{ tip_content }}</text>
+      </view>
+
+	  <view class="margin-top">
+          <text class='cuIcon-question text-yellow margin-sm'></text>
+          <text class="text-gray text-lg">成绩数据仅供参考，请以教务系统为准。</text>
+        </view>
+    </view>
+	<!-- <view class="margin-lr-xl">
 		<text class="text-gray" style='color:grey;font-size:70%;margin:20rpx'>成绩数据仅供参考，请以官网为准</text>
-	</view>
+	</view> -->
 </modal>
 
 <drawer-modal show='{{showDrawer}}'>
