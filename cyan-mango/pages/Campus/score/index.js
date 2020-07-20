@@ -25,7 +25,7 @@ Page({
     grade: '',
     sem_list: [],
     bg_color: ['bg-grey', 'bg-brown', 'bg-yellow', 'bg-mauve', 'bg-cyan', 'bg-green'],
-    color: ["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink", "gradual-d", "gradual-c"],
+    color: ["gradual-red", "gradual-orange", "gradual-green", "gradual-blue", "gradual-purple", "gradual-pink"],
     // flagColor: ["#f43f3b", "#FA8072", "#FFFBE5", "#D8BFD8", "#AFEEEE", "#AFEEEE"]
   },
   confirm() {
@@ -102,7 +102,7 @@ Page({
     } else if (res.error_code == 1) {
       this.setData({
         current_term: false,
-        modal_title: '暂时还未到本学期成绩',
+        modal_title: '暂时还未查询到本学期成绩',
         loading: false
       })
     } else if (res.error_code == 4003) {
@@ -151,7 +151,9 @@ Page({
       let semester = await grade.semester()
       this.setData({
         loading: false,
-        sem_list: semester.data.sort((a,b)=>{if(a.xnd==b.xnd) return b.xqd - a.xqd})
+        sem_list: semester.data.sort((a,b)=>{
+          return a.xnd == b.xnd ? parseInt(b.xqd) - parseInt(a.xqd): parseInt(b.xnd.split('-')[0]) - parseInt(a.xnd.split('-')[0])  
+        })
       })
       wx.setStorageSync('semester', this.data.sem_list)
     } else {

@@ -26,7 +26,7 @@
 
 </view>
 
-
+<!-- 个人中心 -->
 <drawer-modal show='{{showDrawer}}'>
 	<view slot="left" catchtap="catchtap" class='dawer'>
 		<view class='avator' bindtap='tapDrawer' id='navToBind'>

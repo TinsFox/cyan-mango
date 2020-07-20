@@ -18,7 +18,7 @@ const test = {
 
 // 生产环境
 const prod = {
-  baseUrl: 'https://send.tinsfox.com/cyan-mongo-api',
+  baseUrl: 'http://am.tinsfox.com:8085/cyan-mongo-api',
   ws: 'wss://prod.qq.cn',
   h5: 'https://prod.qq.cn',
   label: 'prod'
@@ -32,6 +32,7 @@ const tinsfox={
 
 module.exports = {
   // host: tinsfox
-  host: test
+  // host: test
+  host: prod
   // host:dev
 }

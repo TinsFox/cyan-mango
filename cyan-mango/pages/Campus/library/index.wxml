@@ -38,10 +38,3 @@
 		<view>借阅记录</view>
 	</view>
 </view>
-<!-- 
-<view class='visit'>
-  <view>
-    <text>大学城总馆：</text>
-    <text style='color:#1f73c7;'>{{lib.master}}</text> 人次
-  </view>
-</view> -->

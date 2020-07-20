@@ -7,33 +7,31 @@
 	},
 	"setting": {
 		"urlCheck": false,
-		"scopeDataCheck": false,
-		"coverView": true,
 		"es6": false,
+		"enhance": true,
 		"postcss": true,
-		"compileHotReLoad": false,
 		"preloadBackgroundData": false,
 		"minified": false,
-		"autoAudits": false,
 		"newFeature": true,
-		"uglifyFileName": true,
-		"uploadWithSourceMap": true,
-		"useIsolateContext": true,
+		"coverView": true,
 		"nodeModules": true,
-		"enhance": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
 		"bundle": true,
-		"packNpmManually": false,
-		"packNpmRelationList": []
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
@@ -166,6 +164,20 @@
 					"name": "pages/Life/fleaMarket/detail/index",
 					"pathName": "pages/Life/fleaMarket/detail/index",
 					"query": "itemId=202006121952048565059",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "首页",
+					"pathName": "pages/Campus/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "考试",
+					"pathName": "pages/Campus/exam/index",
+					"query": "",
 					"scene": null
 				}
 			]
