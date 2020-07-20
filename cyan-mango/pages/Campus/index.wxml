@@ -95,11 +95,9 @@
 		</view>
 		<view class='item' bindtap='tapDrawer' id='navToAbout'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/about.svg'></image>
-			<view>关于课表</view>
+			<view>关于</view>
 			<image src='{{arrowUrl}}'></image>
 		</view>
-
-		
 
 	</view>
 </drawer-modal>
@@ -114,4 +112,3 @@
 		<image class='share-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/share.svg'></image>
 	</button>
 </view>
-

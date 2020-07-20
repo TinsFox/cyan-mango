@@ -78,14 +78,7 @@
   flex-direction: column;
   padding: 10rpx 0rpx;
   height: 150rpx;
-  margin-top: 10rpx;
-}
-
-.grade-cell .space{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 5rpx;
 }
 
 .grade-cell .son-part {

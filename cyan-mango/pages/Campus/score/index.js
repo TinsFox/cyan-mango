@@ -60,6 +60,7 @@ Page({
       grade: this.data.grade,
     })
   },
+  // 打开侧边栏
   showItem() {
     if (this.data.hide_page || !this.load_semester){
       this.putExamHistory()

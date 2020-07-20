@@ -51,6 +51,7 @@ class axios {
               if(!noRefetch){
                 this._refetch(param)
               }
+              console.log('token expired')
             }else if(res.data.error_code===5000){
               wx.showToast({
                 title: '网络异常，请稍后再试',

@@ -5,7 +5,17 @@
 		<text class="text-gray">功能正在开发中，敬请期待...</text>
 	</view>
 </view>
-
+<view wx:if="{{type=='dev' && mode!='prod'}}">
+<navBar hideTitle navColor="{{navColor}}" hideTitle hideBackBtn>
+	<view class="flex justify-between align-center" style="width:100%">
+		<view class="text-bold text-lg">青芒派</view>
+	</view>
+</navBar>
+	<view class="flex flex-direction align-center margin-xl">
+		<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/weihu.svg"></image>
+		<text class="text-gray">功能正在开发中，敬请期待...</text>
+	</view>
+</view>
 <view wx:if="{{type=='eval'&& mode!='prod'}}">
 	<navBar title="选课评价"></navBar>
 	<view style='margin-top:300rpx;display:flex;justify-content:center;align-item:center'>

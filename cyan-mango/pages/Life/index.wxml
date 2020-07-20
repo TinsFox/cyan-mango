@@ -1,6 +1,6 @@
 <block wx:if="{{isInit}}">
 
-	<fake mode="{{mode}}" type="default"></fake>
+	<fake mode="{{mode}}" type="dev"></fake>
 
 	<block wx:if="{{mode=='prod'}}">
 		<block wx:if="{{mode=='prod'}}">
