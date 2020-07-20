@@ -21,17 +21,12 @@
 <!-- 登录教务系统 -->
 <view class='page'>
 <view class='exchange'>
-    <!-- <image mode='widthFix' class='icon' src='https://shaw-1256261760.cos.ap-guangzhou.myqcloud.com/gzhu-pi/images/icon/gzhu-icon-red.png'></image> -->
-    <image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>
-    <!-- <image mode='widthFix' class='icon' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image> -->
+    <image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>    <!-- <image mode='widthFix' class='icon' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image> -->
   </view>
 	<!-- 登录绑定 -->
 	<view hidden='{{hideLogin}}'>
-
 		<view style='font-weight:bold; text-shadow: 5rpx 25rpx 10rpx #ddd;font-size:150%'>系统登录</view>
-
 		<view style='font-weight:bold; text-shadow: 5rpx 25rpx 10rpx #ddd;font-size:80%;margin-top:5rpx' wx:if="{{!bindStatus}}">您已绑定！</view>
-
 		<view class='login-form'>
 			<form bindsubmit='formSubmit'>
 				<view>
@@ -53,7 +48,7 @@
 				<button class='login-btn' hover-class="btn-hover" bindtap='untieBind' style='background-color:grey' hidden="{{bindStatus}}">系统解绑</button>
 				<!-- <button class='login-btn' hover-class="btn-hover" bindtap='test' style='background-color:grey'>绑定测试</button> -->
 				<button class='login-btn' hidden='{{hideLoginBtn2}}' style='background-color: #ddd;box-shadow:0rpx 0rpx 0rpx 0rpx #ddd'>登录中...</button>
-				<view style='color:grey;font-size:60%;margin:10rpx'>22:00-07:00教务系统通道关闭，将无绑定</view>
+				<view style='color:grey;font-size:60%;margin:10rpx'>23:00-07:00教务系统通道关闭，将无绑定</view>
 			</form>
 		</view>
 
@@ -88,3 +83,26 @@
 		<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/kefu.svg'></image>
 	</button>
 </modal>
+
+
+<!-- <modal
+ show="{{!current_term}}"
+ title="{{modal_title}}"
+ confirmText="确定"
+ cancelText="取消"
+ width="85%"
+ bind:cancel="navBack"
+ bind:confirm="confirm"
+>
+	<view class="margin-lr-xl">
+      <view>
+        <text class="{{!common.error(tip_error) ? 'cuIcon-warn': 'cuIcon-roundclose'}} text-red margin-sm"></text>
+        <text class="text-gray text-lg">{{ tip_content }}</text>
+      </view>
+
+	  <view class="margin-top">
+          <text class='cuIcon-question text-yellow margin-sm'></text>
+          <text class="text-gray text-lg">成绩数据仅供参考，请以教务系统为准。</text>
+        </view>
+    </view>
+</modal> -->

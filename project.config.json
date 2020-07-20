@@ -30,7 +30,7 @@
 		},
 		"bundle": true,
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -178,6 +178,19 @@
 					"name": "考试",
 					"pathName": "pages/Campus/exam/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Campus/index",
+					"pathName": "pages/Campus/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录页",
+					"pathName": "pages/Setting/login/index",
 					"scene": null
 				}
 			]

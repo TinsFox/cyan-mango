@@ -70,15 +70,17 @@
 }
 
 /* 科目成绩 */
-
 .grade-cell {
-  /* border-top: #ddd solid 2rpx; */
-  display: flex;
   border-radius: 5px;
-  flex-direction: column;
   padding: 10rpx 0rpx;
   height: 150rpx;
-  margin-top: 5rpx;
+  margin-top: 10rpx;
+}
+
+.space{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .grade-cell .son-part {

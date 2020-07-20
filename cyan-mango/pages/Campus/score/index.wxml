@@ -40,7 +40,7 @@
 <!-- 本学期成绩 -->
 <block wx:if="{{hasGrade}}">
 	<view class='page'>
-		<view class="bg-{{grade_index ? color[grade_index] : color[common.random(color)]}} padding radius text-center shadow-blur" 
+		<view class="bg-{{grade_index ? color[grade_index] : color[0]}} padding radius text-center shadow-blur" 
     bindtap="showModal"
     style="margin-top:-20rpx; margin-left:-5rpx; margin-bottom: 25rpx;"
     >
@@ -93,9 +93,6 @@
           <text class="text-gray text-lg">成绩数据仅供参考，请以教务系统为准。</text>
         </view>
     </view>
-	<!-- <view class="margin-lr-xl">
-		<text class="text-gray" style='color:grey;font-size:70%;margin:20rpx'>成绩数据仅供参考，请以官网为准</text>
-	</view> -->
 </modal>
 
 <drawer-modal show='{{showDrawer}}'>
@@ -146,7 +143,7 @@
 
 <modal custom="true" show="{{showModal}}" bind:cancel="cancelModal">
 	<view style='height:700rpx'>
-    <view class='course bg-{{color[grade_index]}}'>
+    <view class='course bg-{{color[grade_index] ? color[grade_index] : color[0]}}'>
 			<view style="font-size: 120%; font-weight: bold;color:#ffffff">成绩统计</view>
 		</view>
 

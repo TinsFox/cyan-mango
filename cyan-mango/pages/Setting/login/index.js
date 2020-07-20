@@ -187,7 +187,7 @@ Page({
   },
   onShow(){
     var time = new Date()
-    if (time.getHours() >= 22 || time.getHours() < 7) {
+    if (time.getHours() >= 23 || time.getHours() < 7) {
       wx.showModal({
         title: '提示',
         content:  '当前时间段无法绑定',
