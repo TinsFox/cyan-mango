@@ -39,9 +39,7 @@ Component({
   methods: {
     async getCourse(week) {
       let postWeek = week ? week : utils.getSchoolWeek()
-      let res = await course.getCourse({
-        week: postWeek
-      })
+      let res = await course.getCourse()
       console.log(res)
       if (res.error_code == 0) {
         if (!res.data) {

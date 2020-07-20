@@ -74,10 +74,11 @@
 .grade-cell {
   border-top: #ddd solid 2rpx;
   display: flex;
-  border-radius: 15px;
+  border-radius: 5px;
   flex-direction: column;
   padding: 10rpx 0rpx;
-  height: 160rpx;
+  height: 150rpx;
+  margin-top: 5rpx;
 }
 
 .grade-cell .son-part {
@@ -96,12 +97,8 @@
 .son-part.part1 {
   font-size: 105%;
   font-weight: bold;
-  color: rgba(34, 31, 31, 0.70);
 }
 
-.son-part.part2 {
-  color: gray;
-}
 
 .schedule {
   animation: fadeInDown 0.8s;
