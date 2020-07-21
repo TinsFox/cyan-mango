@@ -187,3 +187,24 @@
 		</view>
 	</view>
 </modal>
+
+<modal
+ show="{{!bind}}"
+ title="提示"
+ confirmText="去绑定"
+ cancelText="返回"
+ width="85%"
+ bind:cancel="redirectHomePage"
+ bind:confirm="redirectLogin"
+>
+	<view class="margin-lr-xl">
+      <view>
+        <text class="cuIcon-roundclose text-red margin-sm"></text>
+        <text class="text-gray text-lg">访问失败，暂无访问该页面的权限。</text>
+      </view>
+	  <view class="margin-top">
+          <text class='cuIcon-question text-orange margin-sm'></text>
+          <text class="text-gray text-lg">绑定教务系统，解锁相关权限。</text>
+        </view>
+    </view>
+</modal>

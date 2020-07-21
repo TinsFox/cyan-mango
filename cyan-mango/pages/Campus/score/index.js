@@ -15,7 +15,7 @@ Page({
     modal_title: '成绩查询',
     tip_content: '',
     tip_error: 0,
-
+    bind: true,
     grade_index: '',
     showDrawer: false,
     loading: false,
@@ -41,7 +41,7 @@ Page({
 
   // 绑定的模态弹窗
   confirm() {
-    this.putExamHistory()
+    this.putExamHistory(true)
   },
 
   showDetail(e) {
@@ -102,7 +102,7 @@ Page({
    * 其它则是获取历史记录。
    * 数据更新，将抓取教务系统的成绩信息并存到数据库
    */
-  async putExamHistory() {
+  async putExamHistory(modal = false) {
     /**
      * 弹窗提示数据加载
      */
@@ -110,23 +110,34 @@ Page({
       loading: true
     })
 
-    let spider = await grade.putExamHistory();
-    if (spider.error_code == 0) {
-      /**
-       * 数据获取成功
-       */
-      let semester = await grade.semester();
-      if (semester.error_code == 0) {
+    /**
+     * 模态窗触发，将会获取semester，为空才会更新数据
+     */
+    if (modal) {
+      let res = await grade.semester();
+      if (res.error_code == 0) {
+        if (!res.data) {
+          /**
+           * 无任何数据，更新数据库
+           */
+          this.scoreSpider();
+        }
+        else{
+          /**
+           * 加载学期记录，存在着当本学期可以查询成绩时，用户尚第一次使用，将会不会自动更新数据库（手动）
+           */
+          this.setData({
+            loading: false,
+            showDrawer: true,
+            sem_list: this.drawer_sort(res.data),
+          });
+          this.load_semester = true;
+        }
+      }
+      else{
         /**
-         * 重新获取用户的成绩记录
+         * 服务器异常情况
          */
-        this.setData({
-          loading: false,
-          sem_list: this.drawer_sort(semester.data),
-          showDrawer: true,
-        });
-        this.load_semester = true;
-      } else {
         this.setData({
           loading: false,
           current_term: false,
@@ -134,49 +145,17 @@ Page({
           tip_content: "服务器发生异常，获取历年成绩信息失败，请联系管理员处理。"
         })
       }
-    } 
-    else if (spider.error_code == 1) {
-      /**
-       * 大一新生，未产生任何数据的情况
-       */
-      this.setData({
-        loading: false,
-        tip_error: 1,
-        current_term: false,
-        tip_content: "你还未参加任何的考试项目，无法获取到成绩信息。"
-      })
-    } 
-    else {
-      this.setData({
-        loading: false,
-        tip_error: 500,
-        current_term: false,
-        tip_content: "服务器发生异常，获取历年成绩信息失败，请联系管理员处理。"
-      })
     }
+    else{
+      this.getSemester(true);
+    }
+
+
   },
 
   /**
    * 小程序页面生命周期函数
    */
-
-  onLoad: function (options) {
-    /**
-     * 页面加载时执行，判断权限
-     */
-
-    let rv = wx.getStorageSync('permission');
-    if (!rv.education) {
-      this.access = false;
-    } else {
-      this.access = true;
-      this.setData({
-        loading: true,
-      });
-      this.getScore();
-    }
-  },
-
   onHide() {
     /**
      * 页面隐藏时执行
@@ -189,17 +168,31 @@ Page({
   },
 
   onShow: function () {
+    /**
+     * 页面显示执行
+     */
+    let rv = wx.getStorageSync('permission');
+    if (!rv.education) {
+      this.access = false;
+    } else {
+      this.access = true;
+      this.setData({
+        loading: true,
+      });
+      this.getScore();
+    }
+
     if (this.hide_page && !this.access) {
       this.hide_page = true;
-      this.redirect();
+      this.redirectToLogin();
     }
   },
   onReady: function () {
     /**
-     * 页面初次渲染被执行
+     * 页面初次渲染被执行，只有页面加载后才触发
      */
     if (!this.access) {
-      this.redirect();
+      this.redirectToLogin();
     }
   },
 
@@ -242,6 +235,7 @@ Page({
    * 获取学期的记录
    */
   async getSemester(show_drawer = false) {
+    console.log(show_drawer);
     let res = await grade.semester();
     if (res.error_code == 0) {
       this.setData({
@@ -251,9 +245,11 @@ Page({
       });
       this.load_semester = true;
     } else {
-      this.load_semester = false;
       this.setData({
         loading: false,
+        current_term: false,
+        tip_error: 500,
+        tip_content: "服务器发生异常，获取历年成绩信息失败，请联系管理员处理。"
       })
     }
   },
@@ -296,26 +292,37 @@ Page({
     });
   },
 
-  redirect() {
-    wx.showModal({
-      title: '提示',
-      content: '未绑定教务系统，无法访问',
-      confirmText: '去绑定',
-      cancelText: '返回',
-      success(res) {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/Setting/login/index',
-          })
-        } else if (res.cancel) {
-          wx.switchTab({
-            url: "/pages/Campus/index",
-          })
-        }
-      }
+  /**
+   * 页面跳转提示
+   */
+  redirectToLogin() {
+    this.setData({
+      bind: false,
+    })
+  },
+  /**
+   * 跳转登录页面
+   * @param {*} e 
+   */
+  redirectLogin(e) {
+    wx.navigateTo({
+      url: '/pages/Setting/login/index',
+    })
+  },
+  /**
+   * 跳转到首页
+   * @param {*} e 
+   */
+  redirectHomePage(e) {
+    wx.switchTab({
+      url: "/pages/Campus/index",
     })
   },
 
+  /**
+   * 成绩排序
+   * @param {*} data 
+   */
   score_sort(data) {
     let score = data.score;
     for (var i = 0; i < score.length; i++) {
@@ -352,10 +359,63 @@ Page({
     return data;
   },
 
+  /**
+   * 侧栏排序
+   * @param {*} arry 
+   */
   drawer_sort(arry) {
     return arry.sort((a, b) => {
       return a.xnd == b.xnd ? parseInt(b.xqd) - parseInt(a.xqd) : parseInt(b.xnd.split('-')[0]) - parseInt(a.xnd.split('-')[0])
     });
+  },
+
+  /**
+   * 更新数据库
+   */
+  async scoreSpider() {
+    let spider = await grade.putExamHistory();
+    if (spider.error_code == 0) {
+      /**
+       * 数据获取成功
+       */
+      let semester = await grade.semester();
+      if (semester.error_code == 0) {
+        /**
+         * 重新获取用户的成绩记录
+         */
+        this.setData({
+          loading: false,
+          sem_list: this.drawer_sort(semester.data),
+          showDrawer: true,
+        });
+        this.load_semester = true;
+      } else {
+        this.setData({
+          loading: false,
+          current_term: false,
+          tip_error: 500,
+          tip_content: "服务器发生异常，获取历年成绩信息失败，请联系管理员处理。"
+        })
+      }
+    } else if (spider.error_code == 1) {
+      /**
+       * 大一新生，未产生任何数据的情况
+       */
+      this.setData({
+        loading: false,
+        tip_error: 1,
+        current_term: false,
+        tip_content: "你还未参加任何的考试项目，无法获取到成绩信息。"
+      })
+    } else {
+      this.setData({
+        loading: false,
+        tip_error: 500,
+        current_term: false,
+        tip_content: "服务器发生异常，获取历年成绩信息失败，请联系管理员处理。"
+      })
+    }
+
   }
 
 })

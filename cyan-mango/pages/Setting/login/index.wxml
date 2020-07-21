@@ -1,4 +1,3 @@
-
 <navBar title="绑定学号"></navBar>
 
 <!-- <view>
@@ -20,9 +19,9 @@
 
 <!-- 登录教务系统 -->
 <view class='page'>
-<view class='exchange'>
-    <image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>    <!-- <image mode='widthFix' class='icon' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image> -->
-  </view>
+	<view class='exchange'>
+		<image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image> <!-- <image mode='widthFix' class='icon' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image> -->
+	</view>
 	<!-- 登录绑定 -->
 	<view hidden='{{hideLogin}}'>
 		<view style='font-weight:bold; text-shadow: 5rpx 25rpx 10rpx #ddd;font-size:150%'>系统登录</view>
@@ -64,45 +63,71 @@
 	</view>
 </view>
 
-<!-- 授权设置弹窗 -->
-<modal custom="true" show="{{show}}">
-	<view class='weixin'>
-		<image src='/assets/weixin.svg' style='width:100rpx;height:100rpx'></image>
-	</view>
-	<button open-type="getUserInfo" bindgetuserinfo='userInfoHandler' type='primary' style='margin: 50rpx'>微信授权</button>
-</modal>
-
-<!-- 授权设置弹窗 -->
-<modal custom="true" show="{{showGuide}}">
-	<view class='guide'>
-		<view style='font-weight:blod;margin:20rpx'>提示</view>
-		<view>小程序的部分功能依赖于微信授权，如授权失败可退出重试/手动授权/联系开发者。</view>
-		<view style='margin:20rpx 0;color:red'>手动：右上角菜单→→关于青芒派→→菜单→→设置→→允许</view>
-	</view>
-	<button class='concat' open-type="contact">
-		<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/kefu.svg'></image>
-	</button>
-</modal>
-
-
-<!-- <modal
- show="{{!current_term}}"
- title="{{modal_title}}"
- confirmText="确定"
- cancelText="取消"
- width="85%"
- bind:cancel="navBack"
- bind:confirm="confirm"
->
+<!-- 微信授权设置弹窗 -->
+<modal show="{{show}}" title="微信授权" confirm="{{false}}" cancel="{{false}}" width="80%" bind:confirm="userInfoHandler">
 	<view class="margin-lr-xl">
-      <view>
-        <text class="{{!common.error(tip_error) ? 'cuIcon-warn': 'cuIcon-roundclose'}} text-red margin-sm"></text>
-        <text class="text-gray text-lg">{{ tip_content }}</text>
-      </view>
+		<view class='weixin'>
+			<image src='/assets/weixin.svg' style='width:100rpx;height:100rpx'></image>
+		</view>
+		<view class="text-center">
+			<text class="cuIcon-question text-orange margin-sm"></text>
+			<text class="text-gray text-lg ">解锁小程序更多的功能 </text>
+			<text class="cuIcon-emoji text-gray">。</text>
+		</view>
+	</view>
+	<view slot="btn" class="wx-btn">
+		<button class="cbtn" plain="{{true}}" style="color:rgba(7,17,27,0.6)" bindtap="cancel">取消</button>
+		<button class="abtn" style="color:#13b5f5" open-type="getUserInfo" bindgetuserinfo='userInfoHandler' plain="{{true}}">授权</button>
+	</view>
+</modal>
 
-	  <view class="margin-top">
-          <text class='cuIcon-question text-yellow margin-sm'></text>
-          <text class="text-gray text-lg">成绩数据仅供参考，请以教务系统为准。</text>
-        </view>
-    </view>
-</modal> -->
+
+<!-- 授权失败设置弹窗 -->
+<modal show="{{showGuide}}" title="微信授权失败" confirm="{{false}}" cancel="{{false}}" width="80%" bind:confirm="userInfoHandler">
+	<view class="margin-lr-xl">
+		<view class="text-left">
+			<text class="cuIcon-question text-orange margin-sm"></text>
+			<text class="text-gray text-lg ">小程序的部分功能依赖于微信授权，如授权失败可退出重试/手动授权/联系开发者。</text>
+		</view>
+		<view class="text-left margin-top">
+			<text class="cuIcon-notice text-orange margin-sm"></text>
+			<text class="text-gray text-lg">手动：右上角菜单 → 关于青芒派 → 菜单 → 设置 → 允许。</text>
+		</view>
+	</view>
+	<view slot="btn" class="wx-btn">
+		<button class="cbtn" plain="{{true}}" style="color:rgba(7,17,27,0.6)" bindtap="cancel">取消</button>
+		<button class="cbtn concat" plain="{{true}}" style="color:rgba(7,17,27,0.6)" open-type="contact">
+			<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/kefu.svg'></image>
+		</button>
+		<button class="abtn" style="color:#13b5f5" plain="{{true}}" bindtap="redirectHomePage">首页</button>
+
+	</view>
+</modal>
+
+
+<modal show="{{forbbiden}}" title="提示" cancel="{{false}}" confirmText="返回首页" width="85%" bind:confirm="redirectHomePage">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="cuIcon-warn text-orange margin-sm"></text>
+			<text class="text-gray text-lg">该域名在当前时间段禁止访问。</text>
+		</view>
+		<view class="margin-top">
+			<text class="cuIcon-notice text-orange margin-sm"></text>
+			<text class="text-gray text-lg">23:00-07:00 教务系统通道关闭，暂时无法绑定。</text>
+		</view>
+	</view>
+</modal>
+
+<!-- 登录提示 -->
+<modal show="{{login_tip}}" title="登录提示" cancelText="取消" confirmText="确定" width="85%" bind:confirm="{{false ? 'redirectHomePage' : 'redirectBackPage'}}">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="{{ !error ? 'cuIcon-roundcheck text-green': 'cuIcon-roundclose text-red' }} margin-sm"></text>
+			<text class="text-gray text-lg">{{tip_content}}。</text>
+		</view>
+		<view wx:if="{{!error}}" class="margin-top">
+			<text class="cuIcon-unlock text-green margin-sm"></text>
+			<text class="text-gray text-lg">{{success_content}}</text>
+		</view>
+	</view>
+</modal>

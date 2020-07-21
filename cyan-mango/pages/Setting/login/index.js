@@ -1,9 +1,20 @@
 var app = getApp()
-import { Bind } from './bind'
+import {
+  Bind
+} from './bind'
 var bind = new Bind()
-import {checkPermission} from "../../../utils/tools/permission"
+import {
+  checkPermission
+} from "../../../utils/tools/permission"
 Page({
   data: {
+    forbbiden: false,
+    login_tip: false,
+    tip_content: '',
+    error: 0,
+    success_content: '',
+    flag: false,
+
     hideLoginBtn1: false,
     hideLoginBtn2: true,
     hideLogin: false,
@@ -16,42 +27,49 @@ Page({
     isAuthorized: app.globalData.isAuthorized,
     dialog: false
   },
-  checkPermission(){
-    var that=this
-    checkPermission().then(res=>{
-      console.log(res)
+  checkPermission() {
+    var that = this
+    checkPermission().then(res => {
+      console.log("CheckPermission: ", res)
       that.setData({
         bindStatus: !res.education
       })
     })
   },
   async untieBind() {
-    let res = await bind.untieBind({ type: 1 })
-    console.log(res)
-    if(res.error_code==0){
+    let res = await bind.untieBind({
+      type: 1
+    })
+    if (res.error_code == 0) {
       wx.removeStorage({
         key: 'course',
       })
-      wx.showModal({
-        title: '登录提示',
-        content:  res.msg,
-        success (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-            wx.reLaunch({
-              url: '/pages/Campus/index',
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
+      // wx.showModal({
+      //   title: '登录提示',
+      //   content: res.msg,
+      //   success(res) {
+      //     if (res.confirm) {
+      //       console.log('用户点击确定')
+      //       wx.reLaunch({
+      //         url: '/pages/Campus/index',
+      //       })
+      //     } else if (res.cancel) {
+      //       console.log('用户点击取消')
+      //     }
+      //   }
+      // })
       this.checkPermission()
     }
+    this.setData({
+      login_tip: true,
+      flag: true,
+      error: res.error_code,
+      tip_content: res.msg,
+      success_content: '您将会失去部分页面的访问权限。'
+    });
   },
 
   onLoad: function (options) {
-    console.log('微信授权',app.globalData.isAuthorized)
     this.setData({
       show: !app.globalData.isAuthorized
     })
@@ -97,7 +115,7 @@ Page({
       type: this.data.JWC === true ? 1 : 2
     }
 
-    if (account.sid == "" || account.pwd == ""||account.sid.length!=12) {
+    if (account.sid == "" || account.pwd == "" || account.sid.length != 12) {
       wx.showToast({
         title: '请检查用户名/密码',
         icon: 'none',
@@ -110,14 +128,13 @@ Page({
   },
   // 获取微信用户信息
   async userInfoHandler(data) {
-    // console.log(data)
+    console.log(data)
     let that = this
     if (data.detail.errMsg == "getUserInfo:ok") {
       app.globalData.isAuthorized = true
-      let userinfo= data.detail.userInfo
-      let wxInfo=await bind.wxinfo(userinfo)
+      let userinfo = data.detail.userInfo
+      let wxInfo = await bind.wxinfo(userinfo)
       wx.setStorageSync('wxInfo', userinfo)
-      console.log(wxInfo)
       that.setData({
         show: false
       })
@@ -143,31 +160,38 @@ Page({
     let that = this
     that.dialogHander()
     let res = await bind.bindSys(data)
-    console.log(res)
+    // console.log(res)
     let code = res.error_code
-    if (code === 0 || code ===5200) {      //绑定成功
+    if (code === 0 || code === 5200) { //绑定成功
       this.checkPermission()
-    } else if (code === 5020) {      // 密码错误
+    } else if (code === 5020) { // 密码错误
       that.setData({
         dialog: true,
-        msg: res.msg
+        msg: res.msg,
       })
     }
-    this.dialogHander()
-    wx.showModal({
-      title: '登录提示',
-      content:  res.msg,
-      success (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          wx.reLaunch({
-            url: '/pages/Campus/index',
-          })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+    this.dialogHander();
+    this.setData({
+      login_tip: true,
+      error: res.error_code,
+      tip_content: res.msg,
+      success_content: '成功解锁与教务系统有关的功能。',
+      flag: false,
+    });
+    // wx.showModal({
+    //   title: '登录提示',
+    //   content: res.msg,
+    //   success(res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //       wx.reLaunch({
+    //         url: '/pages/Campus/index',
+    //       })
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
   },
   // dialog 控制
   dialogHander() {
@@ -185,31 +209,65 @@ Page({
       wx.navigateBack()
     }, 2000);
   },
-  onShow(){
+  onShow() {
     var time = new Date()
     if (time.getHours() >= 23 || time.getHours() < 7) {
-      wx.showModal({
-        title: '提示',
-        content:  '当前时间段无法绑定',
-        confirmText:'返回',
-        showCancel:false,
-        success (res) {
-          if (res.confirm) {
-            wx.navigateBack({
-              complete: (res) => {},
-            })
-          } else if (res.cancel) {
-            wx.navigateBack({
-              complete: (res) => {},
-            })
-          }
-        }
-      })
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '当前时间段无法绑定',
+      //   confirmText: '返回',
+      //   showCancel: false,
+      //   success(res) {
+      //     if (res.confirm) {
+      //       wx.navigateBack({
+      //         complete: (res) => {},
+      //       })
+      //     } else if (res.cancel) {
+      //       wx.navigateBack({
+      //         complete: (res) => {},
+      //       })
+      //     }
+      //   }
+      // })
       this.setData({
-        disabled:true
+        disabled: true,
+        forbbiden: true,
       })
-      return
     }
     this.checkPermission()
   },
+
+  /**
+   * 取消授权
+   * @param {*} e Event
+   */
+  cancel(e){
+    this.setData({
+      show: false,
+      showGuide: false,
+    })
+  },
+
+  /**
+   * 授权失败，页面跳转到首页
+   * @param {*} e 
+   */
+  redirectHomePage(e){
+    wx.switchTab({
+      url: "/pages/Campus/index",
+    })
+  },
+  /**
+   * 跳转回原页面
+   * @param {*} e 
+   */
+  redirectBackPage(e){
+    wx.navigateBack({
+      fail: ()=>{
+        wx.switchTab({
+          url: '/pages/Campus/index',
+      })
+    },
+    });
+  }
 })

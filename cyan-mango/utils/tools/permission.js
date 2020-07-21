@@ -21,6 +21,7 @@ export const checkPermission=()=>{
         }else{
           let Permission=res.data.data
           Config.set("permission",Permission)
+          wx.setStorageSync('permission', Permission)
           resolve(Permission)
         }
       }
