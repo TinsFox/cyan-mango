@@ -1,43 +1,75 @@
-<navBar hideTitle="{{true}}" navColor="rgba(240, 240, 240, 0.8)">
-  <form bindsubmit='formSubmit'>
-    <view class='search-box'>
-      <input name="query" placeholder='{{query}}'></input>
-      <button formType="submit" class='search-btn' hover-class='search-btn-hover' hover-stay-time='0.2s'>
-        <image src='https://cos.ifeel.vip/gzhu-pi/images/icon/search-white.svg'></image>
-      </button>
-    </view>
-  </form>
-</navBar>
+<!-- <wxs module='common' src="../../common.wxs"></wxs> -->
+<navBar title="图书馆"></navBar>
+
+<!-- 搜索框 -->
+<form bindsubmit='formSubmit'>
+	<view class="cu-bar search bg-white fixed" style="top: {{nav_height}}px">
+		<view class="search-form round">
+			<text class="cuIcon-search"></text>
+			<input type="text" name="query" placeholder="图书检索" confirm-type="search"></input>
+		</view>
+		<view class="action">
+			<button class="cu-btn bg-green shadow-blur round" formType="submit" hover-stay-time='0.2s'>检索</button>
+		</view>
+	</view>
+</form>
+
 
 <view class='cu-load load-modal' wx:if="{{loading}}">
-  <view class='cuIcon-emojifill text-orange'></view>
-  <view class='gray-text'>🔍搜索中</view>
+	<view class='cuIcon-emojifill text-orange'></view>
+	<view class='gray-text'>🔍搜索中</view>
 </view>
 
-<view wx:for="{{books}}" wx:key="index" class='book' bindtap='navToDetail' id='{{index}}' data-wl_id="{{item.wlid}}" data-primary_id="{{item.primary_id}}" data-image="{{item.image}}">
-  <view class='book-name'>{{index+1}}、{{item.name}}</view>
+<view id="book-list" style="margin-top:120rpx">
+	<view wx:for="{{books}}" wx:key="index" class='book' bindtap='navToDetail' id='{{index}}' data-wl_id="{{item.wlid}}" data-primary_id="{{item.primary_id}}" data-image="{{item.image}}">
+		<view class='book-name'>{{index+1}}、{{item.name}}</view>
+		<view class='book-info'>
+			<view class='cover'>
+				<image mode='aspectFit' src='{{item.image.length!=0?item.image:noCover}}'></image>
+			</view>
 
-  <view class='book-info'>
-    <view class='cover'>
-      <image mode='aspectFit' src='{{item.image.length!=0?item.image:noCover}}'></image>
-    </view>
+			<view class='info text-black'>
+				<view class='author'>作者：{{item.author}}</view>
+				<view class='pub margin-top-xs'>出版社：{{item.publish}}</view>
+				<view class='pub margin-top-xs'>分类：{{item.category}}</view>
+				<view class='call-No margin-top-xs'>索书号：{{item.index_number}}</view>
+				<view class='collection margin-top-xs'>
+					<view style='background:#f8e8e8;color:#a3816a'>馆藏复本数：{{item.collection}}</view>
+					<view style='background:#defcfc;color:#72dd1b'>可借数：{{item.borrowable}}</view>
+				</view>
+			</view>
 
-    <view class='info'>
-      <view class='author'>{{item.author}}</view>
-      <view class='pub'>{{item.publisher}}</view>
-      <view class='call-No'>索书号：{{item.index_number}}</view>
-      <view class='collection'>
-        <view style='background:#f8e8e8;color:#a3816a'>馆藏复本数：{{item.collection}}</view>
-        <view style='background:#defcfc;color:#72dd1b'>可借数：{{item.borrowable}}</view>
-      </view>
-    </view>
-
-  </view>
+		</view>
+	</view>
 </view>
 
-<view class='switch-page'>
-  <view>第 {{page}} 页</view>
-  <image bindtap='loadMore' id='next' mode='widthFix' src='/assets/back.png' style='transform:rotate(-90deg);'></image>
-  <view>共 {{pages}} 页</view>
+<!-- <view wx:if="{{!bool}}" class='switch-page'>
+	<view>第 {{page}} 页</view>
+	<image bindtap='loadMore' id='next' mode='widthFix' src='/assets/back.png' style='transform:rotate(-90deg);'></image>
+	<view>共 {{pages}} 页</view>
+</view> -->
+<!-- <view style='font-size:55%;color:grey;text-align:center;margin-bottom:10rpx'>由于豆瓣api的限制，可能经常会无法获取封面</view> -->
+
+<view id="switch-btn">
+	<button class="cu-btn top bg-green button-hover" plain="{{true}}" bindtap="scrollPageToTop">
+		<view class="cuIcon-fold text-white" style="font-size:150%"></view>
+	</button>
+
+	<button class="cu-btn bottom bg-green button-hover" plain="{{true}}" bindtap="scrollPageToBottom">
+		<view class="cuIcon-unfold text-white" style="font-size:150%"></view>
+	</button>
 </view>
-<view style='font-size:55%;color:grey;text-align:center;margin-bottom:10rpx'>由于豆瓣api的限制，可能经常会无法获取封面</view>
+
+<!-- 检索失败提示 -->
+<modal show="{{tip}}" title="图书馆" cancelText="取消" confirmText="图书馆" width="85%" bind:confirm="redirectToLibrary">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="cuIcon-roundclose text-red margin-sm"></text>
+			<text class="text-gray text-lg">{{tip_content}}</text>
+		</view>
+		<view wx:if="{{tip_error}}" class="margin-top">
+			<text class="{{tip_error == 1 ? 'cuIcon-warn text-orange': 'cuIcon-roundclose text-red'}} margin-sm"></text>
+			<text class="text-gray text-lg">{{tip_msg}}</text>
+		</view>
+	</view>
+</modal>

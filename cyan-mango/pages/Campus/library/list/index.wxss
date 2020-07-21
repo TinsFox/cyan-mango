@@ -58,6 +58,7 @@ button::after {
   border-radius: 20rpx;
   background: white;
   box-shadow: 3rpx 3rpx 5rpx 5rpx #f2f2f2f2;
+
 }
 
 .book-name {
@@ -92,8 +93,8 @@ button::after {
 }
 
 .info .author {
-  font-size: 80%;
-  color: grey;
+  font-size: 90%;
+  /* color: grey; */
   width: 450rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -101,8 +102,8 @@ button::after {
 }
 
 .info .pub {
-  font-size: 80%;
-  color: grey;
+  font-size: 90%;
+  /* color: grey; */
   width: 450rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -110,7 +111,7 @@ button::after {
 }
 
 .call-No {
-  margin: 15rpx 0;
+  /* margin: 15rpx 0; */
   color: rgb(141, 83, 83);
   font-size: 90%;
 }
@@ -144,4 +145,37 @@ button::after {
 .switch-page image {
   width: 70rpx;
   height: 70rpx;
+}
+
+#switch-btn {
+  position: fixed;
+  bottom: 30rpx;
+  right: 15rpx;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#switch-btn .top,
+#switch-btn .bottom {
+  flex: 1;
+  width: 65%;
+  line-height: 65rpx;
+  border-radius: 0;
+  border: 0 solid white;
+  background-color: #39b54a;
+}
+
+#switch-btn .top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#switch-btn .bottom{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

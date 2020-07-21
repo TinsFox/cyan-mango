@@ -167,7 +167,6 @@
   flex-direction: row;
   line-height: 90rpx;
   border-top: 2rpx solid rgba(7, 17, 27, 0.1);
-
 }
 
 .wx-btn .cbtn, .wx-btn .abtn {

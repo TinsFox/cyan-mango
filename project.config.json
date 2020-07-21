@@ -191,6 +191,27 @@
 					"id": -1,
 					"name": "登录页",
 					"pathName": "pages/Setting/login/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图书搜索详情",
+					"pathName": "pages/Campus/library/list/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图书搜索",
+					"pathName": "pages/Campus/library/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图书-首页",
+					"pathName": "pages/Campus/library/index",
 					"scene": null
 				}
 			]

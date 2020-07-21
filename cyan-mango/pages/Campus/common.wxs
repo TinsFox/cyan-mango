@@ -38,10 +38,29 @@ var error = function(code, status=403){
     else return true;
 }
 
+var turn_px_to_rpx = function(px){
+   
+    var sys = wx.getSystemInfoSync();
+    return parseInt((750 * px) / sys.windowWidth);
+}
+
+var turn_rpx_to_px = function(rpx){
+    var sys = wx.getSystemInfoSync();
+    return parseInt((sys.windowWidth * rpx) / 750);
+}
+
+var bool = function(data){
+    console.log(data)
+    if(data) return true;
+    return false;
+}
 
 module.exports = {
     'random': random,
     'day': compute_time,
     'error': error,
+    'turn_rpx_to_px': turn_rpx_to_px,
+    'turn_px_to_rpx': turn_px_to_rpx,
+    'bool': bool,
     
 }

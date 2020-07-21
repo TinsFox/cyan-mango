@@ -14,14 +14,14 @@
 <view class='book'>
   <view class='book-name'>{{book.name}}
   </view>
-  <view class='book-info'>
+  <view class='book-info margin-top'>
     <view class='cover'>
       <image mode='aspectFit' src='{{info.image==""?noCover:info.image}}'></image>
     </view>
-    <view class='info'>
+    <view class='info text-brown'>
       <view>
         <text>著者：</text>
-        <text style='color:rgb(44, 43, 43)'>{{book.author}}</text>
+        <text>{{book.author}}</text>
       </view>
       <view>
         <text>出版：</text>{{book.publish}}</view>
