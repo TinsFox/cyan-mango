@@ -34,7 +34,7 @@
 	</view>
 </block>
 
-<modal show="{{!bind}}" title="提示" confirmText="去绑定" cancelText="返回" width="85%" bind:cancel="redirectHomePage" bind:confirm="redirectLogin">
+<modal show="{{!bind}}" title="考试查询" confirmText="去绑定" cancelText="返回" width="85%" bind:cancel="redirectHomePage" bind:confirm="redirectLogin">
 	<view class="margin-lr-xl">
 		<view>
 			<text class="cuIcon-roundclose text-red margin-sm"></text>
@@ -47,13 +47,13 @@
 	</view>
 </modal>
 
-<modal show="{{!hideNotice}}" title="提示" confirmText="返回首页" width="85%" cancel="{{false}}" bind:confirm="redirectHomePage">
+<modal show="{{!hideNotice}}" title="考试查询" confirmText="返回首页" width="85%" cancel="{{false}}" bind:confirm="redirectHomePage">
 	<view class="margin-lr-xl">
 		<view>
 			<text class="{{ !error ? 'cuIcon-warn text-orange': 'cuIcon-roundclose text-red' }} margin-sm"></text>
 			<text class="text-gray text-lg">{{tip}}</text>
 		</view>
-		<view wx:if="error" class="margin-top">
+		<view wx:if="{{error == '504' ? false : error}}" class="margin-top">
 			<text class="cuIcon-roundclose text-red margin-sm"></text>
 			<text class="text-gray text-lg">服务器发生异常，请联系管理员处理。</text>
 		</view>
