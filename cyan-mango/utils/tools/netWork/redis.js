@@ -15,7 +15,7 @@ export const redis_get_token =(key)=>{
   }
 }
 // 1.5小时失效
-export const redis_set_token = (key, value,expire_time = 10)=>{
+export const redis_set_token = (key, value,expire_time = 60*60*1.5)=>{
   let current_time = new Date()
   let data = {
     'data':value,

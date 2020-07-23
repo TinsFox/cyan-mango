@@ -2,6 +2,7 @@
 import { Token } from "./utils/tools/netWork/token";
 import { axios } from "./utils/tools/netWork/axios";
 import API from "./utils/tools/netWork/apiMap";
+import {checkPermission} from "./utils/tools/permission"
 require("./utils/tools/app_param");
 var Config = require("./utils/config");
 var token = new Token();
@@ -20,6 +21,7 @@ App({
          *调试模式开关
          */
         token.verify()
+        checkPermission()
         if (wx.cloud) {
             wx.cloud.init({
                 env: "rc-qrqw6",
@@ -29,7 +31,6 @@ App({
         Config.init();
         this.getAuthStatus();
         this.getAppParam();
-        
     },
     getAppParam() {
         let that = this;
