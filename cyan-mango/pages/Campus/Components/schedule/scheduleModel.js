@@ -11,7 +11,7 @@ class courseModel {
     return app.http.axios({
       url: app.API.schedule,
       method: 'POST',
-      data:data
+      data: data ? {'week':data}:{}
     })
   }
   // 获取教务系统的所有学期的考试时间，将索引数据库

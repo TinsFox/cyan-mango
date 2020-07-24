@@ -40,14 +40,14 @@ Component({
     async getCourse(week) {
       // 获取课程表
       // TODO
-      // let postWeek = week ? week : utils.getSchoolWeek()
-      let res = await course.getCourse({})
+      let postWeek = week ? week : utils.getSchoolWeek()
+      let res = await course.getCourse(postWeek)
       console.log(res)
       if (res.error_code == 0) {
-          // this.setData({
-          //   kbList: res.data.schedule
-          // })
-          // wx.setStorageSync('course', this.data.kbList)
+          this.setData({
+            kbList: res.data.schedule
+          })
+          wx.setStorageSync('course', this.data.kbList)
         
       }
       else if (res.error_code == 1){
