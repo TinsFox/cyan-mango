@@ -11,6 +11,8 @@ require("./utils/tools/app_param")
 var Config = require("./utils/config")
 var token = new Token()
 require("./utils/tools/wx")
+import { loginByWeixin } from '/services/user.js'
+
 App({
   API,
   http: new axios(),
@@ -20,12 +22,15 @@ App({
     bindStatus: undefined,
     nav: []
   },
+  login: function () {
+    return loginByWeixin()
+  },
   onLaunch: function () {
     /**
      *调试模式开关 
      */
-
-    token.verify()
+    this.login()
+    // token.verify()
     if (wx.cloud) {
       wx.cloud.init({
         env: 'rc-qrqw6',
@@ -44,7 +49,6 @@ App({
       })
       .then(res => {
         if (res.result.errMsg == 'collection.get:ok') {
-          console.log('debug:',res.result.data[0].data.debug)
           if (res.result.data[0].data.debug) {
             // debug模式控制
             wx.setEnableDebug({

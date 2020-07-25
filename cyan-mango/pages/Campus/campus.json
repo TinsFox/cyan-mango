@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nav":"/Components/nav/index",
+    "drawer-modal":"/Components/drawer-modal/index",
+    "schedule":"/pages/Campus/Components/schedule/index",
+    "dayCourse":"/pages/Campus/Components/schedule/dayCourse/dayCourse"
+  }
+}

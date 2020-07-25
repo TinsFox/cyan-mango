@@ -112,7 +112,7 @@ Page({
     navMenu().then(res => {
       console.log(res)
       this.setData({
-        iconList: res
+        iconList: res.nav
       })
     })
   },
@@ -120,7 +120,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    that.getAppParam()
   },
 
   /**
@@ -134,16 +135,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this
-    that.getAppParam()
-    checkPermission().then(res => {
-      wx.setStorageSync('permission', res)
-      console.log(res)
-      that.setData({
-        permission: res
-      })
-    })
-
+    
   },
 
   /**
