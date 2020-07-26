@@ -68,6 +68,7 @@ class axios {
             success: (res) => {
                 let statusCode = res.statusCode;
                 if (statusCode === 200) {
+                    console.log("Request: ", res.data)
                     if (res.data.error_code == 5040) {
                         if (!noRefetch) {
                         this._refetch(param);
