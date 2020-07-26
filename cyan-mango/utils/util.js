@@ -69,8 +69,7 @@ function setWeekDate(intervalWeeks = 0) {
 function getTodayCourse() {
   let weekday = new Date().getDay()
   let course = wx.getStorageSync("course")
-  let kbList = course == "" ? [] : course
-
+  let kbList = course ? course : []
   let todayCourse = []
   if (kbList) {
     kbList.forEach(function(item) {

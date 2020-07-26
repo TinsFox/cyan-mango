@@ -6,7 +6,7 @@
 	</view>
 </navBar>
 
-<schedule id='schedule' show="{{schedule}}"></schedule>
+<schedule id='schedule' show="{{schedule}}" bind:back="navBack"></schedule>
 
 <view hidden="{{schedule}}" class='ami'>
 	<!-- <official-account></official-account> -->

@@ -42,19 +42,16 @@ export const checkPermission = () => {
             method: "GET",
         });
         promise.then((value) => {
-            console.log("Permission: -->",value)
             if (value.error_code == 0) {
                 let Permission = value.data;
                 Config.set("permission", Permission);
                 wx.setStorageSync("permission", Permission);
                 resolve(Permission);
             } else {
-                console.log("失败")
                 reject(value.data);
             }
         });
     }).catch(reason=>{
-        console.log(reason)
         wx.showToast({
             title: '权限初始化失败。',
             icon: 'none',
