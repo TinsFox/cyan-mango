@@ -108,6 +108,9 @@ Page({
      * 其它则是获取历史记录。
      * 数据更新，将抓取教务系统的成绩信息并存到数据库
      */
+    putData(e){
+        this.putExamHistory(false)
+    },
     async putExamHistory(modal = false) {
         /**
          * 弹窗提示数据加载
@@ -115,7 +118,7 @@ Page({
         this.setData({
             loading: true,
         });
-
+        console.log(modal)
         /**
          * 模态窗触发，将会获取semester，为空才会更新数据
          */
@@ -153,7 +156,8 @@ Page({
                 });
             }
         } else {
-            this.getSemester(true);
+            // this.getSemester(true);
+            this.scoreSpider()
         }
     },
 
@@ -237,7 +241,6 @@ Page({
      * 获取学期的记录
      */
     async getSemester(show_drawer = false) {
-        console.log(show_drawer);
         let res = await grade.semester();
         if (res.error_code == 0) {
             this.setData({

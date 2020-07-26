@@ -31,5 +31,8 @@ const tinsfox={
 }
 
 module.exports = {
+  // host: tinsfox
+  // host: test
   host: prod
+  // host:dev
 }
