@@ -51,11 +51,11 @@
 <!-- <view style='font-size:55%;color:grey;text-align:center;margin-bottom:10rpx'>由于豆瓣api的限制，可能经常会无法获取封面</view> -->
 
 <view id="switch-btn">
-	<button class="cu-btn top bg-green button-hover" plain="{{true}}" bindtap="scrollPageToTop">
+	<button class="cu-btn top bg-green button-hover round" plain="{{true}}" bindtap="scrollPageToTop">
 		<view class="cuIcon-fold text-white" style="font-size:150%"></view>
 	</button>
 
-	<button class="cu-btn bottom bg-green button-hover" plain="{{true}}" bindtap="scrollPageToBottom">
+	<button class="cu-btn bottom bg-green button-hover round" plain="{{true}}" bindtap="scrollPageToBottom">
 		<view class="cuIcon-unfold text-white" style="font-size:150%"></view>
 	</button>
 </view>

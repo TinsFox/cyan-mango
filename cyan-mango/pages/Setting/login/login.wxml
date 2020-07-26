@@ -1,0 +1,119 @@
+<navBar title="绑定" />
+<view class='cu-load load-modal' wx:if="{{loading}}">
+	<view class='cuIcon-emojifill text-orange' />
+	<view class='gray-text'>数据同步中</view>
+</view>
+<view class="container">
+	<view class="tui-page-title">{{bindTitle}}</view>
+	<view class='exchange'>
+		<image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png' />
+	</view>
+	<view style="margin-top-xl">青芒派</view>
+	<view class='login-form'>
+		<form bindsubmit='formSubmit'>
+			<view>
+				<view class='form-item'>
+					<input class='input-content' name="username" type='number' placeholder="Username" cursor-spacing="120" bindinput="userName" />
+				</view>
+				<view class='form-item'>
+					<input class='input-content' name="password" password='true' placeholder="Password" cursor-spacing="120" bindinput="password" />
+				</view>
+			</view>
+			<view class="agree margin-top" bindtap="agree">
+				<radio checked="{{checked}}" />
+				<view class="margin-left-sm" style='font-size:75%'>
+					使用前请同意
+					<text bindtap='navToAgreement' style='color:#18b3eb'>《用户协议》</text>
+				</view>
+			</view>
+			<view style='color:grey;font-size:60%;margin:30rpx'>
+				22:00-08:00系统通道关闭，将无绑定
+			</view>
+		</form>
+	</view>
+	<view class="tui-btn-box">
+		<tui-button disabledGray="{{true}}" shadow="{{true}}" shape="circle" bindclick="login" disabled="{{parse.disabled(userName,password)}}" wx:if="{{!(auth.education && auth.library)}}">登录</tui-button>
+	</view>
+	<view class="tui-btn-box">
+		<tui-button disabledGray="{{true}}" shadow="{{true}}" type="white" shape="circle" bindtap='untieBind' data-bindType="1" wx:if="{{auth.education}}" style="margin: 50rpx 0rpx;">解绑教务系统</tui-button>
+	</view>
+	<view class="tui-btn-box">
+		<tui-button disabledGray="{{true}}" shadow="{{true}}" type="white" shape="circle" bindtap='untieBind' data-bindType="2" wx:if="{{auth.library}}" style="margin: 50rpx 0rpx;">解绑图书馆</tui-button>
+	</view>
+	<view class="tui-login-way">
+		<view hover-class="tui-opcity" hover-stay-time="150" bindtap="showOtherLogin">登录{{bindTitle==='教务系统'?'图书馆':'教务系统'}}</view>
+	</view>
+</view>
+<!-- 微信授权设置弹窗 -->
+<modal show="{{isAuthorized}}" title="微信授权" confirm="{{false}}" cancel="{{false}}" width="85%" bind:confirm="userInfoHandler">
+	<view class="margin-lr-xl">
+		<view class='weixin'>
+			<image src='/assets/weixin.svg' style='width:100rpx;height:100rpx' />
+		</view>
+		<view>
+			<text class="cuIcon-question text-orange margin-sm" />
+			<text class="text-gray text-lg ">解锁小程序更多的功能</text>
+			<text class="cuIcon-emoji text-gray">。</text>
+		</view>
+	</view>
+	<view slot="btn" class="wx-btn">
+		<button class="cbtn" plain="{{true}}" style="color:rgba(7,17,27,0.6)" bindtap="cancelAuth">
+			取消
+		</button>
+		<button class="abtn" style="color:#13b5f5" open-type="getUserInfo" bindgetuserinfo='userInfoHandler' plain="{{true}}">
+			授权
+		</button>
+	</view>
+</modal>
+<!-- 授权失败设置弹窗 -->
+<modal show="{{showGuide}}" title="微信授权失败" confirm="{{false}}" cancel="{{false}}" width="80%" bind:confirm="userInfoHandler">
+	<view class="margin-lr-xl">
+		<view class="text-left">
+			<text class="cuIcon-question text-orange margin-sm" />
+
+			<text class="text-gray text-lg ">小程序的部分功能依赖于微信授权，如授权失败可退出重试/手动授权/联系开发者。</text>
+		</view>
+		<view class="text-left margin-top">
+			<text class="cuIcon-notice text-orange margin-sm" />
+				<text class="text-gray text-lg">手动：右上角菜单 → 关于青芒派 → 菜单 → 设置 → 允许。</text>
+		</view>
+	</view>
+	<view slot="btn" class="wx-btn">
+		<button class="cbtn" plain="{{true}}" style="color:rgba(7,17,27,0.6)" bindtap="cancelAuth">
+			取消
+		</button>
+		<button class="cbtn concat" plain="{{true}}" style="color:rgba(7,17,27,0.6)" open-type="contact">
+			<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/kefu.svg' />
+		</button>
+		<button class="abtn" style="color:#13b5f5" plain="{{true}}" bindtap="redirectHomePage">
+			首页
+		</button>
+	</view>
+</modal>
+
+<!-- 登录提示 -->
+<modal show="{{login_tip}}" title="提示" cancelText="取消" confirmText="确定" width="85%" bind:confirm="{{false ? 'redirectHomePage' : 'redirectBackPage'}}">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="{{ !error ? 'cuIcon-roundcheck text-green': 'cuIcon-roundclose text-red' }} margin-sm" />
+				<text class="text-gray text-lg">{{tip_content}}。</text>
+		</view>
+		<view wx:if="{{!error}}" class="margin-top">
+			<text class="cuIcon-unlock text-green margin-sm" />
+		<text class="text-gray text-lg">{{success_content}}
+
+</text>
+		</view>
+	</view>
+</modal>
+<wxs module="parse">
+	module.exports = {
+		disabled: function(userName, password) {
+			var bool = true;
+			if (userName && password) {
+				bool = false;
+			}
+			return bool;
+		}
+	}
+</wxs>

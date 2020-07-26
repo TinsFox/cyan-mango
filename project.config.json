@@ -212,6 +212,14 @@
 					"id": -1,
 					"name": "图书-首页",
 					"pathName": "pages/Campus/library/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/Setting/login/index",
+					"query": "",
 					"scene": null
 				}
 			]

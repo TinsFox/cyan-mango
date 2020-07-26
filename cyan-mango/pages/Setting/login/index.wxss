@@ -36,10 +36,7 @@
 
 
 .UCenter-bg {
-  /* background-image: url(https://image.weilanwl.com/color2.0/index.jpg); */
-  /* background-image: url(http://huadeboy.com/wx/pk/aboutBg.jpg); */
   background-size: cover;
-  /* height: 550rpx; */
   display: flex;
   justify-content: center;
   padding-top: 10rpx;
@@ -79,7 +76,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 100rpx;
+  padding: 10rpx;
 }
 
 .icon {
@@ -90,9 +87,10 @@
 }
 
 .login-form {
-  margin: 80rpx 120rpx;
+  /* margin: 40rpx 120rpx; */
   text-align: center;
   font-size: 120%;
+  width: 380px;
 }
 
 .form-item {

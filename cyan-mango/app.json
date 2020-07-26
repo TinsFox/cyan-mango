@@ -1,78 +1,79 @@
 {
-    "pages": [
-        "pages/Campus/index",
-        "pages/Life/index",
-        "pages/Campus/calendar/index",
-        "pages/Campus/emptyRoom/index",
-        "pages/Campus/score/index",
-        "pages/Campus/library/index",
-        "pages/Campus/library/list/index",
-        "pages/Campus/library/item/index",
-        "pages/Campus/exam/index",
-        "pages/Setting/login/index",
-        "pages/Setting/webview/index",
-        "pages/Life/fleaMarket/index",
-        "pages/Life/fleaMarket/post/index",
-        "pages/Life/wall/post/index",
-        "pages/Life/fleaMarket/detail/index",
-        "pages/Campus/library/list/detail/index",
-        "pages/Setting/admin/flea_market/index",
-        "pages/Life/fleaMarket/mine/index",
-        "pages/Life/wall/detail/index",
-        "pages/test/test",
-        "pages/activity/index",
-        "pages/activity/post/index",
-        "pages/activity/post/formDesign/index",
-        "pages/Setting/agreement/agreement"
-        
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "青芒派",
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "custom"
-    },
-    "usingComponents": {
-        "navBar": "/Components/navBar/index",
-        "fake": "/Components/fake/index",
-        "loading": "/Components/loading/index",
-        "empty": "/Components/empty/index",
-        "noMore": "/Components/noMore/index"
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "你的位置信息将用于定位效果展示"
-        }
-    },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/Campus/index",
-                "text": "Campus",
-                "iconPath": "assets/tabbar/kb.png",
-                "selectedIconPath": "assets/tabbar/kb-selected.png"
-            },
-            {
-                "pagePath": "pages/Life/index",
-                "text": "Life",
-                "iconPath": "assets/tabbar/wall.png",
-                "selectedIconPath": "assets/tabbar/wall-selected.png"
-            }
-        ],
-        "color": "#333",
-        "selectedColor": "#87abda",
-        "borderStyle": "white"
-    },
-    "sitemapLocation": "sitemap.json",
-    "networkTimeout": {
-        "request": 20000,
-        "downloadFile": 10000
-    },
-    "plugins": {
-        "wxparserPlugin": {
-            "version": "0.3.0",
-            "provider": "wx9d4d4ffa781ff3ac"
-        }
+  "pages": [
+    "pages/Campus/index",
+    "pages/Setting/login/login",
+    "pages/Campus/campus",
+    "pages/Life/index",
+    "pages/Campus/calendar/index",
+    "pages/Campus/emptyRoom/index",
+    "pages/Campus/score/index",
+    "pages/Campus/library/index",
+    "pages/Campus/library/list/index",
+    "pages/Campus/library/item/index",
+    "pages/Campus/exam/index",
+    "pages/Setting/login/index",
+    "pages/Setting/webview/index",
+    "pages/Life/fleaMarket/index",
+    "pages/Life/fleaMarket/post/index",
+    "pages/Life/wall/post/index",
+    "pages/Life/fleaMarket/detail/index",
+    "pages/Campus/library/list/detail/index",
+    "pages/Setting/admin/flea_market/index",
+    "pages/Life/fleaMarket/mine/index",
+    "pages/Life/wall/detail/index",
+    "pages/test/test",
+    "pages/activity/index",
+    "pages/activity/post/index",
+    "pages/activity/post/formDesign/index",
+    "pages/Setting/agreement/agreement"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "青芒派",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "navBar": "/Components/navBar/index",
+    "fake": "/Components/fake/index",
+    "loading": "/Components/loading/index",
+    "empty": "/Components/empty/index",
+    "noMore": "/Components/noMore/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
     }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/Campus/index",
+        "text": "Campus",
+        "iconPath": "assets/tabbar/kb.png",
+        "selectedIconPath": "assets/tabbar/kb-selected.png"
+      },
+      {
+        "pagePath": "pages/Life/index",
+        "text": "Life",
+        "iconPath": "assets/tabbar/wall.png",
+        "selectedIconPath": "assets/tabbar/wall-selected.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#87abda",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 10000
+  },
+  "plugins": {
+    "wxparserPlugin": {
+      "version": "0.3.0",
+      "provider": "wx9d4d4ffa781ff3ac"
+    }
+  }
 }

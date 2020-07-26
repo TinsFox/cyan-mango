@@ -3,7 +3,6 @@ import API from "./apiMap";
 import { encrypt, decrypt } from "../Encrypt/main";
 var fun_md5 = require("../../tools/Encrypt/md5");
 import { redis_set_token, redis_get_token } from "./redis.js";
-
 // import  {Encrypt,Decrypt}  from '../encryption/main'
 class Token {
     constructor() {
@@ -124,10 +123,19 @@ class Token {
         }).then(
             (value) => {
                 const { access_token, refresh_token } = value;
-                let token = that.getToken(refresh_token, access_token);
-                redis_set_token("token", token);
-                wx.setStorageSync("refresh_token", refresh_token);
-                return Promise.resolve(token);
+                console.log(env.host.label)
+                // 非生产环境不解密token
+                if(env.host.label!='prod'){
+                    redis_set_token("token", access_token);
+                    wx.setStorageSync("refresh_token", refresh_token);
+                    return Promise.resolve(access_token);
+                }else{
+                    let token = that.getToken(refresh_token, access_token);
+                    redis_set_token("token", token);
+                    wx.setStorageSync("refresh_token", refresh_token);
+                    return Promise.resolve(token);
+                }
+                
             },
             (reason) => {
                 wx.showToast({

@@ -1,4 +1,4 @@
-<navBar title="绑定学号" />
+<navBar title="学号绑定" />
 <!-- <view>
 	<view class="UCenter-bg">
 		<view class="">
@@ -131,7 +131,7 @@
 		</view>
 		<view class="margin-top">
 			<text class="cuIcon-notice text-orange margin-sm" />
-			<text class="text-gray text-lg">23:00-07:00 教务系统通道关闭，暂时无法绑定。</text>
+			<text class="text-gray text-lg">22:00-08:00 教务系统通道关闭，暂时无法绑定。</text>
 		</view>
 	</view>
 </modal>

@@ -9,7 +9,7 @@ const dev = {
 }
 
 // 测试环境
-const test = {
+const wechat = {
   baseUrl: 'http://127.0.0.1:5000/cyan-mongo-api',
   ws: 'wss://test.qq.cn',
   h5: 'https://test.qq.cn',

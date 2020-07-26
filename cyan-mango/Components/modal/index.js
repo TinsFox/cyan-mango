@@ -42,7 +42,7 @@ Component({
     // 宽度
     width: {
       type: String,
-      value: "70%"
+      value: "90%"
     }
   },
 

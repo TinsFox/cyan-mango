@@ -37,8 +37,8 @@
 <block wx:if="{{hasGrade}}">
 	<view class='page'>
 		<view class="bg-{{grade_index ? color[grade_index] : color[0]}} padding radius text-center shadow-blur" bindtap="showModal" style="margin-top:-20rpx; margin-left:-5rpx; margin-bottom: 25rpx;">
-			<view class="text-lg" style="font-size:150%; font-weight: bold;">{{grade.xnd}} 学年</view>
-			<view class="margin-top-sm text-ABC" style="font-size:120%;font-weight: bold;">第 {{grade.xqd}} 学期</view>
+			<view class="text-lg" style="font-size:150%; font-weight: bold;text-decoration: underline">{{grade.xnd}} 学年</view>
+			<view class="margin-top-sm text-ABC" style="font-size:120%;font-weight: bold;text-decoration: underline">第 {{grade.xqd}} 学期</view>
 		</view>
 
 		<view wx:if="{{grade}}" style='height:{{height}}rpx'>
@@ -92,7 +92,7 @@
 			</modal>
 
 			<drawer-modal show='{{showDrawer}}'>
-				<view slot="left" catchtap="catchtap" class='dawer'>
+				<view slot="left" class='dawer'>
 					<template is="itemList" data="{{sem_list,color}}" />
 				</view>
 			</drawer-modal>

@@ -28,22 +28,23 @@ Component({
       wx.$navTo(e)
     },
     getAppParam() {
-      let that=this
-      wx.cloud.callFunction({
-        name: 'getAppParam',
-        data: {},
-      })
-      .then(res => {
-        // console.log(res.result.errMsg)
-        if(res.result.errMsg=='collection.get:ok'){
-          let param = res.result.data[0].data
-          console.log("nav",param)
-          this.setData({
-            iconList:param.nav
-          })
-        }
-      })
-      .catch(console.error)
+      
+      // let that=this
+      // wx.cloud.callFunction({
+      //   name: 'getAppParam',
+      //   data: {},
+      // })
+      // .then(res => {
+      //   // console.log(res.result.errMsg)
+      //   if(res.result.errMsg=='collection.get:ok'){
+      //     let param = res.result.data[0].data
+      //     console.log("nav",param)
+      //     this.setData({
+      //       iconList:param.nav
+      //     })
+      //   }
+      // })
+      // .catch(console.error)
     },
   },
 

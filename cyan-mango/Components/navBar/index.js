@@ -40,7 +40,7 @@ Component({
     // 如果当前页面是最顶层，可以自定义返回的页面
     redirectTo: {
       type: String,
-      value: '/pages/Campus/index'
+      value: '/pages/Campus/campus'
     }
   },
 

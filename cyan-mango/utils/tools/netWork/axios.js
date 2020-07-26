@@ -1,7 +1,6 @@
 import env from "env.js";
 import { Token } from "token";
 import { redis_get_token } from "./redis.js";
-import object from "../../../dist/common/async-validator/validator/object.js";
 var log = require("../../log"); // 引用上面的log.js文件
 class axios {
     constructor() {}
@@ -88,6 +87,10 @@ class axios {
                 }
             },
             fail: (res) => {
+                wx.showModal({
+                    title:'暂停服务',
+                    content:'系统升级中，请稍后访问'
+                })
                 console.log(res);
                 reject(res);
             },
