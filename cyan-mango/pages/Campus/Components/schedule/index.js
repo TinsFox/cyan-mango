@@ -104,7 +104,8 @@ Component({
              * TODO
              */
             let week = wx.getStorageSync("current_week");
-            let char = (new getDate().getMonth() + 1) > 6 ? "暑假": "寒假";
+            const date = new Date()
+            let char = (date.getMonth() + 1) > 6 ? "暑假": "寒假";
             if(week){
                 char = String(week) + " 周"
             }
