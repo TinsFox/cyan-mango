@@ -24,10 +24,8 @@
 				>
 					{{item.xnd}}年第{{item.xqd}}学期
 				</view>
-				<view class="basis bg-cyan margin-xs padding-sm radius text-center" bindtap="putExamHistory">
+				<view class="basis bg-cyan margin-xs padding-sm radius text-center" bindtap="putData">
 					<text class="cuIcon-refresh"/>
-
-
 				</view>
 			</view>
 			<view style='color:grey;font-size:70%;margin:20rpx;text-align: center;'>成绩数据仅供参考，请以官网为准</view>
