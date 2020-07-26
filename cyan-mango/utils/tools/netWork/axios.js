@@ -1,7 +1,6 @@
 import env from "env.js";
 import { Token } from "token";
 import { redis_get_token } from "./redis.js";
-import object from "../../../dist/common/async-validator/validator/object.js";
 var log = require("../../log"); // 引用上面的log.js文件
 class axios {
     constructor() {}
@@ -67,7 +66,6 @@ class axios {
             },
             method: param.method ? param.method : "GET",
             success: (res) => {
-                console.log(res);
                 let statusCode = res.statusCode;
                 if (statusCode === 200) {
                     if (res.data.error_code == 5040) {

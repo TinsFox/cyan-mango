@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/Campus/campus",
     "pages/Campus/index",
+    "pages/Campus/campus",
     "pages/Life/index",
     "pages/Campus/calendar/index",
     "pages/Campus/emptyRoom/index",
@@ -48,7 +48,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/Campus/campus",
+        "pagePath": "pages/Campus/index",
         "text": "Campus",
         "iconPath": "assets/tabbar/kb.png",
         "selectedIconPath": "assets/tabbar/kb-selected.png"

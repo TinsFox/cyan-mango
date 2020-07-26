@@ -20,8 +20,13 @@ App({
         /**
          *调试模式开关
          */
+        wx.setStorageSync("current_week", '');
+        wx.setStorageSync("course", '');
+
         token.verify()
-        checkPermission()
+        checkPermission().then(res=>{
+            this.globalData.auth = res
+        })
         if (wx.cloud) {
             wx.cloud.init({
                 env: "rc-qrqw6",
