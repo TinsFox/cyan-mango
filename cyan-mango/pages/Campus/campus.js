@@ -110,7 +110,6 @@ Page({
   },
   getAppParam() {
     navMenu().then(res => {
-      console.log(res)
       this.setData({
         iconList: res.nav
       })

@@ -1,17 +1,8 @@
-<wxs module="common" src="./common.wxs"></wxs>
+<wxs module="common" src="../common.wxs"></wxs>
 <navBar title="考试安排" />
 <loading loading="{{loading}}" text="数据加载中..." />
-<view wx:if="{{!hideNotice}}">
-	<modal show="{{!current_term}}" title="{{msg}}" confirmText="确定" cancelText="返回" bind:cancel="navBack" cancel="{{false}}">
-		<view class="margin-lr-xl">
-			<text class="text-gray" style='color:grey;font-size:70%;margin:20rpx'>数据仅供参考，请以官网为准</text>
-		</view>
-	</modal>
-</view>
-
 <block>
-	<view class='page'>
-
+	<view wx:if="{{show_page}}" class='page'>
 		<view class='base-info bg-{{title_color[common.random(title_color)]}} radius'>
 			<view class="text-lg">{{list.xnd}} 学年</view>
 			<view class="margin-top-xs text-Abc">第 {{list.xqd}} 学期 </view>
@@ -42,3 +33,29 @@
 		<!-- <view style='font-size:80%;text-align:center;color:grey'>下拉可刷新同步</view> -->
 	</view>
 </block>
+
+<modal show="{{!bind}}" title="考试查询" confirmText="去绑定" cancelText="返回" width="85%" bind:cancel="redirectHomePage" bind:confirm="redirectLogin">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="cuIcon-roundclose text-red margin-sm"></text>
+			<text class="text-gray text-lg">访问失败，暂无访问该页面的权限。</text>
+		</view>
+		<view class="margin-top">
+			<text class='cuIcon-question text-orange margin-sm'></text>
+			<text class="text-gray text-lg">绑定教务系统，解锁相关权限。</text>
+		</view>
+	</view>
+</modal>
+
+<modal show="{{!hideNotice}}" title="考试查询" confirmText="返回首页" width="85%" cancel="{{false}}" bind:confirm="redirectHomePage">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="{{ !error ? 'cuIcon-warn text-orange': 'cuIcon-roundclose text-red' }} margin-sm"></text>
+			<text class="text-gray text-lg">{{tip}}</text>
+		</view>
+		<view wx:if="{{error == '504' ? false : error}}" class="margin-top">
+			<text class="cuIcon-roundclose text-red margin-sm"></text>
+			<text class="text-gray text-lg">服务器发生异常，请联系管理员处理。</text>
+		</view>
+	</view>
+</modal>

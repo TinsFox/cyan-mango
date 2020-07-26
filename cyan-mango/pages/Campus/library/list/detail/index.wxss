@@ -41,17 +41,17 @@
 
 .book-info .info {
   flex: 3;
-  padding: 20rpx;
+  /* padding: 20rpx; */
   font-size: 85%;
-  color: rgb(44, 43, 43);
+  /* color: rgb(44, 43, 43); */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.info text {
+/* .info text {
   color: rgb(95, 95, 95);
-}
+} */
 
 /* 标签 */
 

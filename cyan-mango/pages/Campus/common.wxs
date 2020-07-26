@@ -1,0 +1,64 @@
+var random = function (array) {
+    var index = Math.floor(Math.random() * array.length);
+    return index;
+};
+
+/**
+ * 考试倒计时处理
+ * @param date 日期
+ * @param time 考试时间
+ */
+var compute_time = function (date, time) {
+    var today = getDate();
+    var stop_time = getDate(date + " " + time.slice(0, 5) + ":00");
+
+    // 时间差--秒
+    var time = (stop_time.getTime() - today.getTime()) / 1000;
+
+    if (time <= 0) return 0;
+
+    var day = Math.floor(time / (60 * 60 * 24));
+
+    // 剩余的秒数 -- 时
+    time = time % (60 * 60 * 24);
+
+    var hour = Math.ceil(time / (60 * 60));
+    console.log(hour);
+    // time = time % (60 * 60);
+    // var minute = Math.floor(time / 60)
+
+    // var second = parseInt(time % 60);
+
+    // return day + '天' + hour + '时' + minute + '分' + second + '秒';
+    return day + " 天 " + hour + " 时";
+};
+
+var error = function (code, status = 403) {
+    if (parseInt(code) < parseInt(status)) return false;
+    else return true;
+};
+
+var turn_px_to_rpx = function (px) {
+    var sys = wx.getSystemInfoSync();
+    return parseInt((750 * px) / sys.windowWidth);
+};
+
+var turn_rpx_to_px = function (rpx) {
+    var sys = wx.getSystemInfoSync();
+    return parseInt((sys.windowWidth * rpx) / 750);
+};
+
+var bool = function (data) {
+    console.log(data);
+    if (data) return true;
+    return false;
+};
+
+module.exports = {
+    random: random,
+    day: compute_time,
+    error: error,
+    turn_rpx_to_px: turn_rpx_to_px,
+    turn_px_to_rpx: turn_px_to_rpx,
+    bool: bool,
+};

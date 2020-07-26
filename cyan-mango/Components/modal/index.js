@@ -1,6 +1,7 @@
 Component({
 
   properties: {
+    
     //是否显示modal
     show: {
       type: Boolean,
@@ -48,7 +49,9 @@ Component({
   data: {
 
   },
-
+  options: {
+    multipleSlots: true,
+  },
   methods: {
     clickMask() {
       // this.setData({show: false})

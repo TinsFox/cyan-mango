@@ -48,7 +48,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/Campus/index",
+        "pagePath": "pages/Campus/campus",
         "text": "Campus",
         "iconPath": "assets/tabbar/kb.png",
         "selectedIconPath": "assets/tabbar/kb-selected.png"
