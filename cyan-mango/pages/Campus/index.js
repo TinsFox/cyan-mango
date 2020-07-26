@@ -2,9 +2,6 @@
 var Config = require("../../utils/config");
 var Setting = require("../../utils/setting");
 var app = getApp();
-import {
-  checkPermission
-} from "../../utils/tools/permission";
 Page({
   /**
    * 页面的初始数据
@@ -12,9 +9,7 @@ Page({
   data: {
     iconList: [],
     schedule: Config.get("schedule_mode") == "week" ? true : false,
-    navColor: Config.get("schedule_mode") == "week" ?
-      "rgba(221, 221, 221, 0.7)" :
-      "rgba(255, 255, 255, 0.8)",
+    navColor: Config.get("schedule_mode") == "week" ? "rgba(221, 221, 221, 0.7)" : "rgba(255, 255, 255, 0.8)",
     showDrawer: false,
     arrowUrl: "https://cos.ifeel.vip/gzhu-pi/images/icon/right-arrow.svg",
     permission: "",
@@ -84,7 +79,7 @@ Page({
         break;
       case "navToBind":
         wx.navigateTo({
-          url: "/pages/Setting/login/index",
+          url: "/pages/Setting/login/login",
         });
         break;
       case "navToControl":

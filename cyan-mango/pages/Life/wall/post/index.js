@@ -328,7 +328,7 @@ Page({
           success(res){
             if(res.confirm){
               wx.navigateTo({
-                url: '/pages/Setting/login/index',
+                url: '/pages/Setting/login/login',
               })
             }else{
               wx.navigateBack()

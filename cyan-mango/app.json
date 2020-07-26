@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/Campus/index",
+    "pages/Setting/login/login",
     "pages/Campus/campus",
     "pages/Life/index",
     "pages/Campus/calendar/index",

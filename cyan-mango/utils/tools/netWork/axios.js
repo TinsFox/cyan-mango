@@ -86,6 +86,10 @@ class axios {
                 }
             },
             fail: (res) => {
+                wx.showModal({
+                    title:'暂停服务',
+                    content:'系统升级中，请稍后访问'
+                })
                 console.log(res);
                 reject(res);
             },

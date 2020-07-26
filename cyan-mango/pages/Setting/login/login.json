@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tui-icon":"/Components/thorui/tui-icon/tui-icon",
+    "tui-list-cell":"/Components/thorui/tui-list-cell/tui-list-cell",
+    "tui-bottom-popup":"/Components/thorui/tui-bottom-popup/tui-bottom-popup",
+    "tui-button":"/Components/thorui/tui-button/tui-button",
+    "modal":"/Components/modal/index"
+  }
+}

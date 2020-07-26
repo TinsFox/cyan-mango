@@ -115,7 +115,7 @@ Page({
      */
     redirectLogin(e) {
         wx.navigateTo({
-            url: "/pages/Setting/login/index",
+            url: "/pages/Setting/login/login",
         });
     },
     /**

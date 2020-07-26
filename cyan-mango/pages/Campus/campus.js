@@ -84,7 +84,7 @@ Page({
         break
       case "navToBind":
         wx.navigateTo({
-          url: "/pages/Setting/login/index",
+          url: "/pages/Setting/login/login",
         })
         break
       case "navToControl":

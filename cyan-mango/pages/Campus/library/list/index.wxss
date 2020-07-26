@@ -162,7 +162,7 @@ button::after {
   flex: 1;
   width: 65%;
   line-height: 65rpx;
-  border-radius: 0;
+  border-radius: 50%;
   border: 0 solid white;
   background-color: #39b54a;
 }

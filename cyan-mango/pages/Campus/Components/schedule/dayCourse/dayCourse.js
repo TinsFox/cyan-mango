@@ -23,7 +23,7 @@ Component({
     methods: {
         nav() {
             wx.navigateTo({
-                url: "/pages/Setting/login/index",
+                url: "/pages/Setting/login/login",
             });
         },
         //获取天气数据

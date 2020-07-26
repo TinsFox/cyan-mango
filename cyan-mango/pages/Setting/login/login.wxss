@@ -1,0 +1,216 @@
+@import "index.wxss";
+.tui-page-title {
+  width: 100%;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 42rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.tui-form {
+  padding-top: 50rpx;
+}
+
+.tui-view-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+
+.tui-cell-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 48rpx;
+  padding-bottom: 16rpx;
+}
+
+.tui-cell-input input {
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.tui-icon-close {
+  margin-left: auto;
+}
+
+
+.tui-cell-text {
+  width: 100%;
+  padding: 24rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tui-color-primary {
+  color: #5677fc;
+}
+
+.tui-btn-box {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 26rpx;
+}
+
+
+.tui-login-way {
+  width: 100%;
+  font-size: 26rpx;
+  color: #5677fc;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 80rpx;
+}
+
+.tui-login-way view {
+  padding: 12rpx 0;
+}
+
+
+.tui-auth-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80rpx;
+  padding-top: 20rpx;
+}
+
+.tui-icon-platform {
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-left: 40rpx;
+}
+
+.tui-icon-platform::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  transform-origin: 0 0;
+  transform: scale(0.5, 0.5) translateZ(0);
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  border-radius: 180rpx;
+  border: 1rpx solid #bfbfbf;
+}
+
+
+.tui-login-logo {
+  width: 60rpx;
+  height: 60rpx;
+}
+.container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+page {
+  background-color: #fafafa;
+  font-size: 32rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+button::after {
+  border: none;
+}
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.tui-phcolor {
+  color: #ccc;
+  font-size: 32rpx;
+  overflow: visible;
+}
+
+.tui-opcity {
+  opacity: 0.5;
+}
+
+.tui-hover {
+  background-color: #f7f7f9 !important;
+}
+
+.tui-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tui-list-item {
+  position: relative;
+}
+
+.tui-list-item::after {
+  content: '';
+  position: absolute;
+  border-bottom: 1px solid #eaeef1;
+  -webkit-transform: scaleY(0.5) translateZ(0);
+  transform: scaleY(0.5) translateZ(0);
+  bottom: 0;
+  right: 0;
+  left: 30rpx;
+}
+
+.tui-last::after {
+  border-bottom: 0 !important;
+}
+
+.tui-button-primary {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: linear-gradient(-90deg, #5677fc, #5c8dff);
+  border-radius: 45rpx;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.tui-button-hover {
+  color: #d5d4d9;
+  background: linear-gradient(-90deg, #4a67d6, #4e77d9);
+}
+
+.tui-button-gray {
+  background: #ededed;
+  color: #999 !important;
+}
+
+.tui-button-gray_hover {
+  background: #d5d5d5 !important;
+  color: #898989;
+}
+
+.tui-button-white {
+  background: #fff;
+  color: #333 !important;
+}
+
+.tui-button-white_hover {
+  background: #e5e5e5 !important;
+  color: #2e2e2e !important;
+}

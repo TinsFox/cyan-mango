@@ -14,7 +14,6 @@ Page({
     error: 0,
     success_content: '',
     flag: false,
-
     hideLoginBtn1: false,
     hideLoginBtn2: true,
     hideLogin: false,
@@ -44,20 +43,6 @@ Page({
       wx.removeStorage({
         key: 'course',
       })
-      // wx.showModal({
-      //   title: '登录提示',
-      //   content: res.msg,
-      //   success(res) {
-      //     if (res.confirm) {
-      //       console.log('用户点击确定')
-      //       wx.reLaunch({
-      //         url: '/pages/Campus/index',
-      //       })
-      //     } else if (res.cancel) {
-      //       console.log('用户点击取消')
-      //     }
-      //   }
-      // })
       this.checkPermission()
     }
     this.setData({
@@ -178,20 +163,6 @@ Page({
       success_content: '成功解锁与教务系统有关的功能。',
       flag: false,
     });
-    // wx.showModal({
-    //   title: '登录提示',
-    //   content: res.msg,
-    //   success(res) {
-    //     if (res.confirm) {
-    //       console.log('用户点击确定')
-    //       wx.reLaunch({
-    //         url: '/pages/Campus/index',
-    //       })
-    //     } else if (res.cancel) {
-    //       console.log('用户点击取消')
-    //     }
-    //   }
-    // })
   },
   // dialog 控制
   dialogHander() {
