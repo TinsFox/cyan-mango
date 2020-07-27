@@ -2,7 +2,7 @@
 import { Token } from "./utils/tools/netWork/token";
 import { axios } from "./utils/tools/netWork/axios";
 import API from "./utils/tools/netWork/apiMap";
-import {checkPermission} from "./utils/tools/permission"
+import { checkPermission } from "./utils/tools/permission";
 require("./utils/tools/app_param");
 var Config = require("./utils/config");
 var token = new Token();
@@ -20,13 +20,13 @@ App({
         /**
          *调试模式开关
          */
-        wx.setStorageSync("current_week", '');
-        wx.setStorageSync("course", '');
+        wx.setStorageSync("current_week", "");
+        wx.setStorageSync("course", "");
 
-        token.verify()
-        checkPermission().then(res=>{
-            this.globalData.auth = res
-        })
+        token.verify();
+        checkPermission().then((res) => {
+            this.globalData.auth = res;
+        });
         if (wx.cloud) {
             wx.cloud.init({
                 env: "rc-qrqw6",
@@ -36,38 +36,40 @@ App({
         Config.init();
         this.getAuthStatus();
         this.getAppParam();
-         // 获取小程序更新机制兼容
-    if (wx.canIUse('getUpdateManager')) {
-        const updateManager = wx.getUpdateManager()
-        updateManager.onCheckForUpdate(function(res) {
-          // 请求完新版本信息的回调
-          if (res.hasUpdate) {
-            updateManager.onUpdateReady(function() {
-              wx.showModal({
-                title: '更新提示',
-                content: '新版本已经上线啦~，为了获得更好的体验，建议立即更新',
-                showCancel: false,
-                confirmColor: "#5677FC",
-                success: function(res) {
-                  // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-                  updateManager.applyUpdate()
+        // 获取小程序更新机制兼容
+        if (wx.canIUse("getUpdateManager")) {
+            const updateManager = wx.getUpdateManager();
+            updateManager.onCheckForUpdate(function (res) {
+                // 请求完新版本信息的回调
+                if (res.hasUpdate) {
+                    updateManager.onUpdateReady(function () {
+                        wx.showModal({
+                            title: "更新提示",
+                            content:
+                                "新版本已经上线啦~，为了获得更好的体验，建议立即更新",
+                            showCancel: false,
+                            confirmColor: "#5677FC",
+                            success: function (res) {
+                                // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+                                updateManager.applyUpdate();
+                            },
+                        });
+                    });
+                    updateManager.onUpdateFailed(function () {
+                        // 新的版本下载失败
+                        wx.showModal({
+                            title: "更新失败",
+                            content:
+                                "新版本更新失败，为了获得更好的体验，请您删除当前小程序，重新搜索打开",
+                            confirmColor: "#5677FC",
+                            showCancel: false,
+                        });
+                    });
                 }
-              })
-            })
-            updateManager.onUpdateFailed(function() {
-              // 新的版本下载失败
-              wx.showModal({
-                title: '更新失败',
-                content: '新版本更新失败，为了获得更好的体验，请您删除当前小程序，重新搜索打开',
-                confirmColor: "#5677FC",
-                showCancel: false
-              })
-            })
-          }
-        })
-      } else {
-        // 当前微信版本过低，无法使用该功能
-      }
+            });
+        } else {
+            // 当前微信版本过低，无法使用该功能
+        }
     },
     getAppParam() {
         let that = this;
@@ -115,5 +117,5 @@ App({
             // 检测授权状态后 检测绑定状态
             complete(res) {},
         });
-    }
+    },
 });

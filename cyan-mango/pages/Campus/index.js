@@ -164,6 +164,9 @@ Page({
                 })
             });
         }
+        this.setData({
+            showDrawer: false
+          })
     },
 
     /**
