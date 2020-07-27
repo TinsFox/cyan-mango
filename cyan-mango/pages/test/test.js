@@ -1,4 +1,7 @@
 // cyan-mango/pages/test/test.js
+
+const app = getApp();
+
 Page({
 
   /**
@@ -46,6 +49,9 @@ b(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    app.http.axios({
+      url: "/publish/user/wx-info"
+    })
 
   },
 

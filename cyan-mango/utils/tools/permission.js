@@ -11,7 +11,6 @@ export const checkPermission = () => {
         });
         promise.then((value) => {
             if (value.error_code == 0) {
-                console.log("Permission: -->",value.data)
                 let Permission = value.data;
                 Config.set("permission", Permission);
                 wx.setStorageSync("permission", Permission);

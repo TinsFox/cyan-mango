@@ -23,7 +23,7 @@ Component({
         current: 1,
         dis: "none",
         today: new Date().getDate(), //日期
-        week: -1, //周数
+        week: '', //周数
         schoolWeek: "", //校历周
         weekDate: utils.setWeekDate(), //一周日期
         bg: Config.get("schedule_bg"), // 获取背景
@@ -81,6 +81,7 @@ Component({
                 this.setData({
                     kbList: res.data.schedule,
                     week: res.data.current_week,
+                    weekDate: utils.setWeekDate(),
                 });
                 if(current_week){
                     wx.setStorageSync('current_week', res.data.current_week);
@@ -89,6 +90,10 @@ Component({
                     })
                 }
             } else if (res.error_code == 1) {
+                const date = new Date()
+                this.setData({
+                    vocation: (date.getMonth() + 1) > 6 ? "暑": "寒",
+                })
             } else {
                 /* 获取课程表数据失败 */
                 wx.showToast({

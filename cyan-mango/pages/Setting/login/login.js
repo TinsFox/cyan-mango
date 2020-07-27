@@ -164,4 +164,21 @@ Page({
       bindtype: this.data.bindtype === 1 ? 2 : 1
     })
   },
+
+  redirectHomePage(e){
+    wx.switchTab({
+      url: "/pages/Campus/index",
+    })
+  },
+
+  redirectBackPage(e){
+    wx.navigateBack({
+      fail: ()=>{
+        wx.switchTab({
+          url: '/pages/Campus/index',
+      })
+    },
+    });
+  }
+
 })
