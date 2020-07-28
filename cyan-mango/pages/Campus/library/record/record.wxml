@@ -1,0 +1,104 @@
+<wxs module="common" src="../../common.wxs"></wxs>
+<loading loading="{{loading}}" text="加载中..." />
+<navBar title="借阅信息" navColor="#fff" />
+<view class="page">
+	<!-- <view class="info">
+		个人信息
+	</view> -->
+	<view class="record">
+		<view class="record-title bg-gradual-pink" style="top:{{nav_height}}px">
+			<view class="cuIcon-read icon" />
+			<view class="text text-shadow">在借书籍</view>
+			<view class="borrow-count">
+				<text>{{borrow_count}}</text>
+				<text>本</text>
+			</view>
+		</view>
+		<view class="record-list">
+			<view class="record-item radius shadow-warp {{common.color(bg_color, item.number)}} light" wx:for="{{books}}" wx:key="number">
+				<view class="book-nav">
+					<view class="book-name">
+						<text class="cuIcon-titles text-orange light"></text>
+						<text>{{item.book}}</text>
+					</view>
+					<view class="book-renew">
+						<button class="bg-green button-hover" bindtap="bookeRenew" id="{{item.barcode}}">续借</button>
+					</view>
+				</view>
+				<view class="book-info">
+					<view class="book-borrow-time">
+						<view>
+							<text class="cuIcon-time"/>
+							<text style="margin-left:10rpx;">借出时间</text>
+						</view>
+						<view>{{item.borrow_time}}</view>
+					</view>
+					<view class="book-expire-time">
+						<view>
+							<text class="cuIcon-time"/>
+							<text style="margin-left:10rpx;">到期时间</text>
+						</view>
+						<view>{{item.expire_time}}</view>
+					</view>
+					<view class="booke-type">
+						<view class="tag">
+							<text class="cuIcon-tagfill text-red"></text>
+							<text style="margin-left:10rpx;">标签</text>
+						</view>
+						<view class="tag-list">
+							<text class="cu-tag bg-mauve round">{{item.type}}</text>
+							<text class="cu-tag bg-red round">{{ common.has_time(item.expire_time) ? common.has_time(item.expire_time): '逾期'}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="history">
+		<view class="history-title bg-gradual-purple">
+			<view class="cuIcon-footprint icon" />
+			<view class="text text-shadow">借阅历史</view>
+			<view class="fold">
+				<button class="{{open ? 'cuIcon-unfold': 'cuIcon-fold'}} bg-green button-hover" bindtap="openHistoryRecord"></button>
+			</view>
+		</view>
+
+		<swiper circular="{{true}}" indicator-dots="{{true}}" style='min-height:{{data_length}}rpx;width:100vw' wx:if="{{open}}" bindchange="switchPage">
+			<block wx:for="{{[page-1, page, page+1]}}" wx:key="index">
+				<swiper-item>
+					<view class="box">
+						<view class="history-nav bg-brown light">
+							<view class="number">序号</view>
+							<view class="book-name">书名</view>
+							<view class="count">借阅次数</view>
+						</view>
+						<view class="history-list" wx:for="{{books_history}}" wx:key="number">
+							<view class="history-item  light {{common.color(bg_color, item.number)}}">
+								<view class="number">{{item.number}}</view>
+								<view class="book-name">{{item.book}}</view>
+								<view class="count">{{item.borrow_count}}</view>
+							</view>
+						</view>
+					</view>
+
+				</swiper-item>
+			</block>
+
+
+		</swiper>
+
+	</view>
+</view>
+
+<modal show="{{!bind}}" title="提示" confirmText="去绑定" cancelText="返回" width="85%" bind:cancel="navBack" bind:confirm="navToLogin">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="cuIcon-roundclose text-red margin-sm"/>
+			<text class="text-gray text-lg">访问失败，暂无访问该页面的权限。</text>
+		</view>
+		<view class="margin-top">
+			<text class='cuIcon-question text-orange margin-sm'/>
+			<text class="text-gray text-lg">绑定图书馆账号，解锁相关权限。</text>
+		</view>
+	</view>
+</modal>

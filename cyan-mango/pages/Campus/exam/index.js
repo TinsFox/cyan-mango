@@ -54,7 +54,6 @@ Page({
                 show_page: false,
             });
         } else {
-          console.log(res.error_code)
             this.setData({
                 hideNotice: false,
                 loading: false,

@@ -32,7 +32,7 @@ const tinsfox={
 
 module.exports = {
   // host: tinsfox
-  // host: wechat
-  host: prod
+  host: wechat
+  // host: prod
   // host:dev
 }

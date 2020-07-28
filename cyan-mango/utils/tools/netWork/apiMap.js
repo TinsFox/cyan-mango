@@ -26,7 +26,9 @@ const API = {
   "flea_market_search":"/user/flea_market_search",
   "wall_search":"/user/wall_search",
   "activity_list":"/publish/club/activity/info",
-
+  "book_record": "/user/library/book-record",
+  "book_renew": "/user/library/renew",
+  "book_history": "/user/library/book-record"
 }
 
 export default API

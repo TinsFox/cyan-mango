@@ -19,9 +19,7 @@ Page({
   },
 
   formSubmit(e) {
-    var time = new Date()
-    console.log(time.getHours())
-    
+    var time = new Date()   
 
     let query = e.detail.value.query
     if (query == "") {
@@ -42,8 +40,14 @@ Page({
   nav(e) {
     let id = e.currentTarget.id
     if (e.currentTarget.id == "") return
-    wx.navigateTo({
-      url: '/pages/Campus/library/item/index?id=' + id,
-    })
+    // wx.navigateTo({
+    //   url: '/pages/Campus/library/item/index?id=' + id,
+    // })
+    switch(id){
+      case 'record':
+        wx.navigateTo({
+          url: '/pages/Campus/library/record/record'
+        })
+    }
   }
 })

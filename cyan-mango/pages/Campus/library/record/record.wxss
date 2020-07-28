@@ -1,0 +1,180 @@
+.page {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+button::after {
+    border: 0;
+}
+/* 在借书籍 */
+.record-title {
+    font-size: 125%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100rpx;
+
+    /* 开启粘滞定位 */
+    position: sticky;
+    z-index: 99;
+    top: 65px;
+}
+.record-title .text {
+    flex: 1;
+    margin-left: 15rpx;
+}
+.record-title .icon {
+    margin-left: 30rpx;
+}
+.record-title .borrow-count {
+    margin: 0 30rpx;
+}
+.record-list {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.record-item {
+    width: 95%;
+    flex: 1;
+    margin-bottom: 20rpx;
+    border-radius: 20rpx;
+}
+.record-item:first-child {
+    margin-top: 20rpx;
+}
+.record-item .book-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+}
+.record-item .book-name {
+    flex: 7;
+    line-height: 70rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.record-item .book-renew {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.record-item .book-renew button {
+    line-height: 60rpx;
+    font-size: 100%;
+    box-sizing: border-box;
+    border-radius: 60rpx;
+}
+.record-item .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.record-item .book-info > view {
+    padding: 10rpx 0;
+    margin-left: 40rpx;
+}
+.record-item .book-borrow-time,
+.record-item .book-expire-time {
+    display: flex;
+    justify-content: space-between;
+}
+.record-item .book-borrow-time view:last-child,
+.record-item .book-expire-time view:last-child {
+    margin-right: 50rpx;
+}
+.record-item .booke-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.record-item .booke-type .tag-list {
+    margin-right: 50rpx;
+}
+
+/* 借阅历史 */
+.history-title {
+    font-size: 125%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100rpx;
+    background-color: #fff;
+}
+.history-title .icon {
+    margin-left: 30rpx;
+}
+.history-title .text {
+    flex: 1;
+    margin-left: 15rpx;
+}
+
+.history-title .fold button {
+    line-height: 60rpx;
+    margin: 0 30rpx;
+    font-size: 100%;
+    border-radius: 30rpx;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    /* margin: 20rpx 15rpx; */
+    text-align: center;
+}
+.history-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 80rpx;
+    font-size: 105%;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: white;
+}
+.history-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 80rpx;
+}
+.history-item:not(:first-child){
+    border-top: 2rpx solid blueviolet;
+}
+
+.history-nav .book-name,
+.history-item .book-name {
+    flex: 7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.history-nav .number,
+.history-item .number{
+    flex: 2;
+}
+.history-nav .count,
+.history-item .count{
+    flex: 3;
+}
+
