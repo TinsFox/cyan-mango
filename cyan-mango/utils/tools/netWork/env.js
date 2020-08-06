@@ -18,7 +18,7 @@ const wechat = {
 
 // 生产环境
 const prod = {
-  baseUrl: 'http://am.tinsfox.com:8085/cyan-mongo-api',
+  baseUrl: 'https://cyan.tinsfox.com/cyan-mongo-api',
   ws: 'wss://prod.qq.cn',
   h5: 'https://prod.qq.cn',
   label: 'prod'
@@ -31,8 +31,5 @@ const tinsfox={
 }
 
 module.exports = {
-  // host: tinsfox
-  // host: test
   host: prod
-  // host:dev
 }

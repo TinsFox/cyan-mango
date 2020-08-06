@@ -31,11 +31,11 @@
 				</view>
 			</view>
 
-			<view class="margin-bottom-sm" style="height:30rpx;background:rgb(240,240,240)"></view>
+			<view style="height:20rpx;background:rgb(240,240,240)"></view>
 
 			<!-- 列表 -->
 			<view wx:if="{{dataSet.length>0}}">
-				<view class="tui-product-list padding-xs" style="margin-top:{{dropScreenH+18}}rpx">
+				<view class="tui-product-list padding">
 					<view class="tui-product-container">
 						<block wx:key="index" wx:if="{{(index+1)%2!=0 || isList}}" wx:for="{{dataSet}}" wx:key="index">
 							<template is="wall" data="{{item,index:index,isList:isList}}" />
