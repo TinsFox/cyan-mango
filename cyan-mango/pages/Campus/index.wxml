@@ -79,7 +79,7 @@
 
 		<button open-type="contact" session-from='{"nickName":"{{userInfo.nickName}}","avatarUrl":"{{userInfo.avatarUrl}}"}'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/kefu.svg'></image>
-			<view style="color: var(--black);font-size:32rpx;font-family: Helvetica Neue, Helvetica, sans-serif;">联系芒芒</view>
+			<view style="color: var(--black);font-size:32rpx;font-family: Helvetica Neue, Helvetica, sans-serif;">联系客服</view>
 			<image src='{{arrowUrl}}'></image>
 		</button>
 

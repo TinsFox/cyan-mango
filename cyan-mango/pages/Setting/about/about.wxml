@@ -1,0 +1,3 @@
+<!--cyan-mango/pages/Setting/about/about.wxml-->
+<navBar title="关于" titleColor="" navColor=""></navBar>
+

@@ -13,6 +13,7 @@ Page({
     gridCol: 2,
     navTitle:"华广墙",
     page:1,
+    showModal:true,
     dataSet:[],
     loadDone:false,
     iconList: [{
@@ -137,6 +138,18 @@ Page({
     }
 
   },
+  copyQQ(){
+    wx.setClipboardData({
+      data: '1414849373',
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '已复制',
+          duration: 1000,
+        })
+      }
+    })
+  },
   navToPost() {
     wx.requestSubscribeMessage({
       tmplIds: ['qLHNGkbqbElfJWcdohnaZpvGAtuFGiqNnDmi-Cgrs6w'],
@@ -162,7 +175,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let flag=wx.getStorageSync('showModal')
+    console.log(flag)
+    if(flag){
+      this.setData({
+        showModal:false
+      })
+    }else{
+      wx.setStorageSync('showModal', true)
+    }
   },
   getAppParam() {
     let that = this

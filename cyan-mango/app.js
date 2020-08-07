@@ -71,8 +71,7 @@ App({
     },
     getAppParam() {
         let that = this;
-        wx.cloud
-            .callFunction({
+        wx.cloud.callFunction({
                 name: "getAppParam",
                 data: {},
             })

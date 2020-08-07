@@ -21,7 +21,7 @@ Page({
 
 
   onLoad: function (options) {
-   console.log(wx.$getParam('mode'))
+    console.log(wx.$getParam('mode'))
     this.getGoods()
   },
 
@@ -151,6 +151,10 @@ async searchGoods(type) {
       loading: false,
     })
   }
+},
+onShow(){
+  // console.log(wx.$getParam('mode'))
+  // this.getGoods()
 },
   // 获取商品
   async getGoods() {

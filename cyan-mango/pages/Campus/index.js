@@ -64,7 +64,7 @@ Page({
         break;
       case "navToAbout":
         wx.navigateTo({
-          url: "/pages/about/about",
+          url: "/pages/Setting/about/about",
         });
         break;
       case "navToSync":

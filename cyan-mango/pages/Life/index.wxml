@@ -52,18 +52,21 @@
 			<view class="cu-load" wx:if="{{dataSet.length>0 && loadDone}}">
 			<text class="text-gray text-df">木有更多啦~</text>
 		</view>
-			<!-- <noMore show="{{dataSet.length>0 && loadDone}}"></noMore> -->
-
-			<!-- <view wx:if="{{dataSet.length==0 && !loading}}" class="flex flex-direction align-center margin-xl">
-			<image style="width:150rpx;height:150rpx" src="https://cos.ifeel.vip/gzhu-pi/images/icon/empty.svg"></image>
-			<text class="text-gray">啥也木有~</text>
-		</view> -->
 			<empty show="{{dataSet.length==0 && !loading}}"></empty>
 
 		</block>
 
 	</block>
 </block>
+<modal wx:if="{{mode=='prod'}}" show="{{showModal}}" title="功能公测">
+	<view style="text-align: center;">表白墙公测</view>
+	<view style='font-size:90%;color:rgb(80,80,80);margin:20rpx;'>
+		<view>* 功能处于公测，可能出现异常</view>
+		<view bindtap="copyQQ">* 请如有问题，联系管理员<text style="text-decoration: underline" >(QQ复制)</text> 进行反馈</view>
+		<view>* 感谢您的使用</view>
+		<button bindtap="navToPost" class="margin bg-yellow text-white round">发个帖</button>
+	</view>
+</modal>
 <wxs module="tool">
 	var isStar = function(arr, uid) {
 		var i = 0
