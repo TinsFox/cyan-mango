@@ -6,7 +6,7 @@ Page({
 
   onLoad: function(options) {
     var time = new Date()
-    if (time.getHours() >= 23 || time.getHours() < 7) {
+    if (time.getHours() >= 23 || time.getHours() < 8) {
       wx.showToast({
         title: '当前时间段不可用~',
         icon: "none"
@@ -19,9 +19,16 @@ Page({
   },
 
   formSubmit(e) {
-    var time = new Date()   
-
     let query = e.detail.value.query
+    if(this.data.disabled) {
+      wx.showToast({
+        title: '当前时间段不可操作',
+        icon: "none",
+        mask: true,
+        duration: 2500,
+      })
+      return
+    }
     if (query == "") {
       wx.showToast({
         title: '请输入书名',

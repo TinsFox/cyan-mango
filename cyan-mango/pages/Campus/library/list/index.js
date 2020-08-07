@@ -64,7 +64,7 @@ Page({
    */
   formSubmit(e) {
     var time = new Date()
-    if (time.getHours() >= 23 && time.getHours() < 7) {
+    if (time.getHours() >= 23 || time.getHours() < 8) {
       wx.showToast({
         title: '当前时间段不可用~',
         icon: "none"
