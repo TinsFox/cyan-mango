@@ -6,7 +6,7 @@
 	<view class="search-box">
 		<view class="search-form">
 			<text class="cuIcon-search"></text>
-			<input type="text" name="query" placeholder="图书检索" confirm-type="search"></input>
+			<input type="text" name="query" placeholder="请输入图书名称" confirm-type="search"></input>
 		</view>
 		<view class="search-btn">
 			<button class="action bg-green button-hover" formType="submit" hover-stay-time='0.2s'>检索</button>

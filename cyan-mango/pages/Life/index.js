@@ -176,7 +176,6 @@ Page({
    */
   onReady: function () {
     let flag=wx.getStorageSync('showModal')
-    console.log(flag)
     if(flag){
       this.setData({
         showModal:false

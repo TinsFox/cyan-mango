@@ -26,7 +26,8 @@
     "pages/activity/post/formDesign/index",
     "pages/Setting/agreement/agreement",
     "pages/Setting/help/help",
-    "pages/Setting/about/about"
+    "pages/Setting/about/about",
+    "pages/Setting/sync/sync"
   ],
   "window": {
     "backgroundTextStyle": "light",
