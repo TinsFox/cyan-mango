@@ -71,9 +71,9 @@
 			</view>
 		</radio-group>
 
-		<view class='item' bindtap='tapDrawer' id='navToBind'>
+		<view class='item' bindtap='tapDrawer' id='navToSync'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/update.svg'></image>
-			<view>同步中心</view>
+			<view>备忘录</view>
 			<image src='{{arrowUrl}}'></image>
 		</view>
 
@@ -83,11 +83,11 @@
 			<image src='{{arrowUrl}}'></image>
 		</button>
 
-		<view class='item' bindtap='tapDrawer' id='navToHelp'>
+		<!-- <view class='item' bindtap='tapDrawer' id='navToHelp'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/help.svg'></image>
 			<view>使用帮助</view>
 			<image src='{{arrowUrl}}'></image>
-		</view>
+		</view> -->
 		<view class='item' bindtap='tapDrawer' id='navToControl' wx:if="{{permission.admin}}">
 			<image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/审核.svg'></image>
 			<view>审核中心</view>

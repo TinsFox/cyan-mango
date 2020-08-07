@@ -123,7 +123,6 @@ class Token {
         }).then(
             (value) => {
                 const { access_token, refresh_token } = value;
-                console.log(env.host.label)
                 // 非生产环境不解密token
                 if(env.host.label!='prod'){
                     redis_set_token("token", access_token);

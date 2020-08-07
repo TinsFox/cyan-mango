@@ -1,3 +1,31 @@
 <!--cyan-mango/pages/Setting/about/about.wxml-->
 <navBar title="关于" titleColor="" navColor=""></navBar>
 
+<view class="container">
+  <view class="tui-flex">
+    <view class="tui-cube-box" bindtap='log'>
+      <view class="tui-cube tui-cube-1">cyan-mango</view>
+      <view class="tui-cube tui-cube-2">V2.0.0</view>
+      <view class="tui-cube tui-cube-3">cyan-mango</view>
+      <view class="tui-cube tui-cube-4">V2.0.0</view>
+      <view class="tui-cube tui-cube-5">cyan-mango</view>
+      <view class="tui-cube tui-cube-6">V2.0.0</view>
+    </view>
+
+  </view>
+  <view class="tui-content-box">
+    <view class="tui-content">欢迎体验青芒派！</view>
+    <view class="tui-content">青芒派提供成绩、课表、图书馆查询、表白墙、校园二手等功能</view>
+    <view class="tui-content">青芒派参考广大派开发，已获得原作者完全授权</view>
+    <view class="tui-content">项目可能存在缺陷或者bug，如果您在使用过程中发现问题或者有更好的建议，可反馈给我。</view>
+    <view class="tui-content">
+      您可以通过反馈或者以下方式联系我！
+    </view>
+    <view class="tui-content tui-content-email" bindtap="copy" data-text="1414849373@qq.com" data-msg="邮箱已复制">邮箱：1414849373@qq.com</view>
+    <view class="tui-footer">
+      <image src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/gh_4fab3ee5d87c_258.jpg' class="tui-applets" mode="widthFix"></image>
+      <view class="tui-footer-text">扫描二维码，您的朋友也可以体验青芒派！</view>
+    </view>
+  </view>
+
+</view>

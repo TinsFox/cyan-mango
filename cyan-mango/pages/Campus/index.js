@@ -74,7 +74,7 @@ Page({
                 break;
             case "navToSync":
                 wx.navigateTo({
-                    url: "/pages/index/Setting/sync/sync",
+                    url: "/pages/Setting/sync/sync",
                 });
                 break;
             case "navToHelp":
