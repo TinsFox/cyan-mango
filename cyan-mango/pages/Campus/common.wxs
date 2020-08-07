@@ -23,7 +23,6 @@ var compute_time = function (date, time) {
     time = time % (60 * 60 * 24);
 
     var hour = Math.ceil(time / (60 * 60));
-    console.log(hour);
     // time = time % (60 * 60);
     // var minute = Math.floor(time / 60)
 
@@ -49,10 +48,27 @@ var turn_rpx_to_px = function (rpx) {
 };
 
 var bool = function (data) {
-    console.log(data);
     if (data) return true;
     return false;
 };
+
+var hasTime = function(expire_time){
+    var today = getDate()
+    var stop_time = getDate(expire_time)
+
+    var time = (stop_time.getTime() - today.getTime()) / 1000;
+    /**
+     * 过期
+     */
+    if (time <= 0) return false;
+
+    return '剩余' + Math.floor(time / (60 * 60 * 24)) + '天';
+}
+
+var color = function(array, num){
+    var index = (num - 1) % array.length
+    return array[index]
+}
 
 module.exports = {
     random: random,
@@ -61,4 +77,6 @@ module.exports = {
     turn_rpx_to_px: turn_rpx_to_px,
     turn_px_to_rpx: turn_px_to_rpx,
     bool: bool,
+    has_time: hasTime,
+    color: color,
 };

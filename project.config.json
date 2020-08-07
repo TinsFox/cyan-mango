@@ -190,9 +190,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "登录页",
-					"pathName": "pages/Setting/login/index",
+					"id": 17,
+					"name": "账号绑定",
+					"pathName": "pages/Setting/login/login",
 					"query": "",
 					"scene": null
 				},
@@ -221,6 +221,20 @@
 					"id": -1,
 					"name": "登录",
 					"pathName": "pages/Setting/login/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测试文件",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "借阅信息",
+					"pathName": "pages/Campus/library/record/record",
 					"query": "",
 					"scene": null
 				}

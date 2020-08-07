@@ -10,8 +10,15 @@
 	<!-- 日期栏 -->
 	<view class='date-bar'>
 		<view class='week' bindtap='resetWeek' style='color:{{week==schoolWeek?"":"red"}}'>
-			<view>{{week}}</view>
-			<view>周</view>
+			<block wx:if="{{week}}">
+				<view>{{week}}</view>
+				<view>周</view>
+			</block>
+			<block wx:else>
+				<view>{{vocation}}</view>
+				<view>假</view>
+			</block>
+			
 		</view>
 
 		<view class="week-days" bindtap='courseSetting'>
@@ -67,17 +74,6 @@
 		</swiper>
 	</view>
 
-	<!-- 实践课表 -->
-	<!-- <view hidden='{{sjkList.length==0?true:false}}'>
-    <view class='other-title'>实践课程：</view>
-    <view class="other-course" wx:for="{{sjkList}}" wx:key="index">
-    <view>{{item.sjk_course}}</view> -->
-	<!-- <view style='flex:3'>{{item.sjk_course}}</view>
-      <view style='flex:1;text-align:center'>{{item.sjk_teacher}}</view>
-      <view style='flex:1;text-align:center'>{{item.sjk_weeks}}</view> -->
-	<!-- </view>
-  </view>
-  <view class='tips'>Powered by Shaw</view> -->
 
 	<!-- 课程详情弹窗 -->
 	<modal custom="true" show="{{showDetail}}" bind:cancel="cancelModal">
@@ -112,14 +108,6 @@
 						<view class='key'>周数</view>
 						<view class='value'>{{item.weeks}}</view>
 					</view>
-					<!-- <view class='detail-item' wx:if="{{item.check_type!=null}}">
-            <view class='key'>考核</view>
-            <view class='value'>{{item.check_type}}</view>
-          </view>
-          <view class='detail-item' wx:if="{{item.credit!=null}}">
-            <view class='key'>学分</view>
-            <view class='value'>{{item.credit}}</view>
-          </view> -->
 				</view>
 			</swiper-item>
 		</swiper>

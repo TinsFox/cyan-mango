@@ -92,7 +92,7 @@
 </modal>
 
 <!-- 登录提示 -->
-<modal show="{{login_tip}}" title="提示" cancelText="取消" confirmText="确定" width="85%" bind:confirm="{{false ? 'redirectHomePage' : 'redirectBackPage'}}">
+<modal show="{{login_tip}}" title="提示" cancelText="取消" confirmText="确定" width="85%" bind:confirm="{{!flag ? 'redirectHomePage' : 'redirectBackPage'}}">
 	<view class="margin-lr-xl">
 		<view>
 			<text class="{{ !error ? 'cuIcon-roundcheck text-green': 'cuIcon-roundclose text-red' }} margin-sm" />

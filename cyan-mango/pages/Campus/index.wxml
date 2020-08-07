@@ -71,7 +71,7 @@
 			</view>
 		</radio-group>
 
-		<view class='item' bindtap='tapDrawer' id='navToSync'>
+		<view class='item' bindtap='tapDrawer' id='navToBind'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/update.svg'></image>
 			<view>同步中心</view>
 			<image src='{{arrowUrl}}'></image>
@@ -108,7 +108,7 @@
 	<button>
 		<image bindtap='switchModel' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>
 	</button>
-	<button open-type="share">
+	<button open-type="share" binderror="share_cancek">
 		<image class='share-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/share.svg'></image>
 	</button>
 </view>
