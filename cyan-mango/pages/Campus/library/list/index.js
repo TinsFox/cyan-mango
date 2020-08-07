@@ -131,7 +131,6 @@ Page({
       loading: true,
     })
     let res = await library.getBooks(query, page)
-    console.log(res)
     if (res.error_code == 0) {
       that.setData({
         loading: false,

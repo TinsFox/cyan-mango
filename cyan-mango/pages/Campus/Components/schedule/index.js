@@ -79,8 +79,6 @@ Component({
             let res = await course.getCourse(postWeek);
             if (res.error_code == 0) {
                 this.setData({
-                    kbList: res.data.schedule,
-                    week: res.data.current_week,
                     weekDate: utils.setWeekDate(),
                 });
                 if(current_week){
@@ -102,6 +100,10 @@ Component({
                     duration: 2000,
                 });
             }
+            this.setData({
+                kbList: !res.error_code ? res.data.schedule : [],
+                week: !res.error_code ? res.data.current_week : 0,
+            })
         },
         // 恢复校历周
         resetWeek() {
@@ -127,25 +129,27 @@ Component({
         // 左右滑动切换周数
         switchWeek(e) {
             let value = e.detail.current - this.data.current;
+            const currentWeek = this.data.week ? this.data.week : 0;
             let week;
             if (value == 1 || value == -2) {
                 // 下一周
-                if (this.data.week + 1 > 20) {
+                if (currentWeek + 1 > 20) {
                     week = 1;
                 } else {
-                    week = this.data.week + 1;
+                    week = currentWeek + 1;
                 }
             } else {
                 // 上一周
-                if (this.data.week - 1 < 1) {
+                if (currentWeek - 1 < 1) {
                     week = 20;
                 } else {
-                    week = this.data.week - 1;
+                    week = currentWeek - 1;
                 }
             }
+            
             this.setData({
                 weekDate: utils.setWeekDate(week - this.data.schoolWeek),
-                week: week == 0 ? utils.getSchoolWeek() : week,
+                week: week,
                 current: e.detail.current,
             });
 
