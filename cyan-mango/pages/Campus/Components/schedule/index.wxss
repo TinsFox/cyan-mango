@@ -125,10 +125,12 @@
   display: flex;
   flex-direction: row;
   padding: 5rpx;
+  justify-content: space-around; 
+  align-items: center;
 }
 
 .detail-item .key {
-  flex: 2;
+  flex: 3;
   text-align: center;
   font-size: 105%;
   color: rgb(50, 50, 50);
@@ -136,7 +138,7 @@
 
 .detail-item .value {
   flex: 5;
-  margin-left: 20rpx;
+  padding-left: 75rpx;
 }
 
 .operate {
