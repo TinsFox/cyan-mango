@@ -1,4 +1,4 @@
-import { GradeModel } from "./score";
+import { GradeModel } from "./Score";
 import { config } from "../../../utils/config";
 // var Data = require("../../../../utils/setting/data")
 const app = getApp();

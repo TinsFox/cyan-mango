@@ -69,7 +69,22 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "地图",
+					"pathName": "pages/Campus/map/map",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "简介",
+					"pathName": "pages/Campus/map/Introduction/Introduction",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

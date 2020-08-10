@@ -17,6 +17,7 @@ Page({
         this.setData({
             userName: e.detail.value,
         });
+        console.log(e)
     },
     password(e) {
         this.setData({

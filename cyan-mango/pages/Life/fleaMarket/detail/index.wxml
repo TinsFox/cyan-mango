@@ -1,7 +1,7 @@
 <fake wx:if="{{mode!='prod'}}" type="fav"></fake>
 
 <block wx:if="{{mode=='prod'}}">
-	<navBar title="宝贝详情"></navBar>
+	<navBar title="宝贝详情" navColor="rgba(255, 255, 255, 0.8)"></navBar>
 	<!-- 背景图片 -->
 	<image class="bg" src="{{detail.image[0]}}"></image>
 

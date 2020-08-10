@@ -40,8 +40,8 @@ Page({
       case "审核d":{
         console.log("违规内容")
         let data={
-          itemId:this.data.itemId,
-          state:-1
+          itemId : this.data.itemId,
+          state : -1
         }
         this.verify(data)
         break

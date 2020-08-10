@@ -4,10 +4,10 @@
     "pages/Setting/login/login",
     "pages/Campus/campus",
     "pages/Life/index",
-    "pages/Campus/calendar/index",
-    "pages/Campus/emptyRoom/index",
-    "pages/Campus/score/index",
-    "pages/Campus/library/index",
+    "pages/Campus/calendar/calendar",
+    "pages/Campus/emptyRoom/emptyRoom",
+    "pages/Campus/score/scoreIndex",
+    "pages/Campus/library/libraryIndex",
     "pages/Campus/library/list/index",
     "pages/Campus/library/item/index",
     "pages/Campus/exam/index",
@@ -27,7 +27,11 @@
     "pages/Setting/agreement/agreement",
     "pages/Setting/help/help",
     "pages/Setting/about/about",
-    "pages/Setting/sync/sync"
+    "pages/Setting/sync/sync",
+    "pages/Campus/map/map",
+    "pages/Campus/map/details/details",
+    "pages/Campus/map/guide/guide",
+    "pages/Campus/map/Introduction/Introduction"
   ],
   "window": {
     "backgroundTextStyle": "light",

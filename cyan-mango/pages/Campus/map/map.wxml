@@ -1,0 +1,19 @@
+<navBar title="华南理工大学广州学院" navColor="white"/>
+<view class="page" style="background: url('{{imgCDN}}{{images}}'); background-size: 100% 100%;">
+  <view class="button_container">
+    <navigator class="button" url="/pages/Campus/map/Introduction/Introduction">
+      <text>华广简介</text>
+    </navigator>
+    <navigator class="button" url="/pages/Campus/map/guide/guide">
+      <text>逛逛华广</text>
+    </navigator>
+  </view>
+  <view class="copyright">
+    <navigator target="miniProgram" app-id="wx8afedfde046e5916">
+      <text>© 青芒派</text>
+    </navigator>
+    <navigator url="web-views/web-views?url={{mapCopyright.url}}">
+      <text>数据版权：华工广院招生办</text>
+    </navigator>
+  </view>
+</view>
