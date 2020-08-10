@@ -64,7 +64,7 @@ Page({
    */
   formSubmit(e) {
     var time = new Date()
-    if (time.getHours() >= 23 && time.getHours() < 7) {
+    if (time.getHours() >= 23 || time.getHours() < 8) {
       wx.showToast({
         title: '当前时间段不可用~',
         icon: "none"
@@ -131,7 +131,6 @@ Page({
       loading: true,
     })
     let res = await library.getBooks(query, page)
-    console.log(res)
     if (res.error_code == 0) {
       that.setData({
         loading: false,

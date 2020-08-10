@@ -15,8 +15,15 @@
 				<view>周</view>
 			</block>
 			<block wx:else>
-				<view>{{vocation}}</view>
-				<view>假</view>
+				<block wx:if="{{vocation}}">
+					<view>{{vocation}}</view>
+					<view>假</view>
+				</block>
+				<block wx:else>
+					<view>错</view>
+					<view>误</view>
+				</block>
+				
 			</block>
 			
 		</view>
@@ -53,7 +60,8 @@
 				<view wx:for="{{11}}" wx:key="index" class="slide-bar-item">{{item+1}}</view>
 			</view>
 		</view>
-
+		<!-- 课程表数据-->
+		
 		<swiper
 		 indicator-dots="{{true}}"
 		 current="{{current}}"
@@ -64,14 +72,17 @@
 			<view wx:for="{{[week-1,week,week+1]}}" wx:key="index" wx:for-item="swiper">
 				<swiper-item>
 					<!-- 课表 -->
+					<block wx:if='{{week}}'>
 					<view wx:for="{{kbList}}" wx:key="index">
 						<view>
 							<cell bindtap="showDetail" id="{{index}}" course="{{item}}" />
 						</view>
 					</view>
+					</block>
 				</swiper-item>
 			</view>
 		</swiper>
+		
 	</view>
 
 
@@ -139,4 +150,3 @@
 		</view>
 	</view>
 </modal>
-

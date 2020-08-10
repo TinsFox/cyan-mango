@@ -11,7 +11,7 @@
 <form bindsubmit='formSubmit'>
 	<view class='search-box'>
 		<input name="query" placeholder='书籍名称' disabled="{{disabled}}"></input>
-		<button formType="submit" class='search-btn' hover-class='search-btn-hover' hover-stay-time='0.2s'>
+		<button formType="submit" class='search-btn' style="{{disabled ? 'background-color:grey': ''}}" hover-class='search-btn-hover' hover-stay-time='0.2s'>
 			<image src='https://cos.ifeel.vip/gzhu-pi/images/icon/search-white.svg'></image>
 			<view>检索</view>
 		</button>

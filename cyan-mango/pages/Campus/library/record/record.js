@@ -1,4 +1,6 @@
-import { checkPermission } from "../../../../utils/tools/permission";
+import {
+    checkPermission
+} from "../../../../utils/tools/permission";
 const app = getApp();
 
 Page({
@@ -100,6 +102,12 @@ Page({
             /**
              * 服务异常
              */
+            wx.showToast({
+                title: res.msg,
+                icon: "none",
+                duration: 2500,
+                mask: true,
+            });
         }
         this.cancelLoading();
     },
@@ -120,8 +128,7 @@ Page({
         if (response.error_code == 0) {
             this.setData({
                 books_history: response.data.record,
-                data_length:
-                    Object.keys(response.data.record).length * 80 + 120,
+                data_length: Object.keys(response.data.record).length * 80 + 120,
                 max_page: response.data.max_page,
                 open: true,
             });
@@ -235,6 +242,15 @@ Page({
             loading: true,
         });
     },
+    forbidden_tip: function(e){
+        wx.showToast({
+          title: '当前时间段不可操作',
+          mask: true,
+          duration: 2500,
+          icon: 'none'
+        })
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */
@@ -267,6 +283,18 @@ Page({
                     });
                 }
             });
+        }
+
+        var time = new Date()
+        console.log(time.getHours())
+        if (time.getHours() >= 23 || time.getHours() < 8) {
+            this.setData({
+                access: false
+            })
+        } else {
+            this.setData({
+                access: true
+            })
         }
 
         /**

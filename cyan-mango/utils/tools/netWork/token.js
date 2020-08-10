@@ -67,11 +67,11 @@ class Token {
     }
     /**
      * 解密token
-     * @param {*} ket
+     * @param {*} key
      * @param {*} text
      */
-    getToken(ket, text) {
-        var str_md5 = fun_md5.hex_md5(ket);
+    getToken(key, text) {
+        var str_md5 = fun_md5.hex_md5(key);
         var tmp = str_md5.split("");
         var str1 = "";
         for (var i = 0; i < tmp.length; i++) {

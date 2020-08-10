@@ -22,7 +22,7 @@
 						<text>{{item.book}}</text>
 					</view>
 					<view class="book-renew">
-						<button class="bg-green button-hover" bindtap="bookeRenew" id="{{item.barcode}}">续借</button>
+						<button class="{{access ? 'bg-green': 'bg-grey'}} button-hover" bindtap="{{access ? 'bookeRenew': 'forbidden_tip'}}" id="{{item.barcode}}">续借</button>
 					</view>
 				</view>
 				<view class="book-info">
