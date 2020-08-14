@@ -31,7 +31,8 @@
     "pages/Campus/map/map",
     "pages/Campus/map/details/details",
     "pages/Campus/map/guide/guide",
-    "pages/Campus/map/Introduction/Introduction"
+    "pages/Campus/map/Introduction/Introduction",
+    "pages/Campus/map/polyline/polyline"
   ],
   "window": {
     "backgroundTextStyle": "light",

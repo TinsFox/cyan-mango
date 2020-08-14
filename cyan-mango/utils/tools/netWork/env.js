@@ -31,5 +31,5 @@ const tinsfox={
 }
 
 module.exports = {
-  host: wechat
+  host: prod
 }
