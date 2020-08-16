@@ -28,7 +28,8 @@ const API = {
   "activity_list":"/publish/club/activity/info",
   "book_record": "/user/library/book-record",
   "book_renew": "/user/library/renew",
-  "book_history": "/user/library/book-record"
+  "book_history": "/user/library/book-record",
+  "book_reset": "/publish/library/reset"
 }
 
 export default API

@@ -1,0 +1,37 @@
+<navBar title="重置密码" />
+<view class='cu-load load-modal' wx:if="{{loading}}">
+	<view class='cuIcon-emojifill text-orange' />
+	<view class='gray-text'>加载中...</view>
+</view>
+<view class="page">
+	<view class="reset-title">
+		<text class="text-shadow">图书馆</text>
+	</view>
+
+	<form bindsubmit="resetPassword">
+		<view class="reset-form">
+			<view class="form-data">
+				<view class="item text-white">
+					<text>学 号</text>
+					<input name="sid" placeholder="请输入你的学号" placeholder-style="color:#9db6ba;" cursor-spacing="120"></input>
+				</view>
+				<view class="item">
+					<text>邮 箱</text>
+					<input name="email" placeholder="请输入你的邮箱" placeholder-style="color:#9db6ba;" cursor-spacing="120"></input>
+				</view>
+			</view>
+			<view class="reset-btn">
+				<button class="cu-btn block round bg-blue" form-type="submit">重置密码</button>
+			</view>
+		</view>
+	</form>
+</view>
+
+<modal show="{{tip}}" title="提示" cancelText="返回" width="85%" confirm='{{ false }}' bind:cancel="navBackPage">
+	<view class="margin-lr-xl">
+		<view>
+			<text class="cuIcon-roundcheck text-green margin-sm" />
+				<text class="text-gray text-lg">{{tip_content}}</text>
+		</view>
+	</view>
+</modal>

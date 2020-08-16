@@ -1,12 +1,13 @@
-<navBar title="绑定" />
+<navBar title="同步中心" />
 <view class='cu-load load-modal' wx:if="{{loading}}">
 	<view class='cuIcon-emojifill text-orange' />
 	<view class='gray-text'>数据同步中</view>
 </view>
-<view class="container">
+
+<!-- <view class="container">
 	<view class="tui-page-title">{{bindTitle}}</view>
 	<view class='exchange'>
-		<image mode='widthFix' style='width:80px;height:80px' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png' />
+		<image mode='widthFix'  src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png' />
 	</view>
 	<view style="margin-top-xl">青芒派</view>
 	<view class='login-form'>
@@ -43,7 +44,66 @@
 	<view class="tui-login-way">
 		<view hover-class="tui-opcity" hover-stay-time="150" bindtap="showOtherLogin">登录{{bindTitle==='教务系统'?'图书馆':'教务系统'}}</view>
 	</view>
+</view> -->
+
+<view class="box">
+	<view class="info shadow-wrap">
+		<view class="logo">
+			<image mode='widthFix' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png' />
+		</view>
+		<view class="title text-gray">
+			<text>青芒派</text>
+		</view>
+	</view>
+	<view class="login">
+		<!-- 登录标题 -->
+		<view class="login-title text-brown text-shadow">{{bindTitle}}</view>
+		<!-- 表单数据 -->
+		<view class="login-data">
+			<form bindsubmit='formSubmit'>
+				<view class='form'>
+					<view class='item'>
+						<view class="text-grey text-shadow">学号</view>
+						<input class='input-content text-grey' name="username" type='number' placeholder="Enter account" cursor-spacing="120" bindinput="userName" />
+					</view>
+					<view class='item'>
+						<view class="text-grey text-shadow">密码</view>
+						<view>
+							<input class='input-content text-grey' name="password" password='{{!isLook}}' placeholder="Enter password" cursor-spacing="120" bindinput="password" />
+							<text bindtap="lookPassword" class="{{isLook ? 'cuIcon-attentionfill': 'cuIcon-attention text-grey' }}"></text>
+						</view>
+					</view>
+				</view>
+				<view class="protocol" bindtap="agree">
+					<radio checked="{{checked}}" />
+					<view class="margin-left-sm text-grey">
+						<text>使用前请同意</text>
+						<text bindtap='navToAgreement' style='color:#18b3eb'>《用户协议》</text>
+					</view>
+				</view>
+			</form>
+		</view>
+		<view class="change">
+			<block wx:if="{{bindTitle == '教务系统' ? !auth.education : !auth.library}}">
+				<button class="login-button cu-btn bg-blue round block" disabled="{{parse.disabled(userName,password)}}" bindtap="login">登 录</button>
+			</block>
+			<block wx:else>
+				<button class="login-button cu-btn bg-red round block" data-bindType="{{ bindTitle == '教务系统' ? 1: 2}}" bindtap="untieBind">账号解绑</button>
+			</block>
+
+			<view>
+				<view class="exchange_login" bindtap="showOtherLogin">登录{{bindTitle==='教务系统'?'图书馆':'教务系统'}}</view>
+				<view class="reset" wx:if="{{bindTitle == '教务系统' ? false : true}}" bindtap="navResetPage">密码重置</view>
+			</view>
+		</view>
+	</view>
+	<view class="footer">
+		<text class="cuIcon-warn text-orange margin-right-sm"></text>
+		<text class="text-grey">23:00-08:00系统通道关闭，将无法绑定</text>
+	</view>
 </view>
+
+
 <!-- 微信授权设置弹窗 -->
 <modal show="{{isAuthorized}}" title="微信授权" confirm="{{false}}" cancel="{{false}}" width="85%" bind:confirm="userInfoHandler">
 	<view class="margin-lr-xl">

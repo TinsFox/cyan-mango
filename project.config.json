@@ -83,6 +83,20 @@
 					"pathName": "pages/Campus/map/Introduction/Introduction",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "同步中心",
+					"pathName": "pages/Setting/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "重置密码",
+					"pathName": "pages/Setting/reset/reset",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

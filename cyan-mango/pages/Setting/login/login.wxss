@@ -1,4 +1,5 @@
 @import "index.wxss";
+
 .tui-page-title {
   width: 100%;
   font-size: 48rpx;
@@ -114,6 +115,7 @@
   width: 60rpx;
   height: 60rpx;
 }
+
 .container {
   display: flex;
   box-sizing: border-box;
@@ -214,3 +216,150 @@ button::after {
   background: #e5e5e5 !important;
   color: #2e2e2e !important;
 }
+
+.box {
+  width: 100vw;
+  background-color: #f1f1f1;
+  height: 90vh;
+}
+
+.info{
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+}
+.logo{
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: spin 20s linear infinite;
+  background-color: white;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+.login {
+  box-sizing: border-box;
+  margin: 3% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.login-title {
+  line-height: 8vh;
+  text-align: center;
+  font-size: 150%;
+}
+
+.login-data {
+  flex: 5;
+  width: 100%;
+  height: 35vh;
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+
+.login-data > form{
+  height: 100%;
+  width: 100%;
+}
+
+.login-data .form{
+  height: 80%;
+}
+
+.login-data .item{
+  height: 40%;
+  border-bottom: solid 2px rgba(215, 226, 215, .7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.login-data .item:last-child{
+  margin-top: 15px;
+}
+.login-data .item view:first-child{
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.login-data .item view:last-child{
+  display: flex;
+  align-items: center;
+}
+.login-data .item view:last-child input{
+  flex: 1;
+}
+.login-data .item view:last-child text{
+  text-align: right;  
+}
+
+.login-data .protocol{
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: start;
+  align-items: center;
+}
+
+.login-data .protocol radio{
+  transform: scale(.6);
+}
+
+.change {
+  height: 18vh;
+  box-sizing: border-box;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.change button{
+  flex: 2;
+  width: 100%;
+  font-size: 120%;
+}
+.change>view{
+  flex: 4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #18b3eb;
+}
+.change .exchange_login{
+  flex: 1;
+  text-align: left;
+}
+.change .reset{
+  flex: 1;
+  text-align: right;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 12vw;
+  text-align: center;
+  
+}
+
