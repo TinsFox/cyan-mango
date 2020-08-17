@@ -56,10 +56,11 @@ class Token {
                     } else if (res.data.error_code == 5040) {
                         that.getTokenFromServer();
                     } else {
+                        // wx.showModal({
+                        //     title:'暂停服务',
+                        //     content:'系统升级中，请稍后访问'
+                        // })
                         reject(res.data);
-                        wx.showToast({
-                            title: "网络错误，请重试",
-                        });
                     }
                 },
             });

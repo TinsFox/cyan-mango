@@ -1,11 +1,9 @@
-<navBar title="华南理工大学广州学院" navColor="white"/>
+<navBar title="华工广州学院" navColor="white"/>
 <view>
-  <swiper class="swiper" indicator-dots="{{building.img.length == 1 ? false : true}}" indicator-active-color="#fff" autoplay="1" interval="3000" duration="500">
-    <block wx:for="{{building.img}}" wx:key="*this">
-      <swiper-item>
-        <image class="swiper-image" src="{{item}}" mode="heightfix"></image>
-      </swiper-item>
-    </block>
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{building.img}}" wx:key>
+      <image src="{{item}}" mode="aspectFill"></image>
+    </swiper-item>
   </swiper>
   <view class="building">
     <view class="buildingName">{{building.name}}</view>
@@ -16,7 +14,14 @@
 
   <view class="descript">
     <view class='description'>
-      <rich-text nodes="{{ building.description }}"></rich-text>
+      <wxparser rich-text="{{test.data}}" />
+      <!-- <rich-text nodes="{{ test.data }}"></rich-text> -->
     </view>
   </view>
+</view>
+
+<view>
+	<button>
+		<image bindtap='switchModel' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>
+	</button>
 </view>

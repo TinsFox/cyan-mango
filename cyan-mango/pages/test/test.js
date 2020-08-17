@@ -10,6 +10,18 @@ Page({
   data: {
 
   },
+  code(){
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          console.log(res)
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
   debug(){
     wx.setEnableDebug({
       enableDebug: false

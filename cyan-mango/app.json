@@ -28,12 +28,12 @@
     "pages/Setting/help/help",
     "pages/Setting/about/about",
     "pages/Setting/sync/sync",
-    "pages/Campus/map/map",
     "pages/Campus/map/details/details",
     "pages/Campus/map/guide/guide",
     "pages/Campus/map/Introduction/Introduction",
     "pages/Campus/map/polyline/polyline",
-    "pages/Setting/dev/dev"
+    "pages/Setting/dev/dev",
+    "pages/Setting/reset/reset"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -54,34 +54,34 @@
       "desc": "你的位置信息将用于定位效果展示"
     }
   },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/Campus/index",
-        "text": "Campus",
-        "iconPath": "assets/tabbar/kb.png",
-        "selectedIconPath": "assets/tabbar/kb-selected.png"
-      },
-      {
-        "pagePath": "pages/Life/index",
-        "text": "Life",
-        "iconPath": "assets/tabbar/wall.png",
-        "selectedIconPath": "assets/tabbar/wall-selected.png"
-      }
-    ],
-    "color": "#333",
-    "selectedColor": "#87abda",
-    "borderStyle": "white"
-  },
-  "sitemapLocation": "sitemap.json",
-  "networkTimeout": {
-    "request": 20000,
-    "downloadFile": 10000
-  },
-  "plugins": {
-    "wxparserPlugin": {
-      "version": "0.3.1",
-      "provider": "wx9d4d4ffa781ff3ac"
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/Campus/index",
+                "text": "Campus",
+                "iconPath": "assets/tabbar/kb.png",
+                "selectedIconPath": "assets/tabbar/kb-selected.png"
+            },
+            {
+                "pagePath": "pages/Life/index",
+                "text": "Life",
+                "iconPath": "assets/tabbar/wall.png",
+                "selectedIconPath": "assets/tabbar/wall-selected.png"
+            }
+        ],
+        "color": "#333",
+        "selectedColor": "#87abda",
+        "borderStyle": "white"
+    },
+    "sitemapLocation": "sitemap.json",
+    "networkTimeout": {
+        "request": 20000,
+        "downloadFile": 10000
+    },
+    "plugins": {
+        "wxparserPlugin": {
+            "version": "0.3.1",
+            "provider": "wx9d4d4ffa781ff3ac"
+        }
     }
-  }
 }

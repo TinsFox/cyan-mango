@@ -5,6 +5,7 @@ import { checkPermission } from "../../../utils/tools/permission";
 
 Page({
     data: {
+        isLook: false,
         password: "",
         bindtype: 1,
         bindTitle: "教务系统",
@@ -36,7 +37,7 @@ Page({
             wx.showToast({
                 title: "请同意用户协议",
                 icon: "none",
-                duration: 5000,
+                duration: 3000,
             });
             return;
         }
@@ -60,7 +61,12 @@ Page({
             wx.removeStorage({
                 key: "course",
             });
-            checkPermission();
+            checkPermission().then((value) => {
+                app.globalData.auth = value;
+                this.setData({
+                    auth: value
+                })
+            });
         }
         this.setData({
             login_tip: true,
@@ -80,9 +86,12 @@ Page({
             //绑定成功
             checkPermission().then((value) => {
                 app.globalData.auth = value;
+                this.setData({
+                    auth: value
+                })
             });
-            
             this.setData({
+                auth: app.globalData.auth,
                 login_tip: true,
                 error: res.error_code,
                 tip_content: res.msg,
@@ -104,7 +113,8 @@ Page({
                 title: "请勿重复绑定",
                 icon: "none",
                 duration: 4000,
-                flag: true
+                flag: true,
+                mask: true
             });
         } else {
             this.setData({
@@ -196,4 +206,16 @@ Page({
             },
         });
     },
+
+    lookPassword(e){
+        console.log(e)
+        this.setData({
+            isLook: !this.data.isLook,
+        })
+    },
+    navResetPage: function(e){
+        wx.navigateTo({
+          url: "/pages/Setting/reset/reset",
+        })
+    }
 });

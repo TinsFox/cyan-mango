@@ -67,6 +67,7 @@ class axios {
             method: param.method ? param.method : "GET",
             success: (res) => {
                 let statusCode = res.statusCode;
+                console.log(statusCode)
                 if (statusCode === 200) {
                     // console.log("Request: ", res.data)
                     if (res.data.error_code == 5040) {
@@ -82,6 +83,10 @@ class axios {
                     }
                     resolve(res.data);
                 } else {
+                    // wx.showModal({
+                    //     title:'暂停服务',
+                    //     content:'系统升级中，请稍后访问'
+                    // })
                     wx.reportMonitor("0", 1);
                     reject(res.data);
                 }

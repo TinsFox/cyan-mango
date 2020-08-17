@@ -1,6 +1,8 @@
 let config = require('../config.js')
 let gcu = require('../resources/gcu')
 var app = getApp();
+import {schoolModel} from "./schoolMessage"
+var School = new schoolModel()
 Page({
   /**
    * 页面的初始数据
@@ -13,10 +15,21 @@ Page({
     },
     imgCDN: app.imgCDN
   },
+  async getData(){
+    let res = await School.getSchool()
+    this.setData({
+      test:res
+    })
+    console.log(res)
+  },
+  switchModel(){
+    console.log(12)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData()
     var bid = parseInt(options.bid);
     var tid = parseInt(options.tid);
     if (!options.bid || !options.tid){

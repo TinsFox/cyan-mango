@@ -10,15 +10,16 @@ Page({
   },
   onLoad: function (options) {
     var _this = this;
+    console.log('options',options)
     wx.getLocation({
       type: 'gcj02',
       isHighAccuracy:true,
       highAccuracyExpireTime:5000,
       success: function (res) {
-        console.log(res)
+        console.log('当前位置',res)
         _this.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
+          latitude: options.latitude,
+          longitude: options.longitude
         });
         _this.routing(options)
       },

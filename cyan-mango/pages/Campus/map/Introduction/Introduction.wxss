@@ -1,5 +1,19 @@
 /* pages/map/details.wxss */
 
+/* 悬浮图标 */
+
+.float-icon {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  z-index: 2;
+  /* box-shadow: 0rpx 3rpx 5rpx 5rpx #ddd; */
+  -webkit-animation: rotate 15s linear 1000ms infinite;
+  animation: rotate 15s linear 1000ms infinite;
+}
 .description {
   padding: 40rpx 40rpx;
   line-height: 30px;
