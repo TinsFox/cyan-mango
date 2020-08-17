@@ -1,3 +1,1 @@
-<!--cyan-mango/pages/Campus/emptyRoom/index.wxml-->
-<!-- <navBar title="空教室"></navBar> -->
-<fake wx:if="{{mode && mode!='prod'}}" type="default"></fake>
+<navBar title="空教室"></navBar>

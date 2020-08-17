@@ -10,7 +10,7 @@
     "pages/Campus/library/libraryIndex",
     "pages/Campus/library/list/index",
     "pages/Campus/library/item/index",
-    "pages/Campus/exam/index",
+    "pages/Campus/exam/examIndex",
     "pages/Setting/webview/index",
     "pages/Life/fleaMarket/index",
     "pages/Life/fleaMarket/post/index",
@@ -32,7 +32,8 @@
     "pages/Campus/map/details/details",
     "pages/Campus/map/guide/guide",
     "pages/Campus/map/Introduction/Introduction",
-    "pages/Campus/map/polyline/polyline"
+    "pages/Campus/map/polyline/polyline",
+    "pages/Setting/dev/dev"
   ],
   "window": {
     "backgroundTextStyle": "light",

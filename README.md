@@ -12,6 +12,9 @@ module.exports = {
   host:dev
 }
 ```
+## 路由拦截
+首页宫格跳转使用wx.js封装的
+
 
 ### 功能列表
 

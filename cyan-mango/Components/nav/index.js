@@ -25,6 +25,7 @@ Component({
    */
   methods: {
     navTo(e) {
+      console.log(e)
       wx.$navTo(e)
     },
     getAppParam() {

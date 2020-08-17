@@ -19,6 +19,7 @@ wx.$navTo = function (e, args) {
   }
   if (typeof e == 'object') {
     if (e.target.dataset && e.target.dataset.url) {
+      console.log(e.target.dataset)
       wx.navigateTo({
         url: e.target.dataset.url + args_str,
         fail: err => {
@@ -32,8 +33,12 @@ wx.$navTo = function (e, args) {
         }
       })
     } else if (e.currentTarget.dataset && e.currentTarget.dataset.url) {
+      console.log(e.currentTarget.dataset)
+      const mode = e.currentTarget.dataset.mode || 'prod'
+      console.log(mode)
       wx.navigateTo({
-        url: e.currentTarget.dataset.url + args_str,
+        url: mode==='dev'?'/pages/Setting/dev/dev':e.currentTarget.dataset.url + args_str,
+        // url: e.currentTarget.dataset.url + args_str,
         fail: err => {
           console.warn(err)
           wx.switchTab({
