@@ -6,7 +6,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": false,
 		"enhance": true,
 		"postcss": true,
@@ -71,8 +71,8 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "简介",
+					"id": 0,
+					"name": "了解华广",
 					"pathName": "pages/Campus/map/Introduction/Introduction",
 					"query": "",
 					"scene": null
@@ -82,6 +82,26 @@
 					"name": "pages/test/test",
 					"pathName": "pages/test/test",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "校园导览",
+					"pathName": "pages/Campus/map/attractionMap/attractionMap",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "查快递",
+					"pathName": "pages/extra/express/express",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快递列表",
+					"pathName": "pages/extra/express/expressList",
 					"scene": null
 				}
 			]

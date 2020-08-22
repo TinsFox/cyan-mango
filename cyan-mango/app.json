@@ -33,7 +33,12 @@
     "pages/Campus/map/Introduction/Introduction",
     "pages/Campus/map/polyline/polyline",
     "pages/Setting/dev/dev",
-    "pages/Setting/reset/reset"
+    "pages/Setting/reset/reset",
+    "pages/Campus/map/attractionMap/attractionMap",
+    "pages/Life/travel/travel",
+    "pages/extra/express/express",
+    "pages/extra/express/detail/detail",
+    "pages/extra/express/expressList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -54,34 +59,46 @@
       "desc": "你的位置信息将用于定位效果展示"
     }
   },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/Campus/index",
-                "text": "Campus",
-                "iconPath": "assets/tabbar/kb.png",
-                "selectedIconPath": "assets/tabbar/kb-selected.png"
-            },
-            {
-                "pagePath": "pages/Life/index",
-                "text": "Life",
-                "iconPath": "assets/tabbar/wall.png",
-                "selectedIconPath": "assets/tabbar/wall-selected.png"
-            }
-        ],
-        "color": "#333",
-        "selectedColor": "#87abda",
-        "borderStyle": "white"
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/Campus/index",
+        "text": "Campus",
+        "iconPath": "assets/tabbar/kb.png",
+        "selectedIconPath": "assets/tabbar/kb-selected.png"
+      },
+      {
+        "pagePath": "pages/Life/index",
+        "text": "Life",
+        "iconPath": "assets/tabbar/wall.png",
+        "selectedIconPath": "assets/tabbar/wall-selected.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#87abda",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 10000
+  },
+  "plugins": {
+    "wxparserPlugin": {
+      "version": "0.3.1",
+      "provider": "wx9d4d4ffa781ff3ac"
     },
-    "sitemapLocation": "sitemap.json",
-    "networkTimeout": {
-        "request": 20000,
-        "downloadFile": 10000
+    "subway": {
+      "version": "1.0.9",
+      "provider": "wx6aaf93c4435fa1c1"
     },
-    "plugins": {
-        "wxparserPlugin": {
-            "version": "0.3.1",
-            "provider": "wx9d4d4ffa781ff3ac"
-        }
+    "routePlan": {
+      "version": "1.0.7",
+      "provider": "wx50b5593e81dd937a"
+    },
+    "chooseLocation": {
+      "version": "1.0.4",
+      "provider": "wx76a9a06e5b4e693e"
     }
+  }
 }

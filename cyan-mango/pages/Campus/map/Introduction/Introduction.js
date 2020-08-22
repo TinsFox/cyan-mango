@@ -8,38 +8,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tid: 0,
-    bid: 0,
     building: {
       img: ['cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/index.jpg']
     },
-    imgCDN: app.imgCDN
+    gcu:gcu
   },
   async getData(){
     let res = await School.getSchool()
     this.setData({
       test:res
     })
-    console.log(res)
+    // console.log(res)
   },
   switchModel(){
-    console.log(12)
+    wx.navigateTo({
+      url: '/pages/Campus/map/attractionMap/attractionMap',
+      success: (result) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
+  },
+  route(){
+    let plugin = requirePlugin('routePlan');
+    let key = '2WHBZ-BAGKF-PJOJE-NZOQ4-5LCL7-SNFU2';//使用在腾讯位置服务申请的key;
+    let referer = '青芒派'; //调用插件的app的名称
+    let endPoint = JSON.stringify({  //终点
+        'name': gcu.introduce.name,
+        'latitude': gcu.introduce.latitude,
+        'longitude': gcu.introduce.longitude
+    });
+    wx.navigateTo({
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getData()
-    var bid = parseInt(options.bid);
-    var tid = parseInt(options.tid);
-    if (!options.bid || !options.tid){
-      var data = app.globalData.introduce;
-    } else {
-      var data = app.globalData.map[tid].data[bid];
-    }
     this.setData({
-      bid: bid,
-      tid: tid,
       building: gcu.introduce
     });
   },

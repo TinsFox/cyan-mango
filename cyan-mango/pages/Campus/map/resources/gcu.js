@@ -1,75 +1,82 @@
 //学校简介
-module.exports.introduce = {
+export const introduce = {
   "shortName": "华广", //学校名字两个字缩写
   "name": "华南理工大学广州学院", //学校名称
   "images": "校园导览/gdst.jpg", // 首页图片地址
   "share": "校园导览/share.jpg", //分享时展示图片的地址
-  "latitude": "23.433793",
-  "longitude": "113.172041",
+  "latitude": 23.433793,
+  "longitude": 113.172041,
   "img": ["cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/index.jpg", "cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/love.jpg"],  //简介图片
-  "description": "<p>　华南理工大学广州学院(原华南理工大学广州汽车学院)是2006年4月教育部批准设立的一所以工科为主，经济、管理、文学、理学、艺术协调发展的多科性应用型大学。由举办方华南理工大学和投资方广州珠江云峰投资控股有限公司合作创办，是广东省大学生创新创业教育示范学校、广州市知识产权试点学校、中国第一所IACBE国际商科认证大学。</p><p>　学校位于粤港澳大湾区的广州市花都区，交通便利，地理位置优越。校园依山傍水，绿树成荫，百花争艳，是读书治学的清雅之地。占地面积1753亩，建筑面积近48万平方米。建有14个实验中心，包括5个基础实验中心和9个专业实验中心，268个实验室，425个就业与实习基地。国家级大学生校外实践基地1个，国家级众创空间2个，省级实验教学示范中心5个，省级学生校外实践基地4个，省级协同育人平台1个，省级应用型人才培养示范专业3个，省级专业综合改革试点项目3个，为培养高素质应用型人才提供了强有力的支撑。</p> <p>　经过14年的发展，学院办学水平稳步提升。学院将继续秉承“崇德、尚学、精艺、笃行”的校训，不断进取，开拓创新，进一步加强内涵建设，着力提高人才培养质量，提升科学研究服务社会能力，为把学院建设成为民办高水平理工科学院，实现学院“创百年学府，育产业精英”的目标而努力奋斗。</p>",
-  "mapCopyright": { name: "招生宣传服务中心", url: "" }
+  "description": "华南理工大学广州学院"
 }
+const qiniu = ''
+export const jdIcon='https://cyan-mongo.tinsfox.com/jd.png'
+export const jxlIcon='https://cyan-mongo.tinsfox.com/jxl.png'
 //学校地图数据
-module.exports.map = [
+export const map = [
   {
     "name": "景点",
     "scale": 16,
     "data": [
       {
         "name": "图书馆",
-        "latitude": "22.97128",
-        "longitude": "113.75467",
-        "iconPath": "/img/ico/jd.png",
+        "latitude": "23.43173",
+        "longitude": "113.17089",
+        "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/景点/图书馆/图书馆1.jpg"
-        ],
-        "description": "<p>　广东科技学院图书馆建筑面积2.36万平方米，设有</p>"
+        "img": [],
+        "description": "<p>华广图书馆</p>"
       },
       {
-        "name": "东莞植物园",
-        "latitude": "22.96642",
-        "longitude": "113.74962",
-        "iconPath": "/img/ico/jd.png",
+        "name": "田径场",
+        "latitude": "23.434944",
+        "longitude": "113.170799",
+        "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/景点/植物园/植物园1.jpg",
-          "校园导览/景点/植物园/植物园2.jpg",
-          "校园导览/景点/植物园/植物园3.jpg"
-        ],
-        "description": "东莞植物园"
+        "img": [],
+        "description": "足球场"
       },
       {
         "name": "体育馆",
-        "latitude": "22.97243",
-        "longitude": "113.75629",
-        "iconPath": "/img/ico/jd.png",
+        "latitude": "23.435205",
+        "longitude": "113.172145",
+        "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/景点/体育馆/体育馆1.jpg",
-          "校园导览/景点/体育馆/体育馆2.jpg",
-          "校园导览/景点/体育馆/体育馆3.jpg",
-          "校园导览/景点/体育馆/体育馆4.jpg"
-        ],
-        "description": "　广东科技学院体育馆坐落于学校中心，紧挨学校操场，临近学校7栋教学楼。室内设施现代化，装有中央空调，以及现代化舞台等配套设施。观众席有上下两层，最高可容纳3000人。我校体育馆作为一设施健全，现代化规模高的建筑，每年都会在馆内举办许多大型活动，如我校的迎新晚会，东莞篮球联赛的主场等。是我校标志性建筑之一。"
+        "img": [],
+        "description": "体育馆"
       },
       {
-        "name": "西湖乐园",
-        "latitude": "22.96726",
-        "longitude": "113.75763",
-        "iconPath": "/img/ico/jd.png",
+        "name": "人工湖",
+        "latitude": "23.432129",
+        "longitude": "113.172113",
+        "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/景点/西湖乐园/西湖乐园3.jpg",
-          "校园导览/景点/西湖乐园/西湖乐园2.jpg",
-          "校园导览/景点/西湖乐园/西湖乐园1.jpg"
-        ],
-        "description": "西湖乐园"
+        "img": [],
+        "description": "人工湖"
+      },
+      {
+        "name": "心形湖",
+        "latitude": "23.438744",
+        "longitude": "113.173867",
+        "iconPath": jdIcon,
+        "width": "30",
+        "height": "30",
+        "img": [],
+        "description": "心形湖"
+      },
+      {
+        "name": "天狮岭公园",
+        "latitude": "23.435397",
+        "longitude": "113.177461",
+        "iconPath": jdIcon,
+        "width": "30",
+        "height": "30",
+        "img": [],
+        "description": "天狮岭公园"
       }
     ]
   },
@@ -78,217 +85,104 @@ module.exports.map = [
     "scale": 16,
     "data": [
       {
-        "name": "1号教学楼",
-        "latitude": "22.97338",
-        "longitude": "113.7554",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A1",
+        "latitude": "23.43017",
+        "longitude": "113.172462",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/1号教学楼.jpg"
-        ],
-        "description": "　1号教学楼有九层楼，左右两侧有电梯，正对着正门（北门），成拱形，左边是2号教学楼，右边是3号教学楼，中间与4、5号教学楼相连。1号教学楼一楼主要是学校社团部门的活动室，还有农行ATM机，校园银行（中国建设银行），中国电信、联通、移动店，广科报刊亭；2～6层楼为多媒体教室；7～9主要为实验室，有：语言实验室、公共实验室、会计多功能综合实验室、软件综合实验室，同声传译实验室，ERP实训室，NET实训室，国际商务英语模拟实训室，计算机基础技术实训室，数据开发实训室，还有管理办公室。"
+        "img": [],
+        "description": "A1"
       },
       {
-        "name": "2号教学楼",
-        "latitude": "22.97331",
-        "longitude": "113.75464",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A2",
+        "latitude": "23.43051",
+        "longitude": "113.172129",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/2号教学楼.jpg"
-        ],
-        "description": "　2号教学楼有六层楼，在1号教学楼的左边，创业楼的后面。"
+        "img": [],
+        "description": "A2"
       },
       {
-        "name": "3号教学楼",
-        "latitude": "22.97379",
-        "longitude": "113.75627",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A3",
+        "latitude": "23.430953",
+        "longitude": "113.171818",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/3号教学楼1.jpg",
-          "校园导览/教学楼/3号教学楼2.jpg"
-        ],
-        "description": "　3号教学楼有六层楼，在1号教学楼的右边。"
+        "img": [],
+        "description": "A3"
       },
       {
-        "name": "4号教学楼",
-        "latitude": "22.972841",
-        "longitude": "113.755145",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A4",
+        "latitude": "23.431179",
+        "longitude": "113.17141",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/4号教学楼1.jpg",
-          "校园导览/教学楼/4号教学楼2.jpg"
-        ],
-        "description": "　4栋教学楼位于2栋教学楼后方，且与2栋教学楼相连接。4栋教学楼在配套有现代多媒体教学设施，且全部装有空调的同时还配套有最新电脑设备，帮助学生学习最新现代信息技术。"
+        "img": [],
+        "description": "A4"
       },
       {
-        "name": "5号教学楼",
-        "latitude": "22.973043",
-        "longitude": "113.755928",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A5",
+        "latitude": "23.43047",
+        "longitude": "113.171609",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/5号教学楼1.jpg",
-          "校园导览/教学楼/5号教学楼2.jpg"
-        ],
-        "description": "　5栋教学楼位于3栋教学楼后方，且与3栋教学楼相连接。3栋教学楼在配套有现代多媒体教学设施，且全部装有空调，保证了学生学习环境和教师教学环境的质量。使学生能舒适专心地进行高质量学习。"
+        "img": [],
+        "description": "A5"
       },
       {
-        "name": "6号教学楼",
-        "latitude": "22.97253",
-        "longitude": "113.75524",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A6",
+        "latitude": "23.431617",
+        "longitude": "113.174028",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/6栋教学楼1.jpg",
-          "校园导览/教学楼/6号教学楼2.jpg"
-        ],
-        "description": "　6栋教学楼位于4栋教学楼后方，且与4栋教学楼相连接。6栋教学楼在配套有现代多媒体教学设施，且全部装有空调。且在六楼有大型教室，最高可容纳近200人，是大型讲课和讲座的主场地之一。"
+        "img": [],
+        "description": "A6"
       },
       {
-        "name": "7号教学楼",
-        "latitude": "22.97265",
-        "longitude": "113.7558",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A7",
+        "latitude": "23.431819",
+        "longitude": "113.174382",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/7号教学楼1.jpg",
-          "校园导览/教学楼/7号教学楼2.jpg"
-        ],
-        "description": "　7号教学楼有六层楼，与5号教学楼相连。教学楼主要为公共多媒体教室，还有资产评估、投资项目管理实验室。"
+        "img": [],
+        "description": ""
       },
       {
-        "name": "8号教学楼",
-        "latitude": "22.96993",
-        "longitude": "113.75418",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A8",
+        "latitude": "23.43209",
+        "longitude": "113.174634",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/8号教学楼2.jpg",
-          "校园导览/教学楼/8号教学楼.jpg"
-        ],
-        "description": "　8栋教学楼位于广东科技学院南门，位于行政楼后面。8栋教学楼主体为6层建筑，外墙为淡黄色，一至六楼均有公共多媒体教室，提供了场所让学生上课自习。其中5楼有中心机房，现代教育中心以及网络室。6楼有库房以及现代教育中心主任室。"
+        "img": [],
+        "description": ""
       },
       {
-        "name": "9号教学楼",
-        "latitude": "22.96945",
-        "longitude": "113.75461",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A9",
+        "latitude": "23.432375",
+        "longitude": "113.174945",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/9号教学楼1.jpg",
-          "校园导览/教学楼/9号教学楼2.jpg"
-        ],
-        "description": "　9栋教学楼位于广东科技学院南门，行政楼右边。9栋教学楼主体为六层建筑，外墙为淡黄色。一楼为计算机系资料室以及多媒体课室，二楼为计算机系学工办公室及多媒体课室，三楼为计算机系主任办公室以及多媒体教室，四楼为计算机系软件工程教研室以及云终端实训室，五楼以及六楼为计算机系网络工程教研室以及云端实验室。"
+        "img": [],
+        "description": "A9"
       },
       {
-        "name": "工一",
-        "latitude": "22.968682",
-        "longitude": "113.754137",
-        "iconPath": "/img/ico/jxl.png",
+        "name": "A10",
+        "latitude": "23.432592",
+        "longitude": "113.175224",
+        "iconPath": jxlIcon,
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/教学楼/工1.jpg"
-        ],
-        "description": "　工程技术中心位于广东科技学院南门，临近高山，风景优美。是理工科专业的聚集地，学术氛围浓郁。工程技术中心123栋面对而立，中间有长廊相连。广东科技学院以工学为主，在此基础上，工程技术中心在各方面科技创新，专利发明方面功不可没。"
-      },
-      {
-        "name": "工二",
-        "latitude": "22.968410",
-        "longitude": "113.754094",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/教学楼/工2.jpg"
-        ],
-        "description": "　工程技术中心位于广东科技学院南门，临近高山，风景优美。是理工科专业的聚集地，学术氛围浓郁。工程技术中心123栋面对而立，中间有长廊相连。广东科技学院以工学为主，在此基础上，工程技术中心在各方面科技创新，专利发明方面功不可没。"
-      },
-      {
-        "name": "工三",
-        "latitude": "22.968153",
-        "longitude": "113.754067",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/教学楼/工3.jpg"
-        ],
-        "description": "　工程技术中心位于广东科技学院南门，临近高山，风景优美。是理工科专业的聚集地，学术氛围浓郁。工程技术中心123栋面对而立，中间有长廊相连。广东科技学院以工学为主，在此基础上，工程技术中心在各方面科技创新，专利发明方面功不可没。"
-      },
-      {
-        "name": "汽车实训中心",
-        "latitude": "22.968460",
-        "longitude": "113.754196",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/实训楼/汽车实训中心.jpg"
-        ],
-        "description": "　汽车实训中心"
-      },
-      {
-        "name": "机械加工中心",
-        "latitude": "22.968193",
-        "longitude": "113.754147",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/实训楼/机械加工中心.jpg"
-        ],
-        "description": "机械加工中心"
-      },
-      {
-        "name": "数控加工中心",
-        "latitude": "22.968040",
-        "longitude": "113.754083",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/实训楼/数控加工中心1.jpg",
-          "校园导览/实训楼/数控加工中心2.jpg"
-        ],
-        "description": "数控加工中心"
-      },
-      {
-        "name": "实验楼1",
-        "latitude": "22.967981",
-        "longitude": "113.754008",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/实训楼/数控加工中心1.jpg",
-          "校园导览/实训楼/数控加工中心2.jpg"
-        ],
-        "description": "实验楼1"
-      },
-      {
-        "name": "实验楼2(服装实训中心)",
-        "latitude": "22.968079",
-        "longitude": "113.753766",
-        "iconPath": "/img/ico/jxl.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/实训楼/服装实训中心.jpg"
-        ],
-        "description": "实验楼2(服装实训中心)"
+        "img": [],
+        "description": ""
       }
     ]
   },
@@ -297,60 +191,20 @@ module.exports.map = [
     "scale": 16,
     "data": [
       {
-        "name": "北门",
-        "latitude": "22.97427",
-        "longitude": "113.75511",
-        "iconPath": "/img/ico/xm.png",
+        "name": "西南门",
+        "latitude": "23.428679",
+        "longitude": "113.174377",
+        "iconPath": "https://cyan-mongo.tinsfox.com/jxl.png",
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/校门/北门.jpg"
-        ],
-        "description": "北门"
-      },
-      {
-        "name": "东门",
-        "latitude": "22.9732",
-        "longitude": "113.75779",
-        "iconPath": "/img/ico/xm.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/校门/东门.jpg"
-        ],
-        "description": "　东门有“东莞小香港”之称。从一楼到三楼琳琅满目，一楼设有早餐店，糖水店，小吃店，粥粉店等二楼是快餐为主，各式各类，总有一家店适合你。三楼比较安静，有饺子店，寿司店，咖啡厅，洗发店等"
-      },
-      {
-        "name": "南门",
-        "latitude": "22.96919",
-        "longitude": "113.75486",
-        "iconPath": "/img/ico/xm.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/校门/南门2.jpg",
-          "校园导览/校门/南门3.jpg",
-          "校园导览/校门/南门1.jpg"
-        ],
-        "description": "南门"
-      },
-      {
-        "name": "雅苑门",
-        "latitude": "22.97718",
-        "longitude": "113.75838",
-        "iconPath": "/img/ico/xm.png",
-        "width": "30",
-        "height": "30",
-        "img": [
-          "校园导览/校门/雅苑门.jpg"
-        ],
-        "description": "雅苑门"
+        "img": [],
+        "description": "西南门"
       }
     ]
   },
   {
     "scale": 16,
-    "name": "行政部门",
+    "name": "院系",
     "data": [
       {
         "name": "广科招生办",

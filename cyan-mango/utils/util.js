@@ -12,6 +12,9 @@ const formatTime = date => {
 
   return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
+function trim(str) {
+  return str.replace(/(^\s+)|(\s+$)/g, "");
+}
 
 const formatNumber = n => {
   n = n.toString()
@@ -253,6 +256,7 @@ module.exports = {
   setWeekDate: setWeekDate,
   getTodayCourse: getTodayCourse,
   headimgHD: headimgHD,
+  trim: trim,
   request,
   get,
   post,

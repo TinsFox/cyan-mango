@@ -36,9 +36,17 @@ wx.$navTo = function (e, args) {
       console.log(e.currentTarget.dataset)
       const mode = e.currentTarget.dataset.mode || 'prod'
       console.log(mode)
+      if(e.currentTarget.dataset.type =='map'){
+        let plugin = requirePlugin("subway");
+        let key = '2WHBZ-BAGKF-PJOJE-NZOQ4-5LCL7-SNFU2';//使用在腾讯位置服务申请的key;
+        let referer = '青芒派'; //调用插件的app的名称
+        wx.navigateTo({
+        url: 'plugin://subway/index?key=' + key + '&referer=' + referer
+        });
+        return ;
+      }
       wx.navigateTo({
         url: mode==='dev'?'/pages/Setting/dev/dev':e.currentTarget.dataset.url + args_str,
-        // url: e.currentTarget.dataset.url + args_str,
         fail: err => {
           console.warn(err)
           wx.switchTab({

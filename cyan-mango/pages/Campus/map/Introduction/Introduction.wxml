@@ -7,15 +7,15 @@
   </swiper>
   <view class="building">
     <view class="buildingName">{{building.name}}</view>
-    <navigator class="nav_map" url='../polyline/polyline?latitude={{building.latitude}}&longitude={{building.longitude}}'>
+    <view class="nav_map" bindtap="route">
+      <!-- url='../polyline/polyline?latitude={{building.latitude}}&longitude={{building.longitude}}' -->
       <image src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/location.svg"> </image>
-    </navigator>
+    </view>
   </view>
 
   <view class="descript">
     <view class='description'>
-      <wxparser rich-text="{{test.data}}" />
-      <!-- <rich-text nodes="{{ test.data }}"></rich-text> -->
+      <wxparser rich-text="{{test.data}}"/>
     </view>
   </view>
 </view>

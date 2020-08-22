@@ -1,0 +1,10 @@
+<!--cyan-mango/pages/extra/express/expressList.wxml-->
+<navBar title="快递列表" navColor="white" />
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'arrow':''}}" wx:for="{{list}}">
+    <view class="content">
+      <text class="{{item.hot ? 'text-red cuIcon-hotfill': ''}}"></text>
+      <text class="text-grey">{{item.logisticsName}}</text>
+    </view>
+  </view>
+</view>

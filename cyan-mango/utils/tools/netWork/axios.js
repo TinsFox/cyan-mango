@@ -67,7 +67,6 @@ class axios {
             method: param.method ? param.method : "GET",
             success: (res) => {
                 let statusCode = res.statusCode;
-                console.log(statusCode)
                 if (statusCode === 200) {
                     // console.log("Request: ", res.data)
                     if (res.data.error_code == 5040) {

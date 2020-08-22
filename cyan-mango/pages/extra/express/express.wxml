@@ -1,0 +1,39 @@
+<!--cyan-mango/pages/extra/express/express.wxml-->
+<navBar title="查快递" navColor="white"/>
+
+<!--index.wxml-->
+<view class="box">
+  <view class="search-box">
+    <view class="head-img">
+      <image src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/快递2.svg"></image>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="search-input">
+        <input focus="{{focus}}" placeholder="请输入快递单号" placeholder-class="placeholderstyle" cursor-spacing="50px" name="expressorder" type="number" value="{{logistics_no}}"/>
+        <image src="https://cyan-mongo.tinsfox.com/scanning.png" bindtap="scanCode"></image>
+      </view>
+      <view class="search-button">
+        <button form-type="submit">查询</button>
+      </view>
+    </form>
+  </view>
+  <navigator class="explain-line" url="./expressList">
+    <view class="explain-block"></view>
+    <view class="explain-text">快递列表</view>
+  </navigator>
+  <navigator class="explain-line2">
+    <view class="explain-block"></view>
+    <view class="explain-text">查询历史</view>
+  </navigator>
+  <view class="search-result">
+    <view class="history-item" wx:for="{{historySearch}}">
+      <view class="history-detail" bindtap="showDetail" data-index="{{item}}">
+        <view class="expressname">{{item.logisticsTypeName}}</view>
+        <view class="expressorder">{{item.order}}</view>
+      </view>
+      <view class="delhistory" data-order="{{item.order}}" bindtap="deleteHistory">
+      <text class="text-gray cuIcon-delete"></text>
+      </view>
+    </view>
+  </view>
+</view>
