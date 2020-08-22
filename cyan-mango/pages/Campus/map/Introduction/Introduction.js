@@ -37,9 +37,15 @@ Page({
         'latitude': gcu.introduce.latitude,
         'longitude': gcu.introduce.longitude
     });
+    // wx.navigateTo({
+    //     url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+    // });
     wx.navigateTo({
-        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
-    });
+      url: '/pages/Campus/map/attractionMap/attractionMap',
+      success: (result) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
   },
   /**
    * 生命周期函数--监听页面加载

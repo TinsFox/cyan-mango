@@ -17,9 +17,9 @@ Page({
   onLoad: function () {
     console.log(map)
     console.log(introduce)
-    wx.showShareMenu({
-      withShareTicket: true
-    })
+    // wx.showShareMenu({
+    //   withShareTicket: true
+    // })
     var _this = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -38,14 +38,15 @@ Page({
   },
   regionchange(e) {
     // 视野变化
-    // console.log(e.type)
+    console.log(e.type)
   },
   markertap(e) {
+    console.log(e)
     // 选中 其对应的框
     this.setData({
       isSelectedBuild: e.markerId
     })
-    // console.log("e.markerId", e.markerId)
+    console.log("e.markerId", e.markerId)
   },
   navigateSearch() {
     wx.navigateTo({
@@ -69,6 +70,7 @@ Page({
     this.setData({ fullscreen: !this.data.fullscreen })
   },
   changePage: function (event) {
+    console.log(event)
     this.setData({
       isSelectedBuildType: event.currentTarget.id,
       isSelectedBuild: 0

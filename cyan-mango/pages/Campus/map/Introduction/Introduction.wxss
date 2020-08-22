@@ -1,7 +1,9 @@
 /* pages/map/details.wxss */
 
 /* 悬浮图标 */
-
+page{
+  background-color: white;
+}
 .float-icon {
   height: 100rpx;
   width: 100rpx;

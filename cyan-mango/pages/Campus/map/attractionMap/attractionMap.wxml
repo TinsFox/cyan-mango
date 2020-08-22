@@ -1,6 +1,6 @@
 <navBar title="校园导览" navColor="white"/>
 <view style="width: 100%;">
-  <!-- 2WHBZ-BAGKF-PJOJE-NZOQ4-5LCL7-SNFU2 -->
+  
   <!-- 顶部分类 -->
   <scroll-view scroll-x="true">
     <view class="top-swich" style="width:{{buildlData.length * 120 < windowWidth ? windowWidth: buildlData.length * 120}}rpx;" wx:if="{{!fullscreen}}">
@@ -8,8 +8,10 @@
       </label>
     </view>
   </scroll-view>
+
+
   <!-- 地图 -->
-  <map longitude="{{longitude}}" latitude="{{latitude}}" scale="{{buildlData[isSelectedBuildType].scale}}" markers="{{buildlData[isSelectedBuildType].data}}" bindmarkertap="markertap" bindregionchange="regionchange" include-points="{{buildlData[isSelectedBuildType].data}}"
+  <map longitude="{{longitude}}" latitude="{{latitude}}" scale="{{buildlData[isSelectedBuildType].scale}}" markers="{{buildlData[isSelectedBuildType].data}}" bindmarkertap="markertap" bindregionchange="regionchange" include-points="{{buildlData[isSelectedBuildType].data}}" show-compass="{{true}}" show-scale="{{true}}"
     show-location="{{islocation? 'true': 'false'}}" enable-overlooking="true" enable-traffic="true" enable-3D="true" style="width: auto; height:{{fullscreen ? 94 : 48}}vh;">
     <cover-view class="controls {{fullscreen ? 'full' : ''}}">
       <cover-view bindtap="navigateSearch">
@@ -20,6 +22,8 @@
       </cover-view>
     </cover-view>
   </map>
+
+
   <button bindtap="clickButton">
     共有{{buildlData[isSelectedBuildType].data.length}}个景观 ◕‿◕
   </button>
@@ -27,7 +31,7 @@
     <view wx:for="{{buildlData[isSelectedBuildType].data}}" wx:key="id" class="building-item" style="{{isSelectedBuild -1 == index ? 'background-color: #d5d5d5;' : ''}}">
       <view class="img-view">
         <navigator class="img" url='details?tid={{isSelectedBuildType}}&bid={{index}}'>
-          <image src="{{imgCDN}}{{item.img[0] + '?imageView2/1/w/240/h/180/q/100|imageslim'}}" mode="aspectFill"> </image>
+          <image src="{{}}" mode="aspectFill"> </image>
           <view class="item">
             <view class="itemName">
               {{item.name}}

@@ -1,4 +1,9 @@
 //学校简介
+const cdn ='https://www.gcu.edu.cn'
+const qiniu = ''
+export const jdIcon='https://cyan-mongo.tinsfox.com/jd.png'
+export const jxlIcon='https://cyan-mongo.tinsfox.com/jxl.png'
+
 export const introduce = {
   "shortName": "华广", //学校名字两个字缩写
   "name": "华南理工大学广州学院", //学校名称
@@ -6,12 +11,15 @@ export const introduce = {
   "share": "校园导览/share.jpg", //分享时展示图片的地址
   "latitude": 23.433793,
   "longitude": 113.172041,
-  "img": ["cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/index.jpg", "cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/love.jpg"],  //简介图片
+  "img": [
+    `${cdn}/_upload/article/images/55/e6/4c903b0343c492676aac4f08aa7d/974ff855-26cc-4269-b950-9f6b5198f062.png`,
+    `${cdn}/_upload/article/images/fa/ba/5d5b576d4b3ba3f169267c31e686/f55e5937-2419-47a7-a349-9c9c790721a1.jpg`,
+    `${cdn}/_upload/article/images/db/5b/0ee0b5d04630a2128974a57334bb/b092bcec-6dbd-476e-aa39-ac46717cbd39.png`,
+    `${cdn}/_upload/article/images/79/df/ebaa4a904e9087d0aa54e09a6ba2/3efe74bd-3b33-4c60-8e2d-460cf088615d.png`
+  ],
   "description": "华南理工大学广州学院"
 }
-const qiniu = ''
-export const jdIcon='https://cyan-mongo.tinsfox.com/jd.png'
-export const jxlIcon='https://cyan-mongo.tinsfox.com/jxl.png'
+
 //学校地图数据
 export const map = [
   {
@@ -20,18 +28,44 @@ export const map = [
     "data": [
       {
         "name": "图书馆",
-        "latitude": "23.43173",
-        "longitude": "113.17089",
+        "latitude": 23.43173,
+        "longitude": 113.17089,
         "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [],
+        "img": [
+          `${cdn}/_upload/article/images/f4/34/121d3eb44ce2a44fbb9e98992d9c/cef161ec-bf2c-43b0-802f-aca0772e98e3.jpg`
+        ],
         "description": "<p>华广图书馆</p>"
       },
       {
+        "name": "学生活动中心",
+        "latitude": 23.434883,
+        "longitude": 113.173583,
+        "iconPath": jdIcon,
+        "width": "30",
+        "height": "30",
+        "img": [
+          `${cdn}/_upload/article/images/f4/34/121d3eb44ce2a44fbb9e98992d9c/25670b33-4465-4851-a351-9cb89a8cb0fb.jpg`
+        ],
+        "description": "<p>学生活动中心</p>"
+      },
+      {
+        "name": "创业园",
+        "latitude": 23.434883,
+        "longitude": 113.173583,
+        "iconPath": jdIcon,
+        "width": "30",
+        "height": "30",
+        "img": [
+          `${cdn}/_upload/article/images/f4/34/121d3eb44ce2a44fbb9e98992d9c/25670b33-4465-4851-a351-9cb89a8cb0fb.jpg`
+        ],
+        "description": "<p>创业园</p>"
+      },
+      {
         "name": "田径场",
-        "latitude": "23.434944",
-        "longitude": "113.170799",
+        "latitude": 23.434944,
+        "longitude": 113.170799,
         "iconPath": jdIcon,
         "width": "30",
         "height": "30",
@@ -45,7 +79,9 @@ export const map = [
         "iconPath": jdIcon,
         "width": "30",
         "height": "30",
-        "img": [],
+        "img": [
+          `${cdn}/_upload/article/images/f4/34/121d3eb44ce2a44fbb9e98992d9c/a64c7575-5c59-46f3-a479-fe8f9e61525b.jpg`
+        ],
         "description": "体育馆"
       },
       {
@@ -207,16 +243,14 @@ export const map = [
     "name": "院系",
     "data": [
       {
-        "name": "广科招生办",
-        "floor": "创业楼301",
+        "name": "华广招生办",
+        "floor": "行政楼",
         "latitude": "22.974130",
         "longitude": "113.754335",
-        "iconPath": "/img/ico/xyfu.png",
+        "iconPath": '',
         "width": "30",
         "height": "30",
-        "img": [
-          "校园导览/创业楼/广科招生办301.jpg"
-        ],
+        "img": [`${cdn}/_upload/article/images/f4/34/121d3eb44ce2a44fbb9e98992d9c/735ccc94-a520-474e-9756-33aa5491f2c1.jpg`],
         "description": "创业楼301 广科招生办 Admissions Office"
       },
       {
