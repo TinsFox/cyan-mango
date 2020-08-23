@@ -81,7 +81,7 @@
 
     <view class="cu-form-group">
       <view class='title' bindtap="test">微信</view>
-      <input placeholder="微信号码(必填)" class='radius' name='wechat' maxlength="30" cursor-spacing="100"></input>
+      <input placeholder="微信号码(必填)" class='radius' name='wechat' maxlength="20" cursor-spacing="100"></input>
     </view>
 
     <view class='margin'>

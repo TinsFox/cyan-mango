@@ -1,27 +1,20 @@
-<navBar title="华工广州学院" navColor="white"/>
+<navBar title="{{title}}" navColor="white"/>
 <view>
-  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="{{building.img.length>=1?true:false}}" circular="true" autoplay="{{true}}" interval="5000" duration="500">
     <swiper-item wx:for="{{building.img}}" wx:key>
-      <image src="{{item}}" mode="aspectFill"></image>
+      <image src="{{item}}" mode="aspectFill"/>
     </swiper-item>
   </swiper>
   <view class="building">
     <view class="buildingName">{{building.name}}</view>
     <view class="nav_map" bindtap="route">
-      <!-- url='../polyline/polyline?latitude={{building.latitude}}&longitude={{building.longitude}}' -->
-      <image src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/location.svg"> </image>
+      <image src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/location.svg"/>
     </view>
   </view>
 
   <view class="descript">
     <view class='description'>
-      <wxparser rich-text="{{test.data}}"/>
+      <wxparser rich-text="{{building.description}}"/>
     </view>
   </view>
-</view>
-
-<view>
-	<button>
-		<image bindtap='switchModel' class='float-icon' mode='aspectFit' src='cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/创新实验室_blue.png'></image>
-	</button>
 </view>

@@ -6,7 +6,7 @@ Page({
     fullscreen: false,
     latitude: 23.433793,
     longitude: 113.172041,
-    buildlData: '',
+    buildlData: [],
     windowHeight: "",
     windowWidth: "",
     isSelectedBuild: 0,
@@ -17,9 +17,6 @@ Page({
   onLoad: function () {
     console.log(map)
     console.log(introduce)
-    // wx.showShareMenu({
-    //   withShareTicket: true
-    // })
     var _this = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -31,14 +28,10 @@ Page({
         })
       }
     })
-    //载入更新后的数据
-    this.setData({
-      buildlData: app.globalData.map
-    })
   },
   regionchange(e) {
     // 视野变化
-    console.log(e.type)
+    // console.log(e.type)
   },
   markertap(e) {
     console.log(e)
@@ -52,6 +45,19 @@ Page({
     wx.navigateTo({
       url: 'search'
     })
+  },
+  route(){
+    let plugin = requirePlugin('routePlan');
+    let key = '2WHBZ-BAGKF-PJOJE-NZOQ4-5LCL7-SNFU2';//使用在腾讯位置服务申请的key;
+    let referer = '青芒派'; //调用插件的app的名称
+    let endPoint = JSON.stringify({  //终点
+        'name': gcu.introduce.name,
+        'latitude': gcu.introduce.latitude,
+        'longitude': gcu.introduce.longitude
+    });
+    wx.navigateTo({
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+    });
   },
   location: function () {
     var _this = this

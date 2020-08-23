@@ -8,53 +8,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    building: {
-      img: ['cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/Introduction/index.jpg']
-    },
-    gcu:gcu
+    building: {},
+    title:'华工广州学院'
   },
   async getData(){
     let res = await School.getSchool()
     this.setData({
       test:res
     })
-    // console.log(res)
-  },
-  switchModel(){
-    wx.navigateTo({
-      url: '/pages/Campus/map/attractionMap/attractionMap',
-      success: (result) => {},
-      fail: (res) => {},
-      complete: (res) => {},
-    })
   },
   route(){
-    let plugin = requirePlugin('routePlan');
-    let key = '2WHBZ-BAGKF-PJOJE-NZOQ4-5LCL7-SNFU2';//使用在腾讯位置服务申请的key;
-    let referer = '青芒派'; //调用插件的app的名称
-    let endPoint = JSON.stringify({  //终点
-        'name': gcu.introduce.name,
-        'latitude': gcu.introduce.latitude,
-        'longitude': gcu.introduce.longitude
-    });
-    // wx.navigateTo({
-    //     url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
-    // });
     wx.navigateTo({
       url: '/pages/Campus/map/attractionMap/attractionMap',
-      success: (result) => {},
-      fail: (res) => {},
-      complete: (res) => {},
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
-    this.setData({
-      building: gcu.introduce
-    });
+    console.log(options)
+    if(Object.keys(options).length==0){
+      this.setData({
+        building: gcu.introduce
+      });
+    }else{
+      this.setData({
+        building: JSON.parse(options.data)
+      });
+    }
+    
   },
 
   /**
@@ -67,7 +49,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function (options) {
 
   },
 

@@ -79,23 +79,24 @@ button {
 }
 
 .text image {
-  width: 70rpx;
-  height: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .controls {
   position: relative;
-  top: 65%;
-  left: 85%;
+  top: 76%;
+  left: 90%;
   /* display: flex; */
 }
 
 .controls .img {
   margin-top: 5px;
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .full {
   top: 82%;
 }
+
