@@ -1,4 +1,5 @@
 <navBar title="{{title}}" navColor="white"/>
+
 <view>
   <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="{{building.img.length>=1?true:false}}" circular="true" autoplay="{{true}}" interval="5000" duration="500">
     <swiper-item wx:for="{{building.img}}" wx:key>
@@ -11,7 +12,6 @@
       <image src="cloud://rc-qrqw6.7263-rc-qrqw6-1259627191/images/location.svg"/>
     </view>
   </view>
-
   <view class="descript">
     <view class='description'>
       <wxparser rich-text="{{building.description}}"/>

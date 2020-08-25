@@ -59,7 +59,8 @@ Page({
       loading: true
     })
     let data={
-      page:this.data.page
+      page : this.data.page,
+      state : 1
     }
     if(data.page>this.data.max_page){
       console.log('没有更多了')

@@ -23,12 +23,6 @@ const prod = {
   h5: 'https://prod.qq.cn',
   label: 'prod'
 }
-const tinsfox={
-  baseUrl: 'https://send.tinsfox.com/cyan-mongo-api',
-  ws: 'wss://prod.qq.cn',
-  h5: 'https://prod.qq.cn',
-  label: 'prod'
-}
 
 module.exports = {
   host: prod

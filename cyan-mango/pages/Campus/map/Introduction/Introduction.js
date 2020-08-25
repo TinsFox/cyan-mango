@@ -13,9 +13,7 @@ Page({
   },
   async getData(){
     let res = await School.getSchool()
-    this.setData({
-      test:res
-    })
+    console.log(res)
   },
   route(){
     wx.navigateTo({
@@ -43,6 +41,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.getData()
 
   },
 
