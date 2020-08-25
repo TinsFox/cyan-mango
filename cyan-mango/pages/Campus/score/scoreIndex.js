@@ -15,7 +15,6 @@ Page({
         showDrawer: false,
         loading: false,
         hasGrade: false,
-        // hideSyncTip: true,
         refleshTimes: 0,
         showTips: false,
         current_term: true,

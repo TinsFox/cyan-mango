@@ -3,7 +3,7 @@
     "pages/Campus/index",
     "pages/Setting/login/login",
     "pages/Campus/campus",
-    "pages/Life/index",
+    "pages/Life/life",
     "pages/Campus/calendar/calendar",
     "pages/Campus/emptyRoom/emptyRoom",
     "pages/Campus/score/scoreIndex",
@@ -68,7 +68,7 @@
         "selectedIconPath": "assets/tabbar/kb-selected.png"
       },
       {
-        "pagePath": "pages/Life/index",
+        "pagePath": "pages/Life/life",
         "text": "Life",
         "iconPath": "assets/tabbar/wall.png",
         "selectedIconPath": "assets/tabbar/wall-selected.png"
